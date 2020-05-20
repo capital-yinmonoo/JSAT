@@ -1,0 +1,7 @@
+C:\MyData\Projects\JSAT\JSAT_DL\bin\Release\JSAT_DL.dll
+C:\MyData\Projects\JSAT\JSAT_DL\bin\Release\JSAT_DL.pdb
+C:\MyData\Projects\JSAT\JSAT_DL\bin\Release\JSAT_Common.dll
+C:\MyData\Projects\JSAT\JSAT_DL\bin\Release\JSAT_Common.pdb
+C:\MyData\Projects\JSAT\JSAT_DL\obj\Release\JSAT_DL.csprojResolveAssemblyReference.cache
+C:\MyData\Projects\JSAT\JSAT_DL\obj\Release\JSAT_DL.dll
+C:\MyData\Projects\JSAT\JSAT_DL\obj\Release\JSAT_DL.pdb

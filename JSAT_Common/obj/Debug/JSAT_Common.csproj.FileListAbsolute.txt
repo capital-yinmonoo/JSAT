@@ -1,0 +1,10 @@
+C:\MyData\Projects\JSAT\JSAT_Common\bin\Debug\JSAT_Common.dll
+C:\MyData\Projects\JSAT\JSAT_Common\bin\Debug\JSAT_Common.pdb
+C:\MyData\Projects\JSAT\JSAT_Common\obj\Debug\JSAT_Common.csprojResolveAssemblyReference.cache
+C:\MyData\Projects\JSAT\JSAT_Common\obj\Debug\JSAT_Common.dll
+C:\MyData\Projects\JSAT\JSAT_Common\obj\Debug\JSAT_Common.pdb
+C:\JSAT System\JSAT\JSAT_Common\bin\Debug\JSAT_Common.dll
+C:\JSAT System\JSAT\JSAT_Common\bin\Debug\JSAT_Common.pdb
+C:\JSAT System\JSAT\JSAT_Common\obj\Debug\JSAT_Common.csproj.CoreCompileInputs.cache
+C:\JSAT System\JSAT\JSAT_Common\obj\Debug\JSAT_Common.dll
+C:\JSAT System\JSAT\JSAT_Common\obj\Debug\JSAT_Common.pdb

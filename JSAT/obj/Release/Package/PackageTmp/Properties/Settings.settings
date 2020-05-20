@@ -1,0 +1,162 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="JSAT.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Datasheet_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">4</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_5" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_6" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">6</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_7" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">7</Value>
+    </Setting>
+    <Setting Name="Datasheet_Data_8" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="Japanese_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">9</Value>
+    </Setting>
+    <Setting Name="Japanese_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="Japanese_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">11</Value>
+    </Setting>
+    <Setting Name="Japanese_Data_4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
+    <Setting Name="Japanese_Data_5" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">13</Value>
+    </Setting>
+    <Setting Name="CV_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">14</Value>
+    </Setting>
+    <Setting Name="CV_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">15</Value>
+    </Setting>
+    <Setting Name="CV_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">16</Value>
+    </Setting>
+    <Setting Name="CV_Data_4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">17</Value>
+    </Setting>
+    <Setting Name="CV_Data_5" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">18</Value>
+    </Setting>
+    <Setting Name="CV_Data_6" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">19</Value>
+    </Setting>
+    <Setting Name="CV_Data_7" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">20</Value>
+    </Setting>
+    <Setting Name="CV_Data_8" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">21</Value>
+    </Setting>
+    <Setting Name="CV_Data_9" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">22</Value>
+    </Setting>
+    <Setting Name="CV_Data_10" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">23</Value>
+    </Setting>
+    <Setting Name="CV_Data_11" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="CV_Data_12" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">25</Value>
+    </Setting>
+    <Setting Name="CV_Data_13" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">26</Value>
+    </Setting>
+    <Setting Name="CV_Data_14" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">27</Value>
+    </Setting>
+    <Setting Name="CV_Data_15" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">28</Value>
+    </Setting>
+    <Setting Name="Photo_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">29</Value>
+    </Setting>
+    <Setting Name="Photo_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">30</Value>
+    </Setting>
+    <Setting Name="Photo_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">31</Value>
+    </Setting>
+    <Setting Name="Graduation_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">32</Value>
+    </Setting>
+    <Setting Name="Graduation_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">33</Value>
+    </Setting>
+    <Setting Name="Graduation_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">34</Value>
+    </Setting>
+    <Setting Name="Graduation_Data_4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">35</Value>
+    </Setting>
+    <Setting Name="Graduation_Data_5" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">36</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">37</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">38</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">39</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_4" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">40</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_5" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">41</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_6" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">42</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_7" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">43</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_8" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">44</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_9" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">45</Value>
+    </Setting>
+    <Setting Name="Qualification_Data_10" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">46</Value>
+    </Setting>
+    <Setting Name="IDCard_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">47</Value>
+    </Setting>
+    <Setting Name="IDCard_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">48</Value>
+    </Setting>
+    <Setting Name="IDCard_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">49</Value>
+    </Setting>
+    <Setting Name="LabourCard_Data_1" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="LabourCard_Data_2" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">51</Value>
+    </Setting>
+    <Setting Name="LabourCard_Data_3" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">52</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

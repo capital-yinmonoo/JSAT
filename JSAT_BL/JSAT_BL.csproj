@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1C48C76A-E342-47E1-B61D-B623739C18C8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSAT_BL</RootNamespace>
+    <AssemblyName>JSAT_BL</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Credit\Approve_Working_PersonBL.cs" />
+    <Compile Include="Credit\Credit_Invoice_Group_BL.cs" />
+    <Compile Include="Credit\Credit_Invoice_Simple_BL.cs" />
+    <Compile Include="Credit\Credit_ListBL.cs" />
+    <Compile Include="Credit\Credit_NewBL.cs" />
+    <Compile Include="Credit\Credit_Success_BL.cs" />
+    <Compile Include="Credit\Excel_BL.cs" />
+    <Compile Include="Credit\ExchangeRate_BL.cs" />
+    <Compile Include="Credit\One_Month_PersonBL.cs" />
+    <Compile Include="Credit\PaymentTermChange_BL.cs" />
+    <Compile Include="Credit\Payment_BL.cs" />
+    <Compile Include="Credit\popup_BL.cs" />
+    <Compile Include="Credit\SubstitudeHistory_BL.cs" />
+    <Compile Include="Date_UserBL.cs" />
+    <Compile Include="Employee\Career_AbilityBL.cs" />
+    <Compile Include="Employee\Career_InformationBL.cs" />
+    <Compile Include="Employee\Career_Information_UploadBL.cs" />
+    <Compile Include="Employee\Career_Interview1BL.cs" />
+    <Compile Include="Employee\Career_Interview2BL.cs" />
+    <Compile Include="Employee\Career_InterviewBL.cs" />
+    <Compile Include="Employee\Career_InterviewQuestion1BL.cs" />
+    <Compile Include="Employee\Career_Job_InterviewBL.cs" />
+    <Compile Include="Employee\Career_PCSkillsBL.cs" />
+    <Compile Include="Employee\Career_QualificationBL.cs" />
+    <Compile Include="Employee\Career_ResumeBL.cs" />
+    <Compile Include="Employee\Career_WorkingPlaceBL.cs" />
+    <Compile Include="Employee\InterviwList_BL.cs" />
+    <Compile Include="Employee\IntroductionListForCareer_BL.cs" />
+    <Compile Include="Employee\Working_History_BL.cs" />
+    <Compile Include="Employee_SelfEntry_BL.cs" />
+    <Compile Include="Employer\ClientCVHistoryBL.cs" />
+    <Compile Include="Employer\Client_Profile_Excel_BL.cs" />
+    <Compile Include="Employer\Client_Recruitment_DetailBL.cs" />
+    <Compile Include="Employer\Job_Career_InterviewBL.cs" />
+    <Compile Include="Employer\Job_InterviewBL.cs" />
+    <Compile Include="GlobalBL.cs" />
+    <Compile Include="Reference\AbilityBL.cs" />
+    <Compile Include="Reference\AbilityTitleBL.cs" />
+    <Compile Include="Reference\BusinessTypeBL.cs" />
+    <Compile Include="Employer\Client_ProfileBL.cs" />
+    <Compile Include="Employer\Client_RecruitmentBL.cs" />
+    <Compile Include="Reference\Company_TypeBL.cs" />
+    <Compile Include="Reference\CountryBL.cs" />
+    <Compile Include="Reference\DayServiceBL.cs" />
+    <Compile Include="Reference\DegreeType_BL.cs" />
+    <Compile Include="Reference\DepartmentBL.cs" />
+    <Compile Include="Reference\EducationBL.cs" />
+    <Compile Include="Employee\CareerEmploymentBL.cs" />
+    <Compile Include="Employee\Career_InterviewQuestion3BL.cs" />
+    <Compile Include="Employee\Career_IQTestBL.cs" />
+    <Compile Include="Employee\Career_ProfileBL.cs" />
+    <Compile Include="Reference\GenderBL.cs" />
+    <Compile Include="Reference\Industry_TypeBL.cs" />
+    <Compile Include="Reference\InstituationBL.cs" />
+    <Compile Include="Reference\Instituation_AreaBL.cs" />
+    <Compile Include="Reference\InstitutionBL.cs" />
+    <Compile Include="Reference\InterviewQuestion1BL.cs" />
+    <Compile Include="Reference\Interview_Question3BL.cs" />
+    <Compile Include="Reference\Interview_Question_Type_BL.cs" />
+    <Compile Include="Reference\JobDescription_BL.cs" />
+    <Compile Include="Reference\LanguageBL.cs" />
+    <Compile Include="Reference\LanguageLevelBL.cs" />
+    <Compile Include="Reference\LogInBL.cs" />
+    <Compile Include="Reference\MajorBL.cs" />
+    <Compile Include="Reference\MenuBL.cs" />
+    <Compile Include="Reference\Person_TypeBL.cs" />
+    <Compile Include="Reference\PositionBL.cs" />
+    <Compile Include="ProfileBL.cs" />
+    <Compile Include="Employee\Career_Profile_QuestionBL.cs" />
+    <Compile Include="Reference\CompanyTypeBL.cs" />
+    <Compile Include="Reference\InterViewQuestion3BL.cs" />
+    <Compile Include="Reference\IQTest_QuestionBL.cs" />
+    <Compile Include="Reference\Profile_QuestionBL.cs" />
+    <Compile Include="Reference\QualificationBL.cs" />
+    <Compile Include="Reference\QualificationTitleBL.cs" />
+    <Compile Include="Reference\ResidentialAreaBL.cs" />
+    <Compile Include="Reference\SalaryTypeBL.cs" />
+    <Compile Include="Reference\SituationBL.cs" />
+    <Compile Include="Reference\Township_Type_BL.cs" />
+    <Compile Include="Reference\UserBL.cs" />
+    <Compile Include="Reference\UserRoleBL.cs" />
+    <Compile Include="Reference\Working_PlaceBL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JSAT_Common\JSAT_Common.csproj">
+      <Project>{627CADDB-6AFF-4D4D-AA31-2C433C9F9527}</Project>
+      <Name>JSAT_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSAT_DL\JSAT_DL.csproj">
+      <Project>{6FA83C56-FEA3-4296-960E-273D3990CE7F}</Project>
+      <Name>JSAT_DL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Credit\Payment_ListBL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Credit\Employee_Preview_BL.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

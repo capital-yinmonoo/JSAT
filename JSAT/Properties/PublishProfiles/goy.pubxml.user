@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Release</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="AccessCheck.aspx">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="bin/DropDownListChosen.dll">
+      <publishTime>08/02/2019 09:44:55</publishTime>
+    </File>
+    <File Include="bin/ionic.zip.dll">
+      <publishTime>01/23/2019 13:00:27</publishTime>
+    </File>
+    <File Include="bin/itextsharp.dll">
+      <publishTime>01/23/2019 13:00:30</publishTime>
+    </File>
+    <File Include="bin/JSAT.dll">
+      <publishTime>10/04/2019 14:04:48</publishTime>
+    </File>
+    <File Include="bin/JSAT_BL.dll">
+      <publishTime>10/04/2019 14:04:42</publishTime>
+    </File>
+    <File Include="bin/JSAT_Common.dll">
+      <publishTime>10/04/2019 14:04:38</publishTime>
+    </File>
+    <File Include="bin/JSAT_DL.dll">
+      <publishTime>10/04/2019 14:04:39</publishTime>
+    </File>
+    <File Include="css/bootstrap-datetimepicker.min.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/bootstrap-theme.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/bootstrap.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/bootstrap.min 3.3.7.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/bootstrap.min.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/elegant-icons-style.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/font-awesome.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/font-awesome.min.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/jquery-ui-1.10.4.min.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/main.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/Site.css">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="css/style-responsive.css">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="css/style.css">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="css/sumoselect.css">
+      <publishTime>08/05/2019 16:58:47</publishTime>
+    </File>
+    <File Include="css/sumoselect.min.css">
+      <publishTime>08/01/2019 13:42:48</publishTime>
+    </File>
+    <File Include="date/bootstrap-datetimepicker.fr.js">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="date/bootstrap-datetimepicker.js">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="date/bootstrap-datetimepicker.min.css">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="date/bootstrap.min.css">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="date/bootstrap.min.js">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="date/jquery-1.8.3.min.js">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="Default.aspx">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="Employee/Career_Information.aspx">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="Employee/Career_Information_Upload.aspx">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="Employee/Career_Interviewaspx.aspx">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="Employee/Career_Job_Interview.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employee/Career_Job_InterviewDetail.aspx">
+      <publishTime>01/23/2019 09:27:39</publishTime>
+    </File>
+    <File Include="Employee/Career_Resume.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Employee/Career_Resume_Detail.aspx">
+      <publishTime>08/23/2019 08:45:56</publishTime>
+    </File>
+    <File Include="Employee/Career_Resume_View.aspx">
+      <publishTime>09/02/2019 13:17:41</publishTime>
+    </File>
+    <File Include="Employee/Employee_SelfEntry.aspx">
+      <publishTime>08/23/2019 08:45:56</publishTime>
+    </File>
+    <File Include="Employee/Employee_SelfView.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employee/ImageHandler.ashx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employee/InterviewList.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employee/IntroductionListForCareer_GoDetail.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employee/IntroductionListFor_Career.aspx">
+      <publishTime>07/17/2019 14:43:41</publishTime>
+    </File>
+    <File Include="Employee/IntroductionListFor_Career1.aspx">
+      <publishTime>07/22/2019 16:52:59</publishTime>
+    </File>
+    <File Include="Employee/WorkingHistory.aspx">
+      <publishTime>08/22/2019 12:44:11</publishTime>
+    </File>
+    <File Include="Employee/WorkingHistory_Detail.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employee/WorkingHistory_View.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employer/ClientCVHistory.aspx">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="Employer/ClientProfileExcel.aspx">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="Employer/Client_Information_Details.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employer/Client_Profile.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Employer/Client_Profile_View.aspx">
+      <publishTime>01/23/2019 09:27:40</publishTime>
+    </File>
+    <File Include="Employer/Client_Recruitment.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Employer/Client_Recruitment_Detail.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Employer/Client_Recruitment_View.aspx">
+      <publishTime>07/25/2019 14:16:12</publishTime>
+    </File>
+    <File Include="Employer/Job_Career_Interview.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Employer/Job_Interview.aspx">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="fonts/ElegantIcons.ttf">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="fonts/fontawesome-webfont.ttf">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/1plus.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/2plus.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/bg.jpg">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/clear.ico">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/clear.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/glyphicons-halflings-white.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/glyphicons-halflings.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/line-icon-c.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/line-icon-hover.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/line-icon.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/search-line-icon.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/social.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/weather-hover.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/icons/weather.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/JSAT logo.jpg">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="img/jsat_desktop.jpg">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/JSAT_logo.ico">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="img/minus.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="img/search.png">
+      <publishTime>01/23/2019 09:27:41</publishTime>
+    </File>
+    <File Include="js/bootstrap-datetimepicker.min.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/bootstrap.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/bootstrap.min.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/jquery.datetimepicker.full.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/jquery.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/jquery.min.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/jquery.nicescroll.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/jquery.scrollTo.min.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/jquery.sumoselect.js">
+      <publishTime>08/01/2019 13:42:48</publishTime>
+    </File>
+    <File Include="js/jquery.sumoselect.min.js">
+      <publishTime>08/01/2019 13:42:48</publishTime>
+    </File>
+    <File Include="js/moment.min.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="js/scripts.js">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="My_Profile.aspx">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="popup/All_Group_Dialog.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/DialogBoxNew.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Employee_Name.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Group_Dialog.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Invoice_No.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Invoice_Send_EName.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/JobDialogBox.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Job_Dialog.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Job_DialogForInterviewList.aspx">
+      <publishTime>01/23/2019 09:27:42</publishTime>
+    </File>
+    <File Include="popup/Search_Dialog_New.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Properties/Settings.settings">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Ability.aspx">
+      <publishTime>08/01/2019 13:42:27</publishTime>
+    </File>
+    <File Include="Reference/Ability_Title.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Business_Type.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Company_Type.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Company_Type_Details.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Country.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/DegreeType.aspx">
+      <publishTime>08/01/2019 13:42:27</publishTime>
+    </File>
+    <File Include="Reference/Department.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Industry_Type.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Instituation.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Instituation_Area.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Instituation_Details.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Interviewer.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Job_Description.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Major.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Position.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Qualification.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Qualification_Title.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Residential_Township.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Reference/Township_Type.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="Report/Career_Resume_Report.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Report_Data.xsc">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="Report_Data.xss">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="Search_Dialog.aspx">
+      <publishTime>07/03/2019 15:39:18</publishTime>
+    </File>
+    <File Include="Site.Master">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+    <File Include="System/Database_Backup.aspx">
+      <publishTime>01/23/2019 09:27:43</publishTime>
+    </File>
+    <File Include="System/User.aspx">
+      <publishTime>08/23/2019 08:45:56</publishTime>
+    </File>
+    <File Include="System/UserRole.aspx">
+      <publishTime>07/04/2019 14:36:55</publishTime>
+    </File>
+    <File Include="System/User_View.aspx">
+      <publishTime>01/23/2019 09:27:44</publishTime>
+    </File>
+    <File Include="Usercontrol/Career_InterviewControl.ascx">
+      <publishTime>01/23/2019 09:27:44</publishTime>
+    </File>
+    <File Include="Usercontrol/ClientControlLink.ascx">
+      <publishTime>01/23/2019 09:27:44</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/04/2019 14:04:55</publishTime>
+    </File>
+    <File Include="WebForm1.aspx">
+      <publishTime>01/23/2019 09:27:38</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,886 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="Report_Data">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>e220882c-64a3-48a8-aeb6-0a0778296e73</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="Career_Resume">
+      <Fields>
+        <Field Name="Career_Code">
+          <DataField>Career_Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Age">
+          <DataField>Age</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DOB">
+          <DataField>DOB</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Gender">
+          <DataField>Gender</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Religion">
+          <DataField>Religion</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Residential_Area">
+          <DataField>Residential_Area</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Salary">
+          <DataField>Salary</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Working_PlaceID">
+          <DataField>Working_PlaceID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Requested_Division">
+          <DataField>Requested_Division</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Requested_Position">
+          <DataField>Requested_Position</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Availability">
+          <DataField>Availability</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Education">
+          <DataField>Education</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Major">
+          <DataField>Major</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Graduation_Date">
+          <DataField>Graduation_Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="InstitutionArea">
+          <DataField>InstitutionArea</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="InstitutionName">
+          <DataField>InstitutionName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Company_Name">
+          <DataField>Company_Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Business_Type">
+          <DataField>Business_Type</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Location">
+          <DataField>Location</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Last_Salary">
+          <DataField>Last_Salary</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="FromDate">
+          <DataField>FromDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ToDate">
+          <DataField>ToDate</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Position">
+          <DataField>Position</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Japanese_Interviewer_Comment">
+          <DataField>Japanese_Interviewer_Comment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Myanmar_Interviewer_Comment">
+          <DataField>Myanmar_Interviewer_Comment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="English_RW_Level">
+          <DataField>English_RW_Level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="English_Speaking_Level">
+          <DataField>English_Speaking_Level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Japanese_RW_Level">
+          <DataField>Japanese_RW_Level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Japanese_Speaking_Level">
+          <DataField>Japanese_Speaking_Level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Myanmar_RW_Level">
+          <DataField>Myanmar_RW_Level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Myanmar_Speaking_Level">
+          <DataField>Myanmar_Speaking_Level</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PhotoByte">
+          <DataField>PhotoByte</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetByte">
+          <DataField>DataSheetByte</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Remark">
+          <DataField>Remark</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IDCardDataByte">
+          <DataField>IDCardDataByte</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="CredentialDataByte">
+          <DataField>CredentialDataByte</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="JapaneseDataByte">
+          <DataField>JapaneseDataByte</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="GraduationDataByte">
+          <DataField>GraduationDataByte</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="PhotoFilePath">
+          <DataField>PhotoFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath">
+          <DataField>DataSheetFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IDCardFilePath">
+          <DataField>IDCardFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath">
+          <DataField>CredentialFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JapaneseFilePath">
+          <DataField>JapaneseFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GraduationFilePath">
+          <DataField>GraduationFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Career_ID">
+          <DataField>Career_ID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath2">
+          <DataField>DataSheetFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath3">
+          <DataField>DataSheetFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath4">
+          <DataField>DataSheetFilePath4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath5">
+          <DataField>DataSheetFilePath5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath6">
+          <DataField>DataSheetFilePath6</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath7">
+          <DataField>DataSheetFilePath7</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DataSheetFilePath8">
+          <DataField>DataSheetFilePath8</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IDCardFilePath2">
+          <DataField>IDCardFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IDCardFilePath3">
+          <DataField>IDCardFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath2">
+          <DataField>CredentialFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath3">
+          <DataField>CredentialFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath4">
+          <DataField>CredentialFilePath4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath5">
+          <DataField>CredentialFilePath5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath6">
+          <DataField>CredentialFilePath6</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath7">
+          <DataField>CredentialFilePath7</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath8">
+          <DataField>CredentialFilePath8</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath9">
+          <DataField>CredentialFilePath9</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath10">
+          <DataField>CredentialFilePath10</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath11">
+          <DataField>CredentialFilePath11</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath12">
+          <DataField>CredentialFilePath12</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath13">
+          <DataField>CredentialFilePath13</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath14">
+          <DataField>CredentialFilePath14</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CredentialFilePath15">
+          <DataField>CredentialFilePath15</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JapaneseFilePath2">
+          <DataField>JapaneseFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JapaneseFilePath3">
+          <DataField>JapaneseFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JapaneseFilePath4">
+          <DataField>JapaneseFilePath4</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JapaneseFilePath5">
+          <DataField>JapaneseFilePath5</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GraduationFilePath2">
+          <DataField>GraduationFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GraduationFilePath3">
+          <DataField>GraduationFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Other_Major">
+          <DataField>Other_Major</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UpdatedDate">
+          <DataField>UpdatedDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QualificationFilePath">
+          <DataField>QualificationFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QualificationFilePath2">
+          <DataField>QualificationFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="QualificationFilePath3">
+          <DataField>QualificationFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LabourCardFilePath">
+          <DataField>LabourCardFilePath</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LabourCardFilePath2">
+          <DataField>LabourCardFilePath2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LabourCardFilePath3">
+          <DataField>LabourCardFilePath3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>Report_Data</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <rd:DataSetInfo>
+        <rd:DataSetName>Report_Data</rd:DataSetName>
+        <rd:SchemaPath>C:\My Data\Projects\JSAT_Source\JSAT.root\JSAT\JSAT\Report_Data.xsd</rd:SchemaPath>
+        <rd:TableName>Career_Resume</rd:TableName>
+        <rd:TableAdapterFillMethod />
+        <rd:TableAdapterGetDataMethod />
+        <rd:TableAdapterName />
+      </rd:DataSetInfo>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Image Name="Datasheet_Data">
+        <Source>External</Source>
+        <Value>=First(Fields!DataSheetFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>0.3175cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <Visibility>
+          <Hidden>=IIf(Fields!DataSheetFilePath.Value &lt;&gt;"", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data2">
+        <Source>External</Source>
+        <Value>=First(Fields!DataSheetFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>12.46238cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>1</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!DataSheetFilePath2.Value&lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data3">
+        <Source>External</Source>
+        <Value>=First(Fields!DataSheetFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>24.60725cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>2</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!DataSheetFilePath3.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data4">
+        <Source>External</Source>
+        <Value>=First(Fields!DataSheetFilePath4.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>36.71685cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>3</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!DataSheetFilePath4.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data5">
+        <Source>External</Source>
+        <Value>=First(Fields!DataSheetFilePath5.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>48.82646cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>4</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!DataSheetFilePath5.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data6">
+        <Source>External</Source>
+        <Value>=First(Fields!IDCardFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>61.10161cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>5</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!IDCardFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data7">
+        <Source>External</Source>
+        <Value>=First(Fields!IDCardFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>73.40008cm</Top>
+        <Left>0.57521cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>6</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!IDCardFilePath2.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data8">
+        <Source>External</Source>
+        <Value>=First(Fields!IDCardFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>85.67673cm</Top>
+        <Left>0.57521cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>7</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!IDCardFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data9">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>98.004cm</Top>
+        <Left>0.57521cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>8</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data10">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>110.30596cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>9</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath2.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data11">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>122.45084cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>10</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath3.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data12">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath4.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>134.94441cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>11</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath4.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data13">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath5.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>147.12456cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>12</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath5.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data14">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath6.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>159.23416cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>13</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath6.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data15">
+        <Source>External</Source>
+        <Value>=First(Fields!CredentialFilePath7.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>171.52011cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>14</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!CredentialFilePath7.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data16">
+        <Source>External</Source>
+        <Value>=First(Fields!JapaneseFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>183.66497cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>15</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!JapaneseFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data17">
+        <Source>External</Source>
+        <Value>=First(Fields!JapaneseFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>195.80986cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>16</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!JapaneseFilePath2.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data18">
+        <Source>External</Source>
+        <Value>=First(Fields!JapaneseFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>207.95473cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>17</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!JapaneseFilePath3.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data19">
+        <Source>External</Source>
+        <Value>=First(Fields!GraduationFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>220.09961cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>18</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!GraduationFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data20">
+        <Source>External</Source>
+        <Value>=First(Fields!GraduationFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>232.24448cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>19</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!GraduationFilePath2.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data21">
+        <Source>External</Source>
+        <Value>=First(Fields!GraduationFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>244.57766cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>20</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!GraduationFilePath3.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data22">
+        <Source>External</Source>
+        <Value>=First(Fields!QualificationFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>256.88079cm</Top>
+        <Left>0.52917cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>21</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!QualificationFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data23">
+        <Source>External</Source>
+        <Value>=First(Fields!QualificationFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>269.22519cm</Top>
+        <Left>0.52229cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>22</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!QualificationFilePath2.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data24">
+        <Source>External</Source>
+        <Value>=First(Fields!QualificationFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>281.37006cm</Top>
+        <Left>0.52229cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>23</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!QualificationFilePath3.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data25">
+        <Source>External</Source>
+        <Value>=First(Fields!LabourCardFilePath.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>293.55021cm</Top>
+        <Left>0.52229cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>24</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!LabourCardFilePath.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data26">
+        <Source>External</Source>
+        <Value>=First(Fields!LabourCardFilePath2.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>305.65983cm</Top>
+        <Left>0.57521cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>25</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!LabourCardFilePath2.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Datasheet_Data27">
+        <Source>External</Source>
+        <Value>=First(Fields!LabourCardFilePath3.Value, "Career_Resume")</Value>
+        <Sizing>Fit</Sizing>
+        <Top>318.01335cm</Top>
+        <Left>0.57521cm</Left>
+        <Height>11.96849cm</Height>
+        <Width>19.61938cm</Width>
+        <ZIndex>26</ZIndex>
+        <Visibility>
+          <Hidden>=IIf(Fields!LabourCardFilePath3.Value &lt;&gt; "", false, true)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Rectangle Name="Rectangle1">
+        <KeepTogether>true</KeepTogether>
+        <Top>52.2732cm</Top>
+        <Left>20.41737cm</Left>
+        <Height>2.5cm</Height>
+        <Width>5cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <BackgroundImage>
+            <Source>External</Source>
+            <Value>=First(Fields!DataSheetFilePath5.Value, "Career_Resume")</Value>
+          </BackgroundImage>
+        </Style>
+      </Rectangle>
+    </ReportItems>
+    <Height>130.00787in</Height>
+    <Style>
+      <Border />
+    </Style>
+  </Body>
+  <Width>10.00684in</Width>
+  <Page>
+    <PageHeight>29.7cm</PageHeight>
+    <PageWidth>21cm</PageWidth>
+    <LeftMargin>0cm</LeftMargin>
+    <RightMargin>0cm</RightMargin>
+    <TopMargin>0cm</TopMargin>
+    <BottomMargin>0cm</BottomMargin>
+    <ColumnSpacing>0.13cm</ColumnSpacing>
+    <Style />
+  </Page>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportID>9868fb50-47f6-4e40-b590-5c1a45fe35ca</rd:ReportID>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+</Report>

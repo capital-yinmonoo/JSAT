@@ -1,0 +1,4 @@
+C:\MyData\Projects\JSAT\JSAT_Common\bin\Release\JSAT_Common.dll
+C:\MyData\Projects\JSAT\JSAT_Common\bin\Release\JSAT_Common.pdb
+C:\MyData\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.dll
+C:\MyData\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.pdb

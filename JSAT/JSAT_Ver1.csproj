@@ -1,0 +1,824 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{FF01546C-8C74-4411-800F-1AD879B873D7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JSAT</RootNamespace>
+    <AssemblyName>JSAT</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DropDownListChosen">
+      <HintPath>..\..\..\SalesPriceChange\packages\DropDownListChosen.1.0.1\lib\DropDownListChosen.dll</HintPath>
+    </Reference>
+    <Reference Include="ionic.zip">
+      <HintPath>..\..\..\..\dll\ionic.zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\..\dll\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\06-SourceCode\JSAT\JSAT\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\06-SourceCode\JSAT\JSAT\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\06-SourceCode\JSAT\JSAT\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AccessCheck.aspx" />
+    <Content Include="css\bootstrap-datetimepicker.min.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min 3.3.7.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\elegant-icons-style.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\jquery-ui-1.10.4.min.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\sumoselect.css" />
+    <Content Include="css\sumoselect.min.css" />
+    <Content Include="date\bootstrap-datetimepicker.fr.js" />
+    <Content Include="date\bootstrap-datetimepicker.js" />
+    <Content Include="date\bootstrap-datetimepicker.min.css" />
+    <Content Include="date\bootstrap.min.css" />
+    <Content Include="date\bootstrap.min.js" />
+    <Content Include="date\jquery-1.8.3.min.js" />
+    <Content Include="Employee\Career_Job_Interview.aspx" />
+    <Content Include="Employee\IntroductionListFor_Career1.aspx" />
+    <Content Include="Employee\InterviewList.aspx" />
+    <Content Include="img\glyphicons-halflings-white.png" />
+    <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\jsat_desktop.jpg" />
+    <Content Include="js\bootstrap-datetimepicker.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.sumoselect.js" />
+    <Content Include="js\jquery.sumoselect.min.js" />
+    <Content Include="js\moment.min.js" />
+    <Content Include="My_Profile.aspx" />
+    <Content Include="css\Site.css" />
+    <Content Include="css\style-responsive.css" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Employee\Career_Information.aspx" />
+    <Content Include="Employee\Career_Information_Upload.aspx" />
+    <Content Include="Employee\Career_Interviewaspx.aspx" />
+    <Content Include="Employee\Career_Job_InterviewDetail.aspx" />
+    <Content Include="Employee\Career_Resume.aspx" />
+    <Content Include="Employee\Career_Resume_Detail.aspx" />
+    <Content Include="Employee\Career_Resume_View.aspx" />
+    <Content Include="Employee\Employee_SelfEntry.aspx" />
+    <Content Include="Employee\Employee_SelfView.aspx" />
+    <Content Include="Employee\IntroductionListForCareer_GoDetail.aspx" />
+    <Content Include="Employee\IntroductionListFor_Career.aspx" />
+    <Content Include="Employee\WorkingHistory.aspx" />
+    <Content Include="Employee\WorkingHistory_Detail.aspx" />
+    <Content Include="Employee\WorkingHistory_View.aspx" />
+    <Content Include="Employer\ClientCVHistory.aspx" />
+    <Content Include="Employer\ClientProfileExcel.aspx" />
+    <Content Include="Employer\Client_Information_Details.aspx" />
+    <Content Include="Employer\Client_Profile.aspx" />
+    <Content Include="Employer\Client_Profile_View.aspx" />
+    <Content Include="Employer\Client_Recruitment.aspx" />
+    <Content Include="Employer\Client_Recruitment_Detail.aspx" />
+    <Content Include="Employer\Client_Recruitment_View.aspx" />
+    <Content Include="Employer\Job_Career_Interview.aspx" />
+    <Content Include="Employer\Job_Interview.aspx" />
+    <Content Include="img\1plus.png" />
+    <Content Include="img\2plus.png" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\clear.ico" />
+    <Content Include="img\clear.png" />
+    <Content Include="img\icons\line-icon-c.png" />
+    <Content Include="img\icons\line-icon-hover.png" />
+    <Content Include="img\icons\line-icon.png" />
+    <Content Include="img\icons\search-line-icon.png" />
+    <Content Include="img\icons\social.png" />
+    <Content Include="img\icons\weather-hover.png" />
+    <Content Include="img\icons\weather.png" />
+    <Content Include="img\JSAT logo.jpg" />
+    <Content Include="img\JSAT_logo.ico" />
+    <Content Include="img\minus.png" />
+    <Content Include="img\search.png" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.datetimepicker.full.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.scrollTo.min.js" />
+    <Content Include="js\scripts.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="popup\All_Group_Dialog.aspx" />
+    <Content Include="popup\DialogBoxNew.aspx" />
+    <Content Include="popup\Employee_Name.aspx" />
+    <Content Include="popup\Group_Dialog.aspx" />
+    <Content Include="popup\Invoice_No.aspx" />
+    <Content Include="popup\Invoice_Send_EName.aspx" />
+    <Content Include="popup\JobDialogBox.aspx" />
+    <Content Include="popup\Job_Dialog.aspx" />
+    <Content Include="popup\Job_DialogForInterviewList.aspx" />
+    <Content Include="popup\Search_Dialog_New.aspx" />
+    <Content Include="Reference\Ability.aspx" />
+    <Content Include="Reference\Ability_Title.aspx" />
+    <Content Include="Reference\Business_Type.aspx" />
+    <Content Include="Reference\Company_Type.aspx" />
+    <Content Include="Reference\Company_Type_Details.aspx" />
+    <Content Include="Reference\Country.aspx" />
+    <Content Include="Reference\DegreeType.aspx" />
+    <Content Include="Reference\Department.aspx" />
+    <Content Include="Reference\Industry_Type.aspx" />
+    <Content Include="Reference\Instituation.aspx" />
+    <Content Include="Reference\Instituation_Area.aspx" />
+    <Content Include="Reference\Instituation_Details.aspx" />
+    <Content Include="Reference\Interviewer.aspx" />
+    <Content Include="Reference\Job_Description.aspx" />
+    <Content Include="Reference\Major.aspx" />
+    <Content Include="Reference\Position.aspx" />
+    <Content Include="Reference\Qualification.aspx" />
+    <Content Include="Reference\Qualification_Title.aspx" />
+    <Content Include="Reference\Residential_Township.aspx" />
+    <Content Include="Reference\Township_Type.aspx" />
+    <Content Include="Report\Career_Resume_Report.aspx" />
+    <Content Include="Search_Dialog.aspx" />
+    <Content Include="System\Database_Backup.aspx" />
+    <Content Include="System\User.aspx" />
+    <Content Include="System\UserRole.aspx" />
+    <Content Include="System\User_View.aspx" />
+    <Content Include="Usercontrol\Career_InterviewControl.ascx" />
+    <Content Include="Usercontrol\ClientControlLink.ascx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WebForm1.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessCheck.aspx.cs">
+      <DependentUpon>AccessCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessCheck.aspx.designer.cs">
+      <DependentUpon>AccessCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Information.aspx.cs">
+      <DependentUpon>Career_Information.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Information.aspx.designer.cs">
+      <DependentUpon>Career_Information.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Information_Upload.aspx.cs">
+      <DependentUpon>Career_Information_Upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Information_Upload.aspx.designer.cs">
+      <DependentUpon>Career_Information_Upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Interviewaspx.aspx.cs">
+      <DependentUpon>Career_Interviewaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Interviewaspx.aspx.designer.cs">
+      <DependentUpon>Career_Interviewaspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Job_Interview.aspx.cs">
+      <DependentUpon>Career_Job_Interview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Job_Interview.aspx.designer.cs">
+      <DependentUpon>Career_Job_Interview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Job_InterviewDetail.aspx.cs">
+      <DependentUpon>Career_Job_InterviewDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Job_InterviewDetail.aspx.designer.cs">
+      <DependentUpon>Career_Job_InterviewDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Resume.aspx.cs">
+      <DependentUpon>Career_Resume.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Resume.aspx.designer.cs">
+      <DependentUpon>Career_Resume.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Resume_Detail.aspx.cs">
+      <DependentUpon>Career_Resume_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Resume_Detail.aspx.designer.cs">
+      <DependentUpon>Career_Resume_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Career_Resume_View.aspx.cs">
+      <DependentUpon>Career_Resume_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Career_Resume_View.aspx.designer.cs">
+      <DependentUpon>Career_Resume_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\IntroductionListFor_Career1.aspx.cs">
+      <DependentUpon>IntroductionListFor_Career1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\IntroductionListFor_Career1.aspx.designer.cs">
+      <DependentUpon>IntroductionListFor_Career1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Employee_SelfEntry.aspx.cs">
+      <DependentUpon>Employee_SelfEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Employee_SelfEntry.aspx.designer.cs">
+      <DependentUpon>Employee_SelfEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\Employee_SelfView.aspx.cs">
+      <DependentUpon>Employee_SelfView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\Employee_SelfView.aspx.designer.cs">
+      <DependentUpon>Employee_SelfView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\ImageHandler.ashx.cs">
+      <DependentUpon>ImageHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\InterviewList.aspx.cs">
+      <DependentUpon>InterviewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\InterviewList.aspx.designer.cs">
+      <DependentUpon>InterviewList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\IntroductionListForCareer_GoDetail.aspx.cs">
+      <DependentUpon>IntroductionListForCareer_GoDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\IntroductionListForCareer_GoDetail.aspx.designer.cs">
+      <DependentUpon>IntroductionListForCareer_GoDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\IntroductionListFor_Career.aspx.cs">
+      <DependentUpon>IntroductionListFor_Career.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\IntroductionListFor_Career.aspx.designer.cs">
+      <DependentUpon>IntroductionListFor_Career.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\WorkingHistory.aspx.cs">
+      <DependentUpon>WorkingHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\WorkingHistory.aspx.designer.cs">
+      <DependentUpon>WorkingHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\WorkingHistory_Detail.aspx.cs">
+      <DependentUpon>WorkingHistory_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\WorkingHistory_Detail.aspx.designer.cs">
+      <DependentUpon>WorkingHistory_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employee\WorkingHistory_View.aspx.cs">
+      <DependentUpon>WorkingHistory_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employee\WorkingHistory_View.aspx.designer.cs">
+      <DependentUpon>WorkingHistory_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\ClientCVHistory.aspx.cs">
+      <DependentUpon>ClientCVHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\ClientCVHistory.aspx.designer.cs">
+      <DependentUpon>ClientCVHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\ClientProfileExcel.aspx.cs">
+      <DependentUpon>ClientProfileExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\ClientProfileExcel.aspx.designer.cs">
+      <DependentUpon>ClientProfileExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Client_Information_Details.aspx.cs">
+      <DependentUpon>Client_Information_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Client_Information_Details.aspx.designer.cs">
+      <DependentUpon>Client_Information_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Client_Profile.aspx.cs">
+      <DependentUpon>Client_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Client_Profile.aspx.designer.cs">
+      <DependentUpon>Client_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Client_Profile_View.aspx.cs">
+      <DependentUpon>Client_Profile_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Client_Profile_View.aspx.designer.cs">
+      <DependentUpon>Client_Profile_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Client_Recruitment.aspx.cs">
+      <DependentUpon>Client_Recruitment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Client_Recruitment.aspx.designer.cs">
+      <DependentUpon>Client_Recruitment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Client_Recruitment_Detail.aspx.cs">
+      <DependentUpon>Client_Recruitment_Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Client_Recruitment_Detail.aspx.designer.cs">
+      <DependentUpon>Client_Recruitment_Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Client_Recruitment_View.aspx.cs">
+      <DependentUpon>Client_Recruitment_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Client_Recruitment_View.aspx.designer.cs">
+      <DependentUpon>Client_Recruitment_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Job_Career_Interview.aspx.cs">
+      <DependentUpon>Job_Career_Interview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Job_Career_Interview.aspx.designer.cs">
+      <DependentUpon>Job_Career_Interview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Employer\Job_Interview.aspx.cs">
+      <DependentUpon>Job_Interview.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Employer\Job_Interview.aspx.designer.cs">
+      <DependentUpon>Job_Interview.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalUI.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="My_Profile.aspx.cs">
+      <DependentUpon>My_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="My_Profile.aspx.designer.cs">
+      <DependentUpon>My_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\All_Group_Dialog.aspx.cs">
+      <DependentUpon>All_Group_Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\All_Group_Dialog.aspx.designer.cs">
+      <DependentUpon>All_Group_Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\DialogBoxNew.aspx.cs">
+      <DependentUpon>DialogBoxNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\DialogBoxNew.aspx.designer.cs">
+      <DependentUpon>DialogBoxNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Employee_Name.aspx.cs">
+      <DependentUpon>Employee_Name.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Employee_Name.aspx.designer.cs">
+      <DependentUpon>Employee_Name.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Group_Dialog.aspx.cs">
+      <DependentUpon>Group_Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Group_Dialog.aspx.designer.cs">
+      <DependentUpon>Group_Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Invoice_No.aspx.cs">
+      <DependentUpon>Invoice_No.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Invoice_No.aspx.designer.cs">
+      <DependentUpon>Invoice_No.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Invoice_Send_EName.aspx.cs">
+      <DependentUpon>Invoice_Send_EName.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Invoice_Send_EName.aspx.designer.cs">
+      <DependentUpon>Invoice_Send_EName.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\JobDialogBox.aspx.cs">
+      <DependentUpon>JobDialogBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\JobDialogBox.aspx.designer.cs">
+      <DependentUpon>JobDialogBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Job_Dialog.aspx.cs">
+      <DependentUpon>Job_Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Job_Dialog.aspx.designer.cs">
+      <DependentUpon>Job_Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Job_DialogForInterviewList.aspx.cs">
+      <DependentUpon>Job_DialogForInterviewList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Job_DialogForInterviewList.aspx.designer.cs">
+      <DependentUpon>Job_DialogForInterviewList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="popup\Search_Dialog_New.aspx.cs">
+      <DependentUpon>Search_Dialog_New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="popup\Search_Dialog_New.aspx.designer.cs">
+      <DependentUpon>Search_Dialog_New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Ability.aspx.cs">
+      <DependentUpon>Ability.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Ability.aspx.designer.cs">
+      <DependentUpon>Ability.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Ability_Title.aspx.cs">
+      <DependentUpon>Ability_Title.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Ability_Title.aspx.designer.cs">
+      <DependentUpon>Ability_Title.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Business_Type.aspx.cs">
+      <DependentUpon>Business_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Business_Type.aspx.designer.cs">
+      <DependentUpon>Business_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Company_Type.aspx.cs">
+      <DependentUpon>Company_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Company_Type.aspx.designer.cs">
+      <DependentUpon>Company_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Company_Type_Details.aspx.cs">
+      <DependentUpon>Company_Type_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Company_Type_Details.aspx.designer.cs">
+      <DependentUpon>Company_Type_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Country.aspx.cs">
+      <DependentUpon>Country.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Country.aspx.designer.cs">
+      <DependentUpon>Country.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\DegreeType.aspx.cs">
+      <DependentUpon>DegreeType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\DegreeType.aspx.designer.cs">
+      <DependentUpon>DegreeType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Department.aspx.cs">
+      <DependentUpon>Department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Department.aspx.designer.cs">
+      <DependentUpon>Department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Industry_Type.aspx.cs">
+      <DependentUpon>Industry_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Industry_Type.aspx.designer.cs">
+      <DependentUpon>Industry_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Instituation.aspx.cs">
+      <DependentUpon>Instituation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Instituation.aspx.designer.cs">
+      <DependentUpon>Instituation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Instituation_Area.aspx.cs">
+      <DependentUpon>Instituation_Area.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Instituation_Area.aspx.designer.cs">
+      <DependentUpon>Instituation_Area.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Instituation_Details.aspx.cs">
+      <DependentUpon>Instituation_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Instituation_Details.aspx.designer.cs">
+      <DependentUpon>Instituation_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Interviewer.aspx.cs">
+      <DependentUpon>Interviewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Interviewer.aspx.designer.cs">
+      <DependentUpon>Interviewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Job_Description.aspx.cs">
+      <DependentUpon>Job_Description.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Job_Description.aspx.designer.cs">
+      <DependentUpon>Job_Description.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Major.aspx.cs">
+      <DependentUpon>Major.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Major.aspx.designer.cs">
+      <DependentUpon>Major.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Position.aspx.cs">
+      <DependentUpon>Position.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Position.aspx.designer.cs">
+      <DependentUpon>Position.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Qualification.aspx.cs">
+      <DependentUpon>Qualification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Qualification.aspx.designer.cs">
+      <DependentUpon>Qualification.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Qualification_Title.aspx.cs">
+      <DependentUpon>Qualification_Title.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Qualification_Title.aspx.designer.cs">
+      <DependentUpon>Qualification_Title.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Residential_Township.aspx.cs">
+      <DependentUpon>Residential_Township.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Residential_Township.aspx.designer.cs">
+      <DependentUpon>Residential_Township.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Township_Type.aspx.cs">
+      <DependentUpon>Township_Type.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reference\Township_Type.aspx.designer.cs">
+      <DependentUpon>Township_Type.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report\Career_Resume_Report.aspx.cs">
+      <DependentUpon>Career_Resume_Report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Report\Career_Resume_Report.aspx.designer.cs">
+      <DependentUpon>Career_Resume_Report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Report_Data.Designer.cs" />
+    <Compile Include="Report_Data1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report_Data.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Dialog.aspx.cs">
+      <DependentUpon>Search_Dialog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search_Dialog.aspx.designer.cs">
+      <DependentUpon>Search_Dialog.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="System\Database_Backup.aspx.cs">
+      <DependentUpon>Database_Backup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="System\Database_Backup.aspx.designer.cs">
+      <DependentUpon>Database_Backup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="System\User.aspx.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="System\User.aspx.designer.cs">
+      <DependentUpon>User.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="System\UserRole.aspx.cs">
+      <DependentUpon>UserRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="System\UserRole.aspx.designer.cs">
+      <DependentUpon>UserRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="System\User_View.aspx.cs">
+      <DependentUpon>User_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="System\User_View.aspx.designer.cs">
+      <DependentUpon>User_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrol\Career_InterviewControl.ascx.cs">
+      <DependentUpon>Career_InterviewControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usercontrol\Career_InterviewControl.ascx.designer.cs">
+      <DependentUpon>Career_InterviewControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrol\ClientControlLink.ascx.cs">
+      <DependentUpon>ClientControlLink.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usercontrol\ClientControlLink.ascx.designer.cs">
+      <DependentUpon>ClientControlLink.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\ElegantIcons.ttf" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="Site.Master" />
+    <Content Include="Employee\ImageHandler.ashx" />
+    <Content Include="Report_Data.xsc">
+      <DependentUpon>Report_Data.xsd</DependentUpon>
+    </Content>
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="packages.config" />
+    <None Include="Properties\PublishProfiles\goy.pubxml" />
+    <None Include="Properties\PublishProfiles\JSAT.pubxml" />
+    <None Include="Properties\PublishProfiles\kk.pubxml" />
+    <None Include="Report_Data.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Report_Data1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Report_Data.xss">
+      <DependentUpon>Report_Data.xsd</DependentUpon>
+    </Content>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Report\Career_Employment_Sub_Report.rdlc" />
+    <EmbeddedResource Include="Report\Career_Resume_Attatchment_Report.rdlc" />
+    <EmbeddedResource Include="Report\Career_Resume_Report.rdlc" />
+    <EmbeddedResource Include="Report\Interview_Question3_Sub_Report.rdlc" />
+    <EmbeddedResource Include="Report\Old_Job_History_Sub_Report.rdlc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JSAT_BL\JSAT_BL.csproj">
+      <Project>{1c48c76a-e342-47e1-b61d-b623739c18c8}</Project>
+      <Name>JSAT_BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSAT_Common\JSAT_Common.csproj">
+      <Project>{627caddb-6aff-4d4d-aa31-2c433c9f9527}</Project>
+      <Name>JSAT_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSAT_DL\JSAT_DL.csproj">
+      <Project>{6fa83c56-fea3-4296-960e-273d3990ce7f}</Project>
+      <Name>JSAT_DL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1156/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

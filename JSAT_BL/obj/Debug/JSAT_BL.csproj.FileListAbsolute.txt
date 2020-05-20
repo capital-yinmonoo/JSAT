@@ -1,0 +1,20 @@
+C:\MyData\Projects\JSAT\JSAT_BL\bin\Debug\JSAT_BL.dll
+C:\MyData\Projects\JSAT\JSAT_BL\bin\Debug\JSAT_BL.pdb
+C:\MyData\Projects\JSAT\JSAT_BL\bin\Debug\JSAT_Common.dll
+C:\MyData\Projects\JSAT\JSAT_BL\bin\Debug\JSAT_DL.dll
+C:\MyData\Projects\JSAT\JSAT_BL\bin\Debug\JSAT_Common.pdb
+C:\MyData\Projects\JSAT\JSAT_BL\bin\Debug\JSAT_DL.pdb
+C:\MyData\Projects\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csprojResolveAssemblyReference.cache
+C:\MyData\Projects\JSAT\JSAT_BL\obj\Debug\JSAT_BL.dll
+C:\MyData\Projects\JSAT\JSAT_BL\obj\Debug\JSAT_BL.pdb
+C:\JSAT System\JSAT\JSAT_BL\bin\Debug\JSAT_BL.dll
+C:\JSAT System\JSAT\JSAT_BL\bin\Debug\JSAT_BL.pdb
+C:\JSAT System\JSAT\JSAT_BL\bin\Debug\JSAT_Common.dll
+C:\JSAT System\JSAT\JSAT_BL\bin\Debug\JSAT_DL.dll
+C:\JSAT System\JSAT\JSAT_BL\bin\Debug\JSAT_Common.pdb
+C:\JSAT System\JSAT\JSAT_BL\bin\Debug\JSAT_DL.pdb
+C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csprojAssemblyReference.cache
+C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CoreCompileInputs.cache
+C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CopyComplete
+C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.dll
+C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.pdb
