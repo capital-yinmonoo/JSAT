@@ -62,6 +62,7 @@
     <Compile Include="Credit\Payment_BL.cs" />
     <Compile Include="Credit\popup_BL.cs" />
     <Compile Include="Credit\SubstitudeHistory_BL.cs" />
+    <Compile Include="Customer_Survery_BL.cs" />
     <Compile Include="Date_UserBL.cs" />
     <Compile Include="Employee\Career_AbilityBL.cs" />
     <Compile Include="Employee\Career_InformationBL.cs" />

@@ -111,6 +111,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cdnDatatables.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Customer_Survey.aspx" />
     <Content Include="dist\css\adminlte.css" />
@@ -255,7 +256,16 @@
     <Content Include="plugins\summernote\summernote.js.map" />
     <Content Include="plugins\sweetalert2-theme-bootstrap-4\bootstrap-4.scss" />
     <Content Include="plugins\toastr\toastr.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\cdnDatatables.js" />
+    <Content Include="Scripts\jquery-easing\jquery.easing.compatibility.js" />
+    <Content Include="Scripts\jquery-easing\jquery.easing.js" />
+    <Content Include="Scripts\jquery-easing\jquery.easing.min.js" />
+    <Content Include="Webforms\Customer_Survey_List.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
@@ -1873,6 +1883,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Webforms\Customer_Survey_List.aspx.cs">
+      <DependentUpon>Customer_Survey_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Webforms\Customer_Survey_List.aspx.designer.cs">
+      <DependentUpon>Customer_Survey_List.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1982,6 +1999,20 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JSAT_BL\JSAT_BL.csproj">
+      <Project>{1c48c76a-e342-47e1-b61d-b623739c18c8}</Project>
+      <Name>JSAT_BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSAT_Common\JSAT_Common.csproj">
+      <Project>{627caddb-6aff-4d4d-aa31-2c433c9f9527}</Project>
+      <Name>JSAT_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JSAT_DL\JSAT_DL.csproj">
+      <Project>{6fa83c56-fea3-4296-960e-273d3990ce7f}</Project>
+      <Name>JSAT_DL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

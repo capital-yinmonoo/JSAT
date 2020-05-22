@@ -52,6 +52,7 @@
     <Compile Include="Credit\Approve_Working_Person_Entity.cs" />
     <Compile Include="Credit\Credit_List_Entity.cs" />
     <Compile Include="Credit\Credit_New_Entity.cs" />
+    <Compile Include="Customer_Survey_Entity.cs" />
     <Compile Include="Employee\CareerUploadEntity.cs" />
     <Compile Include="Employee\Career_AbilityEntity.cs" />
     <Compile Include="Employee\Career_InformationEntity.cs" />

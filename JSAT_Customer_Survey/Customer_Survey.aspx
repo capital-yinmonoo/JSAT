@@ -4,15 +4,7 @@
 
 <html>
 <head>
-     <script type="text/javascript" >
-function validatenumerics(key) {
-           var keycode = (key.which) ? key.which : key.keyCode;
-           if (keycode > 31 && (keycode < 48 || keycode > 57)) {
-               return false;
-           }
-           else return true;
-       }
-      </script>
+     
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>JSAT Customer Survey</title>

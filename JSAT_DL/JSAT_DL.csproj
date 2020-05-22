@@ -62,6 +62,7 @@
     <Compile Include="Credit\PaymentTermChange_DL.cs" />
     <Compile Include="Credit\Payment_DL.cs" />
     <Compile Include="Credit\SubstitudeHistory_DL.cs" />
+    <Compile Include="Customer_Survey_DL.cs" />
     <Compile Include="Date_UserDL.cs" />
     <Compile Include="Employee\Career_AbilityDL.cs" />
     <Compile Include="Employee\Career_InformationDL.cs" />
