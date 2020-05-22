@@ -10,7 +10,7 @@ using JSAT_BL;
 using System.Web.Services;
 using JSAT_Common;
 using System.Web.Script.Services;
-//using static JSAT_Common.Customer_Survey_Entity;
+using static JSAT_Common.Customer_Survey_Entity;
 
 
 namespace JSAT_Customer_Survey.Webforms
@@ -21,26 +21,10 @@ namespace JSAT_Customer_Survey.Webforms
         {
             if (!IsPostBack)
             {
-                Bind_Survey();
+               
             }
         }
-
-        public void Bind_Survey()
-        {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("ID");
-            dt.Columns.Add("Name");
-            dt.Columns.Add("PhoneNo");
-            dt.Rows.Add();
-
-            gvSurvey.DataSource = dt;
-            gvSurvey.DataBind();
-
-            gvSurvey.UseAccessibleHeader = true;
-            gvSurvey.HeaderRow.TableSection = TableRowSection.TableHeader;
-        }
-
-       [WebMethod]
+        [WebMethod]
         public static List<Customer> GetSurvey()
         {
             List<Customer> customers = new List<Customer>();
@@ -54,18 +38,20 @@ namespace JSAT_Customer_Survey.Webforms
                 customer.ID = dt.Rows[i]["ID"].ToString();
                 customer.Name = dt.Rows[i]["Name"].ToString();
                 customer.PhoneNo = dt.Rows[i]["PhoneNo"].ToString();
+                customer.Q1 = dt.Rows[i]["Q1"].ToString();
+                customer.Q2 = dt.Rows[i]["Q2"].ToString();
+                customer.Q3 = dt.Rows[i]["Q3"].ToString();
+                customer.Q4 = dt.Rows[i]["Q4"].ToString();
+                customer.Q5 = dt.Rows[i]["Q5"].ToString();
+                customer.Q6 = dt.Rows[i]["Q6"].ToString();
+                customer.Q7 = dt.Rows[i]["Q7"].ToString();
+                customer.Q8 = dt.Rows[i]["Q8"].ToString();
+                customer.Q9 = dt.Rows[i]["Q9"].ToString();
+                customer.Description = dt.Rows[i]["Description"].ToString();
+                customer.InsertedDate = dt.Rows[i]["InsertedDate"].ToString();
                 customers.Add(customer);
             }
             return customers;
         }
-
-        public class Customer
-        {
-            public string ID { get; set; }
-            public string Name { get; set; }
-            public string PhoneNo { get; set; }
-        }
-
-
     }
 }
