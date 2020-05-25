@@ -66,7 +66,6 @@
                     { 'data': 'Q7' },
                     { 'data': 'Q8' },
                     { 'data': 'Q9' },
-                    { 'data': 'Description','width':'15%' },
                     { 'data': 'InsertedDate' }
                 ]
         });
@@ -111,7 +110,6 @@
                                          <th>Q7</th>
                                          <th>Q8</th>
                                          <th>Q9</th>
-                                         <th style="width:15px;">Description</th>
                                          <th>InsertedDate:</th>
                                     </tr>
                                 </thead>

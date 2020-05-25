@@ -47,7 +47,6 @@ namespace JSAT_Customer_Survey.Webforms
                 customer.Q7 = dt.Rows[i]["Q7"].ToString();
                 customer.Q8 = dt.Rows[i]["Q8"].ToString();
                 customer.Q9 = dt.Rows[i]["Q9"].ToString();
-                customer.Description = dt.Rows[i]["Description"].ToString();
                 customer.InsertedDate = dt.Rows[i]["InsertedDate"].ToString();
                 customers.Add(customer);
             }

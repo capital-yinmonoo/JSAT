@@ -92,14 +92,7 @@ namespace JSAT_Common
                 get { return q9; }
                 set { q9 = value; }
             }
-
-            private string description = string.Empty;
-            public string Description
-            {
-                get { return description; }
-                set { description = value; }
-            }
-
+            
             private string insertdate = string.Empty;
             public string InsertedDate
             {
