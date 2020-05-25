@@ -48,10 +48,11 @@
         $('#tbcustomers').DataTable(
         {
                 bLengthChange: true,
-                lengthMenu: [[5, 10, -1], [5, 10, "All"]],
+                lengthMenu: [10,20],
                 bFilter: true,
                 bSort: true,
                 bPaginate: true,
+                pagingType: "full_numbers",
                 data: response.d,
                 columns: [{ 'data': 'ID' },
                     { 'data': 'Name'},
@@ -65,7 +66,7 @@
                     { 'data': 'Q7' },
                     { 'data': 'Q8' },
                     { 'data': 'Q9' },
-                    { 'data': 'Description' },
+                    { 'data': 'Description','width':'15%' },
                     { 'data': 'InsertedDate' }
                 ]
         });
@@ -83,6 +84,9 @@
       .hrtable tr {
           color:black;
       }
+      .hrtable{
+          width:100%;
+      }
   </style>
 </head>
 
@@ -91,8 +95,8 @@
 	<div class="card card-primary">
 		<div class="card-header h1" style="text-align:center">Customer Survey List
 		</div>
-          <div style="width: 100%;padding-top: 30px;">
-            <table id="tbcustomers" class="hrtable">
+          <div style="padding-top: 30px;">
+            <table id="tbcustomers" class="hrtable" style="width=100%;">
                                 <thead>
                                     <tr style="height:5px;">
                                         <th>ID</th>
@@ -107,7 +111,7 @@
                                          <th>Q7</th>
                                          <th>Q8</th>
                                          <th>Q9</th>
-                                         <th>Description</th>
+                                         <th style="width:15px;">Description</th>
                                          <th>InsertedDate:</th>
                                     </tr>
                                 </thead>
