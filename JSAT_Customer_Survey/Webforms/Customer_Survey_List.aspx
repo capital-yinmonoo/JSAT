@@ -95,6 +95,23 @@
 		<div class="card-header h1" style="text-align:center">Customer Survey List
 		</div>
 
+      <div style="border-style: solid;border-width: 1px 1px;">
+        <div style="padding-top: 30px;background-color:cornsilk;padding-left: 25px;">
+        <label style="width:30%;height:10%;font-size:14px;">Q1- တက္ကသိုလ် ပထမနှစ် တက်ရောက်ဖူးပါသလား။</label>
+        <label style="width:30%;height:10%;font-size:14px;">Q2- လက်ရှိတွင်အသက်(၁၉ နှစ်မှ ၂၆ နှစ်) အကြား ရှိပါသလား။</label>
+        <label style="width:30%;height:10%;font-size:14px;">Q3- အိမ်ထောင်ရှိပါသလား။</label>
+        </div>
+        <div style="padding-top: 5px;background-color:azure;padding-left: 25px;">
+        <label style="width:30%;height:10%;font-size:14px;">Q4- ၀င်ငွေမရှိဘဲ ဂျပန်စာသင်တန်းအား <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;တစ်နှစ်တာအချိန်ပေး တက်ရောက်နိုင်ပါသလား။</label>
+        <label style="width:30%;height:10%;font-size:14px;">Q5- နိုင်ငံခြားသွားဖူးပါသလား။</label>
+        <label style="width:30%;height:10%;font-size:14px;">Q6- တက်တူးရှိပါသလား။ (ခန္ဓာကိုယ်၏ မည်သည့်နေရာတွင်ဖြစ်စေ)</label>
+        </div>
+        <div style="padding-top: 5px;padding-bottom: 5px;background-color:cornsilk;padding-left: 25px;">
+        <label style="width:30%;height:10%;font-size:14px;">Q7- ရောဂါအခံရှိခြင်း၊ဆေးရုံတက်ခဲ့ရခြင်း၊ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;မတော်တဆဖြစ်ဖူးခြင်းရှိပါသလား။</label>
+        <label style="width:30%;height:10%;font-size:14px;">Q8- ဂျပန်စာလေ့လာဖူးပါသလား။</label>
+        <label style="width:30%;height:10%;font-size:14px;">Q9- ဂျပန်လုပ်ငန်းတွင်လက်ရှိလုပ်ကိုင်နေပါသလား။</label>
+        </div>
+      </div>
 
           <div style="padding-top: 30px;">
             <table id="tbcustomers" class="hrtable" style="width=100%;">
