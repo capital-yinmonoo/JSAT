@@ -5,3 +5,12 @@ C:\MyData\Projects\JSAT\JSAT_DL\bin\Release\JSAT_Common.pdb
 C:\MyData\Projects\JSAT\JSAT_DL\obj\Release\JSAT_DL.csprojResolveAssemblyReference.cache
 C:\MyData\Projects\JSAT\JSAT_DL\obj\Release\JSAT_DL.dll
 C:\MyData\Projects\JSAT\JSAT_DL\obj\Release\JSAT_DL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Release\JSAT_DL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Release\JSAT_DL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Release\JSAT_Common.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Release\JSAT_Common.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\obj\Release\JSAT_DL.csprojAssemblyReference.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\obj\Release\JSAT_DL.csproj.CoreCompileInputs.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\obj\Release\JSAT_DL.csproj.CopyComplete
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\obj\Release\JSAT_DL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\obj\Release\JSAT_DL.pdb

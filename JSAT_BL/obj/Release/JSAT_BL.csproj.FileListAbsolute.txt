@@ -7,3 +7,14 @@ C:\MyData\Projects\JSAT\JSAT_BL\bin\Release\JSAT_DL.pdb
 C:\MyData\Projects\JSAT\JSAT_BL\obj\Release\JSAT_BL.csprojResolveAssemblyReference.cache
 C:\MyData\Projects\JSAT\JSAT_BL\obj\Release\JSAT_BL.dll
 C:\MyData\Projects\JSAT\JSAT_BL\obj\Release\JSAT_BL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Release\JSAT_BL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Release\JSAT_BL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Release\JSAT_Common.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Release\JSAT_DL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Release\JSAT_Common.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Release\JSAT_DL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Release\JSAT_BL.csprojAssemblyReference.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Release\JSAT_BL.csproj.CoreCompileInputs.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Release\JSAT_BL.csproj.CopyComplete
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Release\JSAT_BL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Release\JSAT_BL.pdb

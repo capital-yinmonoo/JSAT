@@ -69,3 +69,7 @@ C:\JSAT System\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.csproj
 C:\JSAT System\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.csproj.CopyComplete
 C:\JSAT System\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.dll
 C:\JSAT System\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.csprojAssemblyReference.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.csproj.CoreCompileInputs.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Customer_Survey\obj\Release\JSAT_Customer_Survey.pdb

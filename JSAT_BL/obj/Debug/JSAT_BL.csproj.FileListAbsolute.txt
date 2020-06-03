@@ -18,17 +18,6 @@ C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CoreCompileInputs.cache
 C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CopyComplete
 C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.dll
 C:\JSAT System\JSAT\JSAT_BL\obj\Debug\JSAT_BL.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_BL.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_BL.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_Common.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_DL.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_Common.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_DL.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csprojAssemblyReference.cache
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CoreCompileInputs.cache
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CopyComplete
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.pdb
 C:\My Data\Projects\JSAT\JSAT\JSAT_BL\bin\Debug\JSAT_BL.dll
 C:\My Data\Projects\JSAT\JSAT\JSAT_BL\bin\Debug\JSAT_BL.pdb
 C:\My Data\Projects\JSAT\JSAT\JSAT_BL\bin\Debug\JSAT_Common.dll
@@ -40,3 +29,14 @@ C:\My Data\Projects\JSAT\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CoreCompileInputs
 C:\My Data\Projects\JSAT\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CopyComplete
 C:\My Data\Projects\JSAT\JSAT\JSAT_BL\obj\Debug\JSAT_BL.dll
 C:\My Data\Projects\JSAT\JSAT\JSAT_BL\obj\Debug\JSAT_BL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_BL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_BL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_Common.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_DL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_Common.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\bin\Debug\JSAT_DL.pdb
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csprojAssemblyReference.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CoreCompileInputs.cache
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.csproj.CopyComplete
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.dll
+E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_BL\obj\Debug\JSAT_BL.pdb
