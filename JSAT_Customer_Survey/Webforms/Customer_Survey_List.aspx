@@ -86,6 +86,12 @@
       .hrtable{
           width:100%;
       }
+      .hrlable{
+          width:30%;
+          height:10%;
+          font-size:13px;
+          padding-left:30px;
+      }
   </style>
 </head>
 
@@ -94,27 +100,27 @@
 	<div class="card card-primary">
 		<div class="card-header h1" style="text-align:center">Customer Survey List
 		</div>
-
-      <div style="border-style: solid;border-width: 1px 1px;">
-        <div style="padding-top: 30px;background-color:cornsilk;padding-left: 25px;">
-        <label style="width:30%;height:10%;font-size:14px;">Q1- တက္ကသိုလ် ပထမနှစ် တက်ရောက်ဖူးပါသလား။</label>
-        <label style="width:30%;height:10%;font-size:14px;">Q2- လက်ရှိတွင်အသက်(၁၉ နှစ်မှ ၂၆ နှစ်) အကြား ရှိပါသလား။</label>
-        <label style="width:30%;height:10%;font-size:14px;">Q3- အိမ်ထောင်ရှိပါသလား။</label>
+       
+      <div style="border-style: solid;border-width: 0.1px 0px;">
+        <div style="padding-top: 15px;padding-left: 30px;">
+        <label class="hrlable">Q1- တက္ကသိုလ် ပထမနှစ် တက်ရောက်ဖူးပါသလား။</label>
+        <label class="hrlable">Q2- လက်ရှိတွင်အသက်(၁၉ နှစ်မှ ၂၆ နှစ်) အကြား ရှိပါသလား။</label>
+        <label class="hrlable">Q3- အိမ်ထောင်ရှိပါသလား။</label>
         </div>
-        <div style="padding-top: 5px;background-color:azure;padding-left: 25px;">
-        <label style="width:30%;height:10%;font-size:14px;">Q4- ၀င်ငွေမရှိဘဲ ဂျပန်စာသင်တန်းအား <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;တစ်နှစ်တာအချိန်ပေး တက်ရောက်နိုင်ပါသလား။</label>
-        <label style="width:30%;height:10%;font-size:14px;">Q5- နိုင်ငံခြားသွားဖူးပါသလား။</label>
-        <label style="width:30%;height:10%;font-size:14px;">Q6- တက်တူးရှိပါသလား။ (ခန္ဓာကိုယ်၏ မည်သည့်နေရာတွင်ဖြစ်စေ)</label>
+        <div style="padding-top: 5px;background-color:azure;padding-left: 30px;">
+        <label class="hrlable">Q4- ၀င်ငွေမရှိဘဲ ဂျပန်စာသင်တန်းအားတစ်နှစ်တာ <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;အချိန်ပေး တက်ရောက်နိုင်ပါသလား။</label>
+        <label class="hrlable">Q5- နိုင်ငံခြားသွားဖူးပါသလား။</label>
+        <label class="hrlable">Q6- တက်တူးရှိပါသလား။ (ခန္ဓာကိုယ်၏ မည်သည့်နေရာတွင်ဖြစ်စေ)</label>
         </div>
-        <div style="padding-top: 5px;padding-bottom: 5px;background-color:cornsilk;padding-left: 25px;">
-        <label style="width:30%;height:10%;font-size:14px;">Q7- ရောဂါအခံရှိခြင်း၊ဆေးရုံတက်ခဲ့ရခြင်း၊ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;မတော်တဆဖြစ်ဖူးခြင်းရှိပါသလား။</label>
-        <label style="width:30%;height:10%;font-size:14px;">Q8- ဂျပန်စာလေ့လာဖူးပါသလား။</label>
-        <label style="width:30%;height:10%;font-size:14px;">Q9- ဂျပန်လုပ်ငန်းတွင်လက်ရှိလုပ်ကိုင်နေပါသလား။</label>
+        <div style="padding-top: 5px;padding-bottom: 5px;padding-left: 30px;">
+        <label class="hrlable">Q7- ရောဂါအခံရှိခြင်း၊ဆေးရုံတက်ခဲ့ရခြင်း၊ <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;မတော်တဆဖြစ်ဖူးခြင်းရှိပါသလား။</label>
+        <label class="hrlable">Q8- ဂျပန်စာလေ့လာဖူးပါသလား။</label>
+        <label class="hrlable">Q9- ဂျပန်လုပ်ငန်းတွင်လက်ရှိလုပ်ကိုင်နေပါသလား။</label>
         </div>
       </div>
 
-          <div style="padding-top: 30px;">
-            <table id="tbcustomers" class="hrtable" style="width=100%;">
+          <div style="padding-top: 15px;">
+            <table id="tbcustomers" class="hrtable" style="width:100%;">
                                 <thead>
                                     <tr style="height:5px;">
                                         <th>ID</th>
