@@ -536,6 +536,11 @@ namespace JSAT_DL
                     {
                         careerResume.DOB = DateTime.Parse(dt.Rows[0]["DOB"].ToString());
                     }
+                    //added by nyisoe
+                    if(!string.IsNullOrEmpty(dt.Rows[0]["Age"].ToString()))
+                    {
+                        careerResume.Age = (int)dt.Rows[0]["Age"];
+                    }
                     if (!string.IsNullOrEmpty(dt.Rows[0]["Career_OldCode"].ToString()))
                     {
                         careerResume.Career_Oldcode = dt.Rows[0]["Career_OldCode"].ToString();

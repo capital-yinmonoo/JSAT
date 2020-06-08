@@ -69,24 +69,8 @@ namespace JSAT.Employee
                 ViewState["index"] = "index";
             }
         }
+  
 
-        public void gv_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            try
-            {
-                if (e.CommandName == "DataDetail")
-                {
-                    Session["Page"] = gvworkinghistoryview.PageIndex;
-                    int ID = Convert.ToInt32(e.CommandArgument);
-                    Response.Redirect("~/Employee/WorkingHistory_Detail.aspx?Career_ID=" + ID);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
 
         protected void btnaddWorkingHistory_Click(object sender, EventArgs e)
         {
@@ -144,5 +128,22 @@ namespace JSAT.Employee
             }
         }
 
+        protected void gvworkinghistoryview_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                if (e.CommandName == "DataDetail")
+                {
+                    Session["Page"] = gvworkinghistoryview.PageIndex;
+                    int ID = Convert.ToInt32(e.CommandArgument);
+                    Response.Redirect("~/Employee/WorkingHistory_Detail.aspx?Career_ID=" + ID);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

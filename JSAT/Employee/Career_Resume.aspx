@@ -200,6 +200,12 @@
                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtName" ErrorMessage="名前(Name):" Text="*" ValidationGroup="check" ForeColor="Red"></asp:RequiredFieldValidator>
                                      </td>
                                  </tr>
+                                 <tr>
+                                     <td>年齢(Age):</td>
+                                     <td>
+                                          <asp:TextBox ID="txtAge" runat="server" MaxLength="50" Width="200px" CssClass="form-control" Height="30px"></asp:TextBox>
+                                     </td>
+                                 </tr>
                                  </table>
                                 <table>
                                  <tr>

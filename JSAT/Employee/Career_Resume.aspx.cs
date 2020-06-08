@@ -192,6 +192,7 @@ namespace JSAT_Ver1.Employee
                             ddlGender.SelectedValue = dt.Rows[0]["GenderID"].ToString();
                         }
                         txtName.Text = dt.Rows[0]["Name"].ToString();
+                        txtAge.Text = dt.Rows[0]["Age"].ToString();
                         txtYear.Text = dt.Rows[0]["Year"].ToString();
                         txtYear2.Text = dt.Rows[0]["Year2"].ToString();
                         if (!String.IsNullOrWhiteSpace(dt.Rows[0]["DOB"].ToString()))
@@ -991,6 +992,7 @@ namespace JSAT_Ver1.Employee
             txtCode.Text = String.Empty;
             ddlGender.SelectedIndex = 0;
             txtName.Text = String.Empty;
+            txtAge.Text = string.Empty;
             ddlReligion.SelectedIndex = 0;
             ddlAddress.SelectedIndex = 0;
             chkWorkableArea.ClearSelection();
@@ -1063,6 +1065,7 @@ namespace JSAT_Ver1.Employee
                     if (!String.IsNullOrWhiteSpace(ddlGender.Text))
                         cre.GenderID = BaseLib.Convert_Int(ddlGender.Text);
                     cre.Name = txtName.Text;
+                    cre.Age = BaseLib.Convert_Int(txtAge.Text);
                     cre.Impressionjp = txtimpressionjp.Text;
                     if (!string.IsNullOrWhiteSpace(Request.Form[txtDateofBirth.UniqueID]))
                     {
@@ -1493,6 +1496,7 @@ namespace JSAT_Ver1.Employee
                 }
                 careerInformationInfo.Career_ID = Convert.ToInt32(hfCareerID.Value);
                 careerInformationInfo.Name = txtName.Text;
+                careerInformationInfo.Age = int.Parse(txtAge.Text);
                 careerInformationInfo.GenderID = int.Parse(ddlGender.SelectedValue.ToString());
                 careerInformationInfo.Address = ddlAddress.SelectedItem.Text;
                 careerInformationInfo.Photo_Data = lnkPhoto.Text;

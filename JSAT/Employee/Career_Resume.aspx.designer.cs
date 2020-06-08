@@ -202,6 +202,15 @@ namespace JSAT_Ver1.Employee {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
+        /// txtAge control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAge;
+        
+        /// <summary>
         /// txtDateofBirth control.
         /// </summary>
         /// <remarks>

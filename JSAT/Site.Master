@@ -188,8 +188,7 @@
                                     <a id="A23" href="~/Employee/WorkingHistory_View.aspx" runat="server">Working History_View</a>
                                 </li>
                                 <li>
-                                    <a id="A24" href="~/Employee/IntroductionListForCareer_GoDetail.aspx" runat="server">Career_GoDetail</a>
-                                </li>
+                                    <a id="A24" href="~/Employee/IntroductionListForCareer_GoDetail.aspx" runat="server">Career_GoDetail</a>                                
                             </ul>
                         </li>
                     </ul>

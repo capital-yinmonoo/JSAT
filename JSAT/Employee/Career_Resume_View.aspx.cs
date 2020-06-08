@@ -71,6 +71,7 @@ namespace JSAT_Ver1.Employee
                     txtExpectedSalary2.Text = salary2.ToString();
                     cre = new Career_ResumeEntity();
                     string gender = dt.Rows[0]["Gender"].ToString();
+                    string interviewername = dt.Rows[0]["Interviewer_Name"].ToString();
                     cre.PositionName1 = dt.Rows[0]["Position1"].ToString();
                     cre.LanguageJapaneseRWLevel = dt.Rows[0]["Japanese_RW_LevelID1"].ToString();
                     cre.LanguageJapaneseSKLevel = dt.Rows[0]["Japanese_Speaking_LevelID1"].ToString();
@@ -745,6 +746,7 @@ namespace JSAT_Ver1.Employee
                 {
                     Criteria.GenderID = int.Parse(ddlcSex.SelectedValue.ToString());
                 }
+                
                 Criteria.English_RW_LevelID = null;
                 Criteria.English_Speaking_LevelID = null;
                 Criteria.Japanese_RW_LevelID = null;
@@ -914,6 +916,13 @@ namespace JSAT_Ver1.Employee
                 {
                     Criteria.InstitutionName_ID = int.Parse(ddlcInstitution.SelectedValue.ToString());
                 }
+                //added by nyisoe  20/05/2020
+                Criteria.ID = null;                
+                    if(ddlfirsint.SelectedValue.ToString() != "")
+                {
+                    Criteria.ID = int.Parse(ddlfirsint.SelectedValue.ToString());
+                }
+
                 Criteria.MajorID = null;
                 if (ddlcMajor.SelectedValue.ToString() != "")
                 {
@@ -1691,6 +1700,14 @@ namespace JSAT_Ver1.Employee
                 {
                     search += (search == "" ? "" : " AND ") + "InstitutionName_ID =" + ddlcInstitution.SelectedValue;
                 }
+
+                //added by nyisoe 20/05/2020
+                if (ddlfirsint.SelectedIndex > 0)
+                {
+
+                    search += (search == "" ? "" : " AND ") + "ve.ID =" + ddlfirsint.SelectedValue;
+                }
+
                 if (ddlcMajor.SelectedIndex > 0)
                 {
                     search += (search == "" ? "" : " AND ") + "Major_ID =" + ddlcMajor.SelectedValue;
@@ -1755,11 +1772,6 @@ namespace JSAT_Ver1.Employee
                     {
                         search += (search == "" ? "" : " AND ") + "(e.Position_Level1 = " + ddlcpositionrequestedlevel.SelectedValue + " OR " + "e.Position_Level2 = " + ddlcpositionrequestedlevel.SelectedValue + " OR " + "e.Position_Level3 = " + ddlcpositionrequestedlevel.SelectedValue + ")";
                     }
-                }
-                //added by nyisoe 20/05/2020
-                if(ddlfirsint.SelectedIndex > 0)
-                {
-                    search += (search == "" ? "" : " AND ") + "Interviewer_Name = " + ddlfirsint.SelectedValue;
                 }
 
                 if (ddlcSex.SelectedIndex > 0)

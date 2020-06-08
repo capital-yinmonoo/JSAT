@@ -75,6 +75,7 @@ namespace JSAT_DL
                 cmd.Parameters.AddWithValue("@Name", careerInformationInfo.Name);
                 cmd.Parameters.AddWithValue("@GenderID", careerInformationInfo.GenderID);
                 cmd.Parameters.AddWithValue("@Address", careerInformationInfo.Address);
+                cmd.Parameters.AddWithValue("@Age",careerInformationInfo.Age);
                 cmd.Parameters.AddWithValue("@Remark", careerInformationInfo.Remark);
                 cmd.Parameters.AddWithValue("@Datasheet_Data", careerInformationInfo.Datasheet_Data);
                 cmd.Parameters.AddWithValue("@Datasheet_Data2", careerInformationInfo.Datasheet_Data2);
@@ -149,6 +150,7 @@ namespace JSAT_DL
                 cmd.Parameters.AddWithValue("@Name", careerInformationInfo.Name);
                 cmd.Parameters.AddWithValue("@GenderID", careerInformationInfo.GenderID);
                 cmd.Parameters.AddWithValue("@Address", careerInformationInfo.Address);
+                cmd.Parameters.AddWithValue("@Age", careerInformationInfo.Age);
                 cmd.Parameters.AddWithValue("@Remark", careerInformationInfo.Remark);
                 cmd.Parameters.AddWithValue("@Datasheet_Data", careerInformationInfo.Datasheet_Data);
                 cmd.Parameters.AddWithValue("@Datasheet_Data2", careerInformationInfo.Datasheet_Data2);

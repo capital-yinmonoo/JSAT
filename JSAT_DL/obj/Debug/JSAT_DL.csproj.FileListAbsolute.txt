@@ -14,6 +14,24 @@ C:\JSAT System\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csproj.CoreCompileInputs.cache
 C:\JSAT System\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csproj.CopyComplete
 C:\JSAT System\JSAT\JSAT_DL\obj\Debug\JSAT_DL.dll
 C:\JSAT System\JSAT\JSAT_DL\obj\Debug\JSAT_DL.pdb
+D:\Projects\JSAT\JSAT_DL\bin\Debug\JSAT_DL.dll
+D:\Projects\JSAT\JSAT_DL\bin\Debug\JSAT_DL.pdb
+D:\Projects\JSAT\JSAT_DL\bin\Debug\JSAT_Common.dll
+D:\Projects\JSAT\JSAT_DL\bin\Debug\JSAT_Common.pdb
+D:\Projects\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csprojAssemblyReference.cache
+D:\Projects\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csproj.CoreCompileInputs.cache
+D:\Projects\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csproj.CopyComplete
+D:\Projects\JSAT\JSAT_DL\obj\Debug\JSAT_DL.dll
+D:\Projects\JSAT\JSAT_DL\obj\Debug\JSAT_DL.pdb
+D:\Jsat\02062020\JSAT\JSAT_DL\bin\Debug\JSAT_DL.dll
+D:\Jsat\02062020\JSAT\JSAT_DL\bin\Debug\JSAT_DL.pdb
+D:\Jsat\02062020\JSAT\JSAT_DL\bin\Debug\JSAT_Common.dll
+D:\Jsat\02062020\JSAT\JSAT_DL\bin\Debug\JSAT_Common.pdb
+D:\Jsat\02062020\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csprojAssemblyReference.cache
+D:\Jsat\02062020\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csproj.CoreCompileInputs.cache
+D:\Jsat\02062020\JSAT\JSAT_DL\obj\Debug\JSAT_DL.csproj.CopyComplete
+D:\Jsat\02062020\JSAT\JSAT_DL\obj\Debug\JSAT_DL.dll
+D:\Jsat\02062020\JSAT\JSAT_DL\obj\Debug\JSAT_DL.pdb
 E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Debug\JSAT_DL.dll
 E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Debug\JSAT_DL.pdb
 E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_DL\bin\Debug\JSAT_Common.dll

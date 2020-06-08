@@ -36,58 +36,73 @@ namespace JSAT_BL
             return wdl.BindDataForAbiltity();
         }
 
-        public void InsertData(WorkingHistoryEntity entity, Career_PCSkillsEntity cpe, int id, Career_PersonalSkill cps, EnumBase.Save option, int careerid, DataTable dtnew, Career_WorkingPlaceEntity cwpe, Career_QualificationEntity cq, Career_AbilityEntity cae)
+
+        public int InsertData1(WorkingHistoryEntity entity1)
+        {                   
+            return wdl.InsertData1(entity1);
+        }
+
+
+        public void UpdateData(WorkingHistoryEntity entity, Career_PCSkillsEntity cpe, int id, Career_PersonalSkill cps, EnumBase.Save option, int careerid, DataTable dtnew, Career_WorkingPlaceEntity cwpe, Career_QualificationEntity cq, Career_AbilityEntity cae)
         {
-            wdl = new WorkingHistoryDL();
-            using (TransactionScope scope = new TransactionScope())
+            try
             {
-                wdl.InsertData(entity, option, careerid);
-                if (option == EnumBase.Save.Update)
+                wdl = new WorkingHistoryDL();
+                using (TransactionScope scope = new TransactionScope())
                 {
-                    wdl.Deleteforupdate(careerid);
-                }
-                wdl.InsertOldJobHistory(dtnew, option, id);
-                for (int i = 0; i < cpe.PcSkills.Rows.Count; i++)
-                {
-                    cpe.PcSkills.Rows[i]["Career_ID"] = id;
-                }
-                cpe.CareerId = Convert.ToInt32(id);
-                if (wdl.GetCheckboxlistData(cpe, id, option))
-                {
-                    for (int i = 0; i < cps.Personal_skill.Rows.Count; i++)
+                    wdl.UpdateData(entity, option, careerid);
+                    if (option == EnumBase.Save.Update)
                     {
-                        cps.Personal_skill.Rows[i]["Career_ID"] = id;
+                        wdl.Deleteforupdate(careerid);
                     }
-                    cps.CareerId1 = Convert.ToInt32(id);
-                    if (wdl.Getpersonalskill(cps, id, option))
+                    wdl.InsertOldJobHistory(dtnew, option, id);
+                    for (int i = 0; i < cpe.PcSkills.Rows.Count; i++)
                     {
-                        for (int i = 0; i < cwpe.WorkingPlace.Rows.Count; i++)
+                        cpe.PcSkills.Rows[i]["Career_ID"] = id;
+                    }
+                    cpe.CareerId = Convert.ToInt32(id);
+                    if (wdl.GetCheckboxlistData(cpe, id, option))
+                    {
+                        for (int i = 0; i < cps.Personal_skill.Rows.Count; i++)
                         {
-                            cwpe.WorkingPlace.Rows[i]["Career_ID"] = id;
+                            cps.Personal_skill.Rows[i]["Career_ID"] = id;
                         }
-                        cwpe.CareerId = Convert.ToInt32(id);
-                        if (wdl.InsertLocationrequest(cwpe, id, option))
+                        cps.CareerId1 = Convert.ToInt32(id);
+                        if (wdl.Getpersonalskill(cps, id, option))
                         {
+                            for (int i = 0; i < cwpe.WorkingPlace.Rows.Count; i++)
+                            {
+                                cwpe.WorkingPlace.Rows[i]["Career_ID"] = id;
+                            }
+                            cwpe.CareerId = Convert.ToInt32(id);
+                            if (wdl.InsertLocationrequest(cwpe, id, option))
+                            {
+                            }
                         }
+                        //for Qualification
+                        Career_QualificationBL cqbl = new Career_QualificationBL();
+                        for (int i = 0; i < cq.Qualification.Rows.Count; i++)
+                        {
+                            cq.Qualification.Rows[i]["Career_ID"] = id;
+                        }
+                        cq.CareerId = id;
+                        cqbl.Insert_Update(cq, option);
+                        //for Ability
+                        Career_AbilityBL caebl = new Career_AbilityBL();
+                        for (int i = 0; i < cae.Ability.Rows.Count; i++)
+                        {
+                            cae.Ability.Rows[i]["Career_ID"] = id;
+                        }
+                        cae.CareerId = id;
+                        caebl.Insert_Update(cae, option);
                     }
-                    //for Qualification
-                    Career_QualificationBL cqbl = new Career_QualificationBL();
-                    for (int i = 0; i < cq.Qualification.Rows.Count; i++)
-                    {
-                        cq.Qualification.Rows[i]["Career_ID"] = id;
-                    }
-                    cq.CareerId = id;
-                    cqbl.Insert_Update(cq, option);
-                    //for Ability
-                    Career_AbilityBL caebl = new Career_AbilityBL();
-                    for (int i = 0; i < cae.Ability.Rows.Count; i++)
-                    {
-                        cae.Ability.Rows[i]["Career_ID"] = id;
-                    }
-                    cae.CareerId = id;
-                    caebl.Insert_Update(cae, option);
+                    scope.Complete();
                 }
-                scope.Complete();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 

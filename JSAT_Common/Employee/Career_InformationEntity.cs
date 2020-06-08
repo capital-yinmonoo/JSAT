@@ -28,6 +28,13 @@ namespace JSAT_Common
             set { name = value; }
         }
 
+        private int age = 0;
+        public int Age
+        {
+            get { return age; }
+            set { age = value; }
+        }
+
         private int genderid=0;
         public int GenderID
         {

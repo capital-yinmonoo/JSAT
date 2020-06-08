@@ -95,9 +95,9 @@ namespace JSAT
         public void FillWrokingHistory(WorkingHistoryEntity entity, DataTable dtpersonalskill, DataTable dtpcskill, DataTable dtlocation, DataSet dsqual, DataSet dsabl)
         {
             lblcode.Text = entity.Career_code;
-
+            
             //lblgender.Text = entity.Gender1;
-            if (entity.Gender == "1")
+            if(entity.Gender== "1")
             {
                 lblgender.Text = "Male";
             }
@@ -339,7 +339,7 @@ namespace JSAT
         protected void btnedit_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Employee/WorkingHistory.aspx?Career_ID=" + Career_ID);
-        }
+        } 
     }
 }
 

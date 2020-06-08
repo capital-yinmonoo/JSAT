@@ -6,7 +6,7 @@
 
     <link href="../date/bootstrap.min.css" rel="stylesheet" />
     <link href="../date/bootstrap-datetimepicker.min.css" rel="stylesheet" />
-
+    
 
     <script type="text/javascript">
         function isNumberKey(evt) {
@@ -16,7 +16,7 @@
             else return false;
         }
     </script>
-
+    
 
     <script type="text/javascript">
         function MutExChkList(chk) {
@@ -120,14 +120,15 @@
 
         {
             border: solid 1px green !important;
-                      margin-right:58px;
+            margin-right:58px;
             margin-top: 11px;
             height: 30px;
             float: left;
-                ;
+                
         }
 
         }
+        
         /*.cc
        {
            border:solid 1px green !important;
@@ -159,7 +160,7 @@
                                         <td>
                                             <asp:Label ID="lblemployeecode" runat="server" Text="Employee Code"></asp:Label></td>
                                         <td>
-                                            <asp:DropDownList ID="ddlemployeecode" CssClass="form-control" runat="server" Height="30px" Width="100px">
+                                            <asp:DropDownList ID="ddlemployeecode" CssClass="form-control" runat="server" Enabled="false" Height="30px" Width="100px">
                                                 <asp:ListItem></asp:ListItem>
                                                 <asp:ListItem>AC</asp:ListItem>
                                                 <asp:ListItem>EN</asp:ListItem>
@@ -172,10 +173,11 @@
                                             </asp:DropDownList></td>
                                         <td style="Width: 5px;">-</td>
                                         <td>
-                                            <asp:TextBox ID="txtempcode" runat="server" CssClass="form-control" Width="100px" Height="30px"></asp:TextBox></td>
+                                            <asp:TextBox ID="txtempcode" runat="server" CssClass="form-control" Enabled="false" Width="100px" Height="30px"></asp:TextBox></td>
 
-                                        <td>
-                                            <asp:Button ID="btnsearch" runat="server" Text="Search" class="btn btn-primary" Width="90px" OnClick="btnserach_Click" /></td>
+                                     <%--   <td>
+                                            <asp:Button ID="btnsearch" runat="server" Text="Search" class="btn btn-primary" Width="90px" OnClick="btnserach_Click" />
+                                        </td>--%>
                                     </tr>
 
                                 </table>
@@ -218,13 +220,18 @@
                                             <asp:Label ID="lblgender" runat="server" Text="Gender"></asp:Label>
                                         </td>
                                         <td>
-                                            <asp:RadioButton ID="male" runat="server" Text="Male" GroupName="rdoGender" Enabled="false" />&nbsp;&nbsp;&nbsp;
-                                            <asp:RadioButton ID="female" runat="server" Text="Female" GroupName="rdoGender" Enabled="false" />&nbsp;&nbsp;&nbsp;
+                                            <%--<asp:RadioButton ID="male" runat="server" Text="Male" GroupName="rdoGender"  />&nbsp;&nbsp;&nbsp;
+                                            <asp:RadioButton ID="female" runat="server" Text="Female" GroupName="rdoGender" />&nbsp;&nbsp;&nbsp;--%>
+                                            <asp:DropDownList ID="ddlGender" runat="server" Width="130px" Height="30px" CssClass="select-field">
+                                            <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                            <asp:ListItem Value="1">Male</asp:ListItem>
+                                            <asp:ListItem Value="2">Female</asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td>
                                             <asp:Label ID="lbldate" runat="server" Text="Registration Date"></asp:Label>
                                         </td>
-                                        <td class="col-sm-1" style="width: 40px;">
+                                        <td class="col-sm-1" >
                                             <asp:TextBox ID="txtdate" Height="30px" runat="server" CssClass="form-control" Width="127px"></asp:TextBox>
                                         </td>
                                         <td>
@@ -237,8 +244,50 @@
                                 </table>
                                 <hr />
                                 <table>
+                                    <tr>                                                                               
+                                        <td>
+                                            <asp:Label ID="lbladdress" runat="server" Text="Address" Style="margin-right:20px;"></asp:Label>
+                                     <asp:DropDownListChosen ID="ddlAddress" runat="server" Width="200px" CssClass="form-control" Height="30px" DataPlaceHolder="Select Here" AllowSingleDeselect="true" onchange="Check_Address()">
+                                    </asp:DropDownListChosen>
+                                       </td>
+                                        <td>
+                                             <asp:Label ID="lblPhone" runat="server" Text="Phone" style="margin-left:40px;"></asp:Label>
+                                            <asp:TextBox ID="txtPhone" runat="server" style="margin-left:10px;" Width="180px" Height="30px" CssClass="input-field" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ErrorMessage="***Required***" ForeColor="Red" ControlToValidate="txtPhone" ValidationGroup="Date"></asp:RequiredFieldValidator>
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblReligion" runat="server" Text="Religion" style="margin-left:40px;"></asp:Label>
+                                           <asp:DropDownList ID="ddlReligion" runat="server" Width="180px" Height="30px" CssClass="select-field" style="margin-left:10px;">
+                                           </asp:DropDownList>
+                                           <asp:CompareValidator ID="val14" runat="server" ControlToValidate="ddlReligion" ErrorMessage="***Required***" Operator="NotEqual" ValueToCompare="--Select--" ForeColor="Red" SetFocusOnError="true" ValidationGroup="MyValidation" />
+                                        </td>
+
+                                    </tr>
+                                </table>
+                                <hr />
+                                <table>
                                     <tr>
-                                        <td style="width: 130px;">
+                                        <td>
+                                          <asp:Label ID="lblEName" runat="server" Text="Emergency Contant Person" Style="margin-right:10px;"></asp:Label>
+                                          <asp:TextBox ID="txtEName" Height="30px" Width="180px" runat="server" CssClass="input-field"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ErrorMessage="***Required" ForeColor="Red" ControlToValidate="txtEName" ValidationGroup="Date"></asp:RequiredFieldValidator>
+                                        </td>
+                                        <td>
+                                         <asp:Label ID="lblEPhone" runat="server" Text="Emergency Phone Number" Style="margin-right:10px;"></asp:Label>
+                                         <asp:TextBox ID="txtEPhone" Height="30px" Width="180px" runat="server" CssClass="input-field" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ErrorMessage="***Required***" ForeColor="Red" ControlToValidate="txtEPhone" ValidationGroup="Date"></asp:RequiredFieldValidator>
+                                        </td>
+                                        <td>
+                                        <asp:Label ID="lblEmail" runat="server" Text="Email" Style="margin-right:10px;"></asp:Label>
+                                         <asp:TextBox ID="txtEmail" runat="server" CssClass="input-field" Height="30px" Width="180px"></asp:TextBox>
+                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ErrorMessage="***Required***" ForeColor="Red" ControlToValidate="txtEmail" ValidationGroup="Date"></asp:RequiredFieldValidator>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <hr />
+                                <table>
+                                    <tr>
+                                            <td style="width: 130px;">
                                             <asp:Label ID="lbldrivinglicense" runat="server" Text="Driving License"></asp:Label>
                                         </td>
                                         <td>
@@ -246,13 +295,6 @@
                                             <asp:Label ID="lblavilable" runat="server" Width="70px" Text="Available"></asp:Label>
                                             <asp:RadioButton ID="rdoNot" runat="server" Width="20px" GroupName="rdoLicense" />
                                             <asp:Label ID="lblnot" runat="server" Text="Not" Width="30px"></asp:Label>
-                                        </td>
-                                        <td style="width: 130px;"></td>
-                                        <td style="width: 130px;">
-                                            <asp:Label ID="lbladdress" runat="server" Text="Address"></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:Label ID="lblfilladdress" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                 </table>
@@ -773,16 +815,18 @@
                                     </Triggers>
                                 </asp:UpdatePanel>
 
-                                <%--<asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="Save" Width="90px" Height="34px" OnClick="Button1_Click" ValidationGroup="Date" Enabled="false"/>
-        <asp:Button ID="btndelete" runat="server" class="btn btn-danger" Text="Delete" Width="90px" Height="34px" Visible="false" OnClick="btndelete_Click" />--%>
+                                <%--<asp:Button ID="Button1" runat="server" class="btn btn-primary" Text="Save" Width="90px" Height="34px" OnClick="Button1_Click" ValidationGroup="Date" Enabled="false"/>--%>
+                               <%--<asp:Button ID="btndelete" runat="server" class="btn btn-danger" Text="Delete" Width="90px" Height="34px" Visible="false" OnClick="btndelete_Click" />--%>
                                 <footer>
                                     <center>
           <div class="wrap" style="margin-right:213px;">
             
             <ul class="nav navbar-nav social" style="width:426px;">
                 <asp:Label ID="lblid" runat="server" Text="" Visible="false"></asp:Label>
-                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Save" Width="200px" OnClick="Button1_Click" ValidationGroup="Date" Enabled="false"/>
-                <asp:Button ID="btndelete" runat="server" CssClass="btn btn-danger" Text="Delete" Width="200px" Visible="false" OnClick="btndelete_Click" />
+                <asp:Button ID="Button1" runat="server" CssClass="btn btn-primary" Text="Save" Width="200px" OnClick="Button1_Click" ValidationGroup="Date" Enabled="true"/>
+                <asp:Button ID="btndelete" runat="server" CssClass="btn btn-danger" Text="Delete" Width="200px" OnClick="btndelete_Click" Visible="false" />
+                <asp:HiddenField ID="hfCareerID" runat="server" /> 
+                <asp:Label ID="lblAutoNo" runat="server"></asp:Label>
             </ul>
           </div>
      </center>

@@ -116,6 +116,7 @@
     <Content Include="Employee\Career_Job_Interview.aspx" />
     <Content Include="Employee\IntroductionListFor_Career1.aspx" />
     <Content Include="Employee\InterviewList.aspx" />
+    <Content Include="Employee\WorkingHistory.aspx" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="img\jsat_desktop.jpg" />
@@ -140,7 +141,6 @@
     <Content Include="Employee\Employee_SelfView.aspx" />
     <Content Include="Employee\IntroductionListForCareer_GoDetail.aspx" />
     <Content Include="Employee\IntroductionListFor_Career.aspx" />
-    <Content Include="Employee\WorkingHistory.aspx" />
     <Content Include="Employee\WorkingHistory_Detail.aspx" />
     <Content Include="Employee\WorkingHistory_View.aspx" />
     <Content Include="Employer\ClientCVHistory.aspx" />

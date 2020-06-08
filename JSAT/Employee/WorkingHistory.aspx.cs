@@ -17,14 +17,13 @@ namespace JSAT.Employee
     public partial class WorkingHistory : System.Web.UI.Page
     {
         Working_History_BL webbl;
-        BaseLib bb;
-        WorkingHistoryEntity webentity;
-        int count;
+        WorkingHistoryEntity entity1;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindDate();
             if (!IsPostBack)
             {
+                txtdate.Text = DateTime.Now.ToString("dd/MM/yyyy");
+                fillData();
                 UserRoleBL user = new UserRoleBL();
                 int userID = BaseLib.Convert_Int(Session["UserID"].ToString());
                 bool resultRead = user.CanRead(userID, "055");
@@ -44,7 +43,6 @@ namespace JSAT.Employee
                     Button1.Visible = true;
                 else
                     Button1.Visible = false;
-                fillData();
 
                 ViewState["PreviousTable"] = null;
                 SetInitialRow();
@@ -95,16 +93,21 @@ namespace JSAT.Employee
                             {
                                 salaryID.Text = dtb.Rows[0]["SalaryID"].ToString();
                             }
-                            if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Gender"].ToString()))
+                            //if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Gender"].ToString()))
+                            //{
+                            //    if (dtb.Rows[0]["Gender"].ToString() == "1")
+                            //    {
+                            //        male.Checked = true;
+                            //    }
+                            //    else
+                            //    {
+                            //        female.Checked = true;
+                            //    }
+                            //}
+                            if (ddlGender.Items.FindByText(dtb.Rows[0]["Gender"].ToString()) != null)
                             {
-                                if (dtb.Rows[0]["Gender"].ToString() == "1")
-                                {
-                                    male.Checked = true;
-                                }
-                                else
-                                {
-                                    female.Checked = true;
-                                }
+                                ddlGender.ClearSelection();
+                                ddlGender.Items.FindByText(dtb.Rows[0]["Gender"].ToString()).Selected = true;
                             }
                             if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Name"].ToString()))
                             {
@@ -114,6 +117,33 @@ namespace JSAT.Employee
                             {
                                 txtage.Text = dtb.Rows[0]["Age"].ToString();
                             }
+                            if (ddlAddress.Items.FindByText(dtb.Rows[0]["Address"].ToString()) != null)
+                            {
+                                ddlAddress.ClearSelection();
+                                ddlAddress.Items.FindByText(dtb.Rows[0]["Address"].ToString()).Selected = true;
+                            }
+                            if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Phone"].ToString()))
+                            {
+                                txtPhone.Text = dtb.Rows[0]["Phone"].ToString();
+                            }
+                            if (ddlReligion.Items.FindByText(dtb.Rows[0]["ReligionName"].ToString()) != null)
+                            {
+                                ddlReligion.ClearSelection();
+                                ddlReligion.Items.FindByText(dtb.Rows[0]["ReligionName"].ToString()).Selected = true;
+                            }
+                            if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Emergency_ContactName"].ToString()))
+                            {
+                                txtEName.Text = dtb.Rows[0]["Emergency_ContactName"].ToString();
+                            }
+                            if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Emergency_ContactNo"].ToString()))
+                            {
+                                txtEPhone.Text = dtb.Rows[0]["Emergency_ContactNo"].ToString();
+                            }
+                            if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Email"].ToString()))
+                            {
+                                txtEmail.Text = dtb.Rows[0]["Email"].ToString();
+                            }
+
                             if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Interview_Date"].ToString()))
                             {
                                 DateTime date = (DateTime)dtb.Rows[0]["Interview_Date"];
@@ -135,10 +165,7 @@ namespace JSAT.Employee
                                     rdoNot.Checked = true;
                                 }
                             }
-                            if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Address"].ToString()))
-                            {
-                                lblfilladdress.Text = dtb.Rows[0]["Address"].ToString();
-                            }
+
                             if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Working_Experience"].ToString()))
                             {
                                 if (dtb.Rows[0]["Working_Experience"].ToString() == "True")
@@ -375,298 +402,26 @@ namespace JSAT.Employee
                         throw ex;
                     }
                 }
-            }
-            if (rdosatyes.Checked)
-            {
-                ddlsatdaycondition.Visible = true;
-            }
-            if (rdocheckm.Checked)
-            {
-                txtnoticeday.Visible = true;
-                ddlnoticetype.Visible = true;
-            }
-        }
 
-        protected void BindDate()
-        {
-            foreach (GridViewRow rowdata in Gridview1.Rows)
-            {
-                TextBox fromdate = rowdata.FindControl("txtFromDate") as TextBox;
-                TextBox todate = rowdata.FindControl("txtToDate") as TextBox;
-                if (!String.IsNullOrWhiteSpace(Request.Form[fromdate.UniqueID]))
+                if (rdosatyes.Checked)
                 {
-                    string strDate = Request.Form[fromdate.UniqueID];
-                    string date2 = Convert.ToDateTime(strDate, CultureInfo.GetCultureInfo("en-US")).ToString("yyyy/MM/dd ");
-                    fromdate.Text = date2;
+                    ddlsatdaycondition.Visible = true;
                 }
-                if (!String.IsNullOrWhiteSpace(Request.Form[todate.UniqueID]))
+                if (rdocheckm.Checked)
                 {
-                    string strToDate = Request.Form[todate.UniqueID];
-                    string date3 = Convert.ToDateTime(strToDate, CultureInfo.GetCultureInfo("en-US")).ToString("yyyy/MM/dd");
-                    todate.Text = date3;
+                    txtnoticeday.Visible = true;
+                    ddlnoticetype.Visible = true;
                 }
-            }
-        }
-
-        protected void Qualification_SelectedByID(int careerid)
-        {
-            Career_QualificationBL cqbl = new Career_QualificationBL();
-            DataTable dtbindqual = cqbl.SelectByID(careerid);
-            int itemCount1 = 0;
-
-            for (int i = 0; i < dtbindqual.Rows.Count; i++)
-            {
-                for (itemCount1 = 0; itemCount1 < outerDataList.Items.Count; itemCount1++)
-                {
-
-                    DataList childdl = outerDataList.Items[itemCount1].FindControl("innerDataList") as System.Web.UI.WebControls.DataList;
-                    foreach (DataListItem dl in childdl.Items)
-                    {
-                        CheckBox chkQ = (CheckBox)dl.FindControl("chkQ");
-                        if ((chkQ.Text).ToString() == dtbindqual.Rows[i]["Qualification"].ToString())
-                        {
-                            chkQ.Checked = true;
-                        }
-                    }
-
-                }
-            }
-        }
-
-        protected void Ability_SelectedByID(int careerid)
-        {
-            Career_AbilityBL cabl = new Career_AbilityBL();
-            DataTable dtbindqual = cabl.SelectByID(careerid);
-            int itemCount1 = 0;
-            for (int i = 0; i < dtbindqual.Rows.Count; i++)
-            {
-                for (itemCount1 = 0; itemCount1 < outerDataList1.Items.Count; itemCount1++)
-                {
-                    DataList childdl1 = outerDataList1.Items[itemCount1].FindControl("innerDataList1") as System.Web.UI.WebControls.DataList;
-                    foreach (DataListItem dl in childdl1.Items)
-                    {
-                        CheckBox chkAbl = (CheckBox)dl.FindControl("chkAbl");
-                        if ((chkAbl.Text).ToString() == dtbindqual.Rows[i]["Ability"].ToString())
-                        {
-                            chkAbl.Checked = true;
-                        }
-                    }
-                }
-            }
-        }
-
-        public void FillDataInTextboxforOldjobhistory(DataTable bindoldjobhistory)
-        {
-            try
-            {
-                GlobalBL global = new GlobalBL();
-                Working_History_BL workbl = new Working_History_BL();
-                if (bindoldjobhistory != null && bindoldjobhistory.Rows.Count > 0)
-                {
-                    int rowIndex = 0;
-                    if (bindoldjobhistory.Rows.Count > 0)
-                    {
-                        Gridview1.DataSource = bindoldjobhistory;
-                        Gridview1.DataBind();
-                        foreach (GridViewRow row in Gridview1.Rows)
-                        {
-                            TextBox TextBox1 = row.FindControl("txtcompanyname") as TextBox;
-                            TextBox TextBox2 = row.FindControl("txtcomapnyaddress") as TextBox;
-                            TextBox TextBox3 = row.FindControl("txtFromDate") as TextBox;
-                            TextBox TextBox4 = row.FindControl("txtToDate") as TextBox;
-                            TextBox TextBox6 = row.FindControl("txtreasonforleaving") as TextBox;
-                            TextBox TextBox7 = row.FindControl("txtother") as TextBox;
-                            Label lbl1 = (Label)row.FindControl("lblotherjp") as Label;
-                            Label lbl2 = (Label)row.FindControl("lblreasonforleavingjp") as Label;
-                            DropDownList ddlIndustry = row.FindControl("ddlindustrytype") as DropDownList;
-                            DropDownList ddlbusiness = row.FindControl("ddltypeofbusiness") as DropDownList;
-                            DropDownList ddldepartment = row.FindControl("ddldepartment") as DropDownList;
-                            DropDownList ddlposition = row.FindControl("ddlPosition") as DropDownList;
-                            DropDownList ddlpositonlevel = row.FindControl("ddlpositionlevel") as DropDownList;
-                            DropDownList ddlcompanytype = row.FindControl("ddlcompanytype") as DropDownList;
-                            DropDownList ddlcountry = row.FindControl("ddlcountry") as DropDownList;
-                            CheckBoxList chkjobdescription = row.FindControl("chkjobdescription") as CheckBoxList;
-                            TextBox1.Text = bindoldjobhistory.Rows[rowIndex]["Company_Name"].ToString();
-                            TextBox2.Text = bindoldjobhistory.Rows[rowIndex]["Company_Address"].ToString();
-                            TextBox3.Text = bindoldjobhistory.Rows[rowIndex]["Duration_From"].ToString();
-                            TextBox4.Text = bindoldjobhistory.Rows[rowIndex]["Duration_To"].ToString();
-                            TextBox6.Text = bindoldjobhistory.Rows[rowIndex]["Reason_For_Leaving"].ToString();
-                            TextBox7.Text = bindoldjobhistory.Rows[rowIndex]["Other"].ToString();
-                            lbl1.Text = bindoldjobhistory.Rows[rowIndex]["Other_Japan"].ToString();
-                            lbl2.Text = bindoldjobhistory.Rows[rowIndex]["Reason_For_Leaving_Japan"].ToString();
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Position_Level"].ToString()))
-                            {
-                                ddlpositonlevel.ClearSelection();
-                                ddlpositonlevel.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Position_Level"].ToString()).Selected = true;
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Company_Type"].ToString()))
-                            {
-                                ddlcompanytype.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Company_Type"].ToString()).Selected = true;
-                                DataTable dtb = new DataTable();
-                                BusinessTypeBL bussinessbl = new BusinessTypeBL();
-                                dtb = bussinessbl.Selectedbycompanytype(BaseLib.Convert_Int(ddlcompanytype.SelectedValue));
-                                ddlcountry.DataSource = dtb;
-                                ddlcountry.DataTextField = "Description";
-                                ddlcountry.DataValueField = "ID";
-                                ddlcountry.DataBind();
-                                ddlcountry.Focus();
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Country"].ToString()))
-                            {
-                                ddlcountry.ClearSelection();
-                                ddlcountry.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Country"].ToString()).Selected = true;
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Industry"].ToString()))
-                            {
-                                ddlIndustry.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Industry"].ToString()).Selected = true;
-                                DataTable dtb = new DataTable();
-                                BusinessTypeBL bussinessbl = new BusinessTypeBL();
-                                dtb = bussinessbl.SelectedbyTypeofBusiness(BaseLib.Convert_Int(ddlIndustry.SelectedValue));
-                                ddlbusiness.DataSource = dtb;
-                                ddlbusiness.DataTextField = "Description";
-                                ddlbusiness.DataValueField = "ID";
-                                ddlbusiness.DataBind();
-                                ddlbusiness.Focus();
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Business_Type"].ToString()))
-                            {
-                                ddlbusiness.ClearSelection();
-                                ddlbusiness.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Business_Type"].ToString()).Selected = true;
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Department"].ToString()))
-                            {
-                                ddldepartment.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Department"].ToString()).Selected = true;
-                                DataTable dtDep = new DataTable();
-                                PositionBL pbl = new PositionBL();
-                                dtDep = pbl.SelectByDepartmentID(BaseLib.Convert_Int(ddldepartment.SelectedValue));
-                                ddlposition.DataSource = dtDep;
-                                ddlposition.DataTextField = "Description";
-                                ddlposition.DataValueField = "ID";
-                                ddlposition.DataBind();
-                                ddlposition.Items.Insert(0, "");
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Position"].ToString()))
-                            {
-                                ddlposition.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Position"].ToString()).Selected = true;
-                                int type = BaseLib.Convert_Int(ddlposition.SelectedValue);
-                                Working_History_BL webbl = new Working_History_BL();
-                                DataTable dtb = new DataTable();
-                                dtb = webbl.SelectedByPosition(type);
-                                chkjobdescription.DataSource = dtb;
-                                chkjobdescription.DataTextField = "Description";
-                                chkjobdescription.DataValueField = "ID";
-                                chkjobdescription.DataBind();
-                                chkjobdescription.Focus();
-                            }
-                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Job_Description_ID"].ToString()))
-                            {
-                                string[] strarr = (bindoldjobhistory.Rows[rowIndex]["Job_Description_ID"].ToString().Split(','));
-                                for (int i = 0; i < strarr.Length; i++)
-                                {
-                                    if (chkjobdescription.Items.FindByValue(strarr[i]) != null)
-                                    {
-                                        chkjobdescription.Items.FindByValue(strarr[i]).Selected = true;
-                                    }
-                                }
-                            }
-                            rowIndex++;
-                        }
-                        if (bindoldjobhistory.Rows.Count > 1)
-                        {
-                            LinkButton LinkButton1 = Gridview1.HeaderRow.FindControl("LinkButton1") as LinkButton;
-                            LinkButton1.Visible = true;
-                        }
-                        ViewState["PreviousTable"] = bindoldjobhistory;
-                    }
-                    else
-                    {
-                        Gridview1.DataSource = null;
-                        Gridview1.DataBind();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void EditData(DataTable dtb)
-        {
-            try
-            {
-                if (ddlEngreadwrite.Items.FindByText(dtb.Rows[0]["Engreadwrite"].ToString()) != null)
-                {
-                    ddlEngreadwrite.ClearSelection();
-                    ddlEngreadwrite.Items.FindByText(dtb.Rows[0]["Engreadwrite"].ToString()).Selected = true;
-                }
-                if (ddlEngspeaking.Items.FindByText(dtb.Rows[0]["Engspeak"].ToString()) != null)
-                {
-                    ddlEngspeaking.ClearSelection();
-                    ddlEngspeaking.Items.FindByText(dtb.Rows[0]["Engspeak"].ToString()).Selected = true;
-                }
-                if (ddljpreadwrite.Items.FindByText(dtb.Rows[0]["JPreadwrite"].ToString()) != null)
-                {
-                    ddljpreadwrite.ClearSelection();
-                    ddljpreadwrite.Items.FindByText(dtb.Rows[0]["JPreadwrite"].ToString()).Selected = true;
-                }
-                if (ddljpspeaking.Items.FindByText(dtb.Rows[0]["JPspeak"].ToString()) != null)
-                {
-                    ddljpspeaking.ClearSelection();
-                    ddljpspeaking.Items.FindByText(dtb.Rows[0]["JPspeak"].ToString()).Selected = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void Qualification()
-        {
-            Working_History_BL webbl = new Working_History_BL();
-            DataSet dsdata = new DataSet();
-            dsdata = webbl.BindDataForQualification();
-            dsdata.Relations.Add(new DataRelation("Qualification_Relation", dsdata.Tables[0].Columns["ID"], dsdata.Tables[1].Columns["QualificationTitle_id"], false));
-            outerDataList.DataSource = dsdata.Tables[0];
-            outerDataList.DataBind();
-        }
-
-        public void Ability()
-        {
-            Working_History_BL webbl = new Working_History_BL();
-            DataSet dsdata = new DataSet();
-            dsdata = webbl.BindDataForAbility();
-            dsdata.Relations.Add(new DataRelation("Ability_Relation", dsdata.Tables[0].Columns["ID"], dsdata.Tables[1].Columns["AbilityTitle_id"], false));
-            outerDataList1.DataSource = dsdata.Tables[0];
-            outerDataList1.DataBind();
-        }
-
-        protected void outerRep_ItemDataBound(object sender, DataListItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                DataRowView drv = e.Item.DataItem as DataRowView;
-                DataList innerDataList = e.Item.FindControl("innerDataList") as DataList;
-                innerDataList.DataSource = drv.CreateChildView("Qualification_Relation");
-                innerDataList.DataBind();
-            }
-
-        }
-
-        protected void outerRep_ItemDataBound1(object sender, DataListItemEventArgs e)
-        {
-            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
-            {
-                DataRowView drv = e.Item.DataItem as DataRowView;
-                DataList innerDataList = e.Item.FindControl("innerDataList1") as DataList;
-                innerDataList.DataSource = drv.CreateChildView("Ability_Relation");
-                innerDataList.DataBind();
             }
         }
 
         public void fillData()
         {
+            Qualification();
+            Ability();
+            Bind_Address();
+            Bind_Religion();
+            BindDate();
             GlobalBL global = new GlobalBL();
             chkPcSkill.DataSource = global.Get_Data("PC_Skill");
             chkPcSkill.DataTextField = "Description";
@@ -676,8 +431,6 @@ namespace JSAT.Employee
             chkpersonalskill.DataTextField = "Mark";
             chkpersonalskill.DataValueField = "Skill_ID";
             chkpersonalskill.DataBind();
-            Qualification();
-            Ability();
             ddlpositionrequsted.DataSource = global.Get_Datanew("Position");
             ddlpositionrequsted.DataTextField = "Description";
             ddlpositionrequsted.DataValueField = "ID";
@@ -819,884 +572,144 @@ namespace JSAT.Employee
             ddlpositionlevel3.DataBind();
             ddlpositionlevel3.Items.Insert(0, "");
         }
-
-        public void BindData(DataTable dtdata)
+        public void Qualification()
+        {
+            Working_History_BL webbl = new Working_History_BL();
+            DataSet dsdata = new DataSet();
+            dsdata = webbl.BindDataForQualification();
+            dsdata.Relations.Add(new DataRelation("Qualification_Relation", dsdata.Tables[0].Columns["ID"], dsdata.Tables[1].Columns["QualificationTitle_id"], false));
+            outerDataList.DataSource = dsdata.Tables[0];
+            outerDataList.DataBind();
+        }
+        public void Ability()
+        {
+            Working_History_BL webbl = new Working_History_BL();
+            DataSet dsdata = new DataSet();
+            dsdata = webbl.BindDataForAbility();
+            dsdata.Relations.Add(new DataRelation("Ability_Relation", dsdata.Tables[0].Columns["ID"], dsdata.Tables[1].Columns["AbilityTitle_id"], false));
+            outerDataList1.DataSource = dsdata.Tables[0];
+            outerDataList1.DataBind();
+        }
+        public void Bind_Religion()
         {
             try
             {
-                string gender = dtdata.Rows[0]["GenderID"].ToString();
-                if (gender == "1")
-                {
-                    male.Checked = true;
-                }
-                else
-                {
-                    female.Checked = true;
-                }
-                txtname.Text = dtdata.Rows[0]["Name"].ToString();
-                txtage.Text = dtdata.Rows[0]["Age"].ToString();
-                if (!String.IsNullOrWhiteSpace(dtdata.Rows[0]["Interview_Date"].ToString()))
-                {
-                    DateTime date = (DateTime)dtdata.Rows[0]["Interview_Date"];
-                    txtdate.Text = Convert.ToDateTime(date.ToString(), CultureInfo.GetCultureInfo("en-US")).ToString("yyyy/MM/dd");
-                }
-                lblfilladdress.Text = dtdata.Rows[0]["address"].ToString();
-                lblid.Text = dtdata.Rows[0]["ID"].ToString();
-                Working_History_BL workbl = new Working_History_BL();
-                DataTable dtb = workbl.Selectforedit(Convert.ToInt32(lblid.Text));
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Driving_License"].ToString()))
-                {
-                    if (dtb.Rows[0]["Driving_License"].ToString() == "True")
-                    {
-                        rdoAvaliable.Checked = true;
-                    }
-                    else if (String.IsNullOrWhiteSpace(dtb.Rows[0]["Driving_License"].ToString()))
-                    {
-                    }
-                    else
-                    {
-                        rdoNot.Checked = true;
-                    }
-                }
-                if (ddlpositionrequsted.Items.FindByText(dtb.Rows[0]["Positionrequested"].ToString()) != null)
-                {
-                    ddlpositionrequsted.ClearSelection();
-                    ddlpositionrequsted.Items.FindByText(dtb.Rows[0]["Positionrequested"].ToString()).Selected = true;
-                }
-                if (ddlpositionrequested1.Items.FindByText(dtb.Rows[0]["Positionrequested1"].ToString()) != null)
-                {
-                    ddlpositionrequested1.ClearSelection();
-                    ddlpositionrequested1.Items.FindByText(dtb.Rows[0]["Positionrequested1"].ToString()).Selected = true;
-                }
-                if (ddlpositionrequested2.Items.FindByText(dtb.Rows[0]["Positionrequested2"].ToString()) != null)
-                {
-                    ddlpositionrequested2.ClearSelection();
-                    ddlpositionrequested2.Items.FindByText(dtb.Rows[0]["Positionrequested2"].ToString()).Selected = true;
-                }
-                if (ddlpositionlevel1.Items.FindByText(dtb.Rows[0]["Positionlevel1"].ToString()) != null)
-                {
-                    ddlpositionlevel1.ClearSelection();
-                    ddlpositionlevel1.Items.FindByText(dtb.Rows[0]["Positionlevel1"].ToString()).Selected = true;
-                }
-                if (ddlpositionlevel2.Items.FindByText(dtb.Rows[0]["Positionlevel2"].ToString()) != null)
-                {
-                    ddlpositionlevel2.ClearSelection();
-                    ddlpositionlevel2.Items.FindByText(dtb.Rows[0]["Positionlevel2"].ToString()).Selected = true;
-                }
-                if (ddlpositionlevel3.Items.FindByText(dtb.Rows[0]["Positionlevel3"].ToString()) != null)
-                {
-                    ddlpositionlevel3.ClearSelection();
-                    ddlpositionlevel3.Items.FindByText(dtb.Rows[0]["Positionlevel3"].ToString()).Selected = true;
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Salary"].ToString()))
-                {
-                    txtexpectedsalary.Text = dtb.Rows[0]["Salary"].ToString();
-                }
-                if (rdostatus.Items.FindByText(dtb.Rows[0]["Career_Status"].ToString()) != null)
-                {
-                    rdostatus.Items.FindByText(dtb.Rows[0]["Career_Status"].ToString()).Selected = true;
-                }
-                if (ddlsalarytype.Items.FindByText(dtb.Rows[0]["SalaryType"].ToString()) != null)
-                {
-                    ddlsalarytype.ClearSelection();
-                    ddlsalarytype.Items.FindByText(dtb.Rows[0]["SalaryType"].ToString()).Selected = true;
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Working_On_Saturday"].ToString()))
-                {
-                    if (dtb.Rows[0]["Working_On_Saturday"].ToString() == "True")
-                    {
-                        rdosatyes.Checked = true;
-                    }
-                    else
-                    {
-                        rdosatno.Checked = true;
-                    }
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Other_Qualification"].ToString()))
-                {
-                    txtqualification.Text = dtb.Rows[0]["Other_Qualification"].ToString();
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Impression"].ToString()))
-                {
-                    txtimpression.Text = dtb.Rows[0]["Impression"].ToString();
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Updating_Info"].ToString()))
-                {
-                    txtupdateinfo.Text = dtb.Rows[0]["Updating_Info"].ToString();
-                }
-                lblid.Text = dtb.Rows[0]["ID"].ToString();
-                EditData(dtb);
-                DataTable dtbindpcskil = new DataTable();
-                webbl = new Working_History_BL();
-                dtbindpcskil = webbl.SelectedbyIDforpcskill(Convert.ToInt32(lblid.Text));
-                for (int i = 0; i < dtbindpcskil.Rows.Count; i++)
-                {
-                    if (chkPcSkill.Items.FindByText(dtbindpcskil.Rows[i]["PCSkills"].ToString()) != null)
-                    {
-                        chkPcSkill.Items.FindByText(dtbindpcskil.Rows[i]["PCSkills"].ToString()).Selected = true;
-                    }
-                }
-                Career_QualificationBL cqbl = new Career_QualificationBL();
-                DataTable dtbindqual = cqbl.SelectByID(Convert.ToInt32(lblid.Text));
-                int itemCount1 = 0;
-                for (int i = 0; i < dtbindqual.Rows.Count; i++)
-                {
-                    for (itemCount1 = 0; itemCount1 < outerDataList.Items.Count; itemCount1++)
-                    {
-
-                        DataList childdl = outerDataList.Items[itemCount1].FindControl("innerDataList") as System.Web.UI.WebControls.DataList;
-                        foreach (DataListItem dl in childdl.Items)
-                        {
-                            CheckBox chkQ = (CheckBox)dl.FindControl("chkQ");
-                            if ((chkQ.Text).ToString() == dtbindqual.Rows[i]["Qualification"].ToString())
-                            {
-                                chkQ.Checked = true;
-                            }
-                        }
-                    }
-                }
-                DataTable dtbbindpersonalskill = new DataTable();
-                dtbbindpersonalskill = webbl.SelectedbyIDforpersonalskill(Convert.ToInt32(lblid.Text));
-                for (int i = 0; i < dtbbindpersonalskill.Rows.Count; i++)
-                {
-                    if (chkpersonalskill.Items.FindByText(dtbbindpersonalskill.Rows[i]["Skill_Type"].ToString()) != null)
-                    {
-                        chkpersonalskill.Items.FindByText(dtbbindpersonalskill.Rows[i]["Skill_Type"].ToString()).Selected = true;
-                    }
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Working_Experience"].ToString()))
-                {
-                    if (dtb.Rows[0]["Working_Experience"].ToString() == "True")
-                    {
-                        rdoexperience.Items[0].Selected = true;
-                    }
-                    else if (String.IsNullOrWhiteSpace(dtb.Rows[0]["Working_Experience"].ToString()))
-                    {
-                    }
-                    else
-                    {
-                        rdoexperience.Items[1].Selected = true;
-                    }
-                }
-                if (ddldegree1.Items.FindByText(dtb.Rows[0]["Degree1"].ToString()) != null)
-                {
-                    ddldegree1.ClearSelection();
-                    ddldegree1.Items.FindByText(dtb.Rows[0]["Degree1"].ToString()).Selected = true;
-                }
-                if (ddluniversity1.Items.FindByText(dtb.Rows[0]["University1"].ToString()) != null)
-                {
-                    ddluniversity1.ClearSelection();
-                    ddluniversity1.Items.FindByText(dtb.Rows[0]["University1"].ToString()).Selected = true;
-                    DataTable dtbtownship = new DataTable();
-                    webbl = new Working_History_BL();
-                    dtbtownship = webbl.SelectedbyUniversityID(BaseLib.Convert_Int(ddluniversity1.SelectedValue));
-                    ddltownship1.DataSource = dtbtownship;
-                    ddltownship1.DataTextField = "AreaDescription";
-                    ddltownship1.DataValueField = "AreaID";
-                    ddltownship1.DataBind();
-                    ddltownship1.Focus();
-                }
-                if (ddlmajor1.Items.FindByText(dtb.Rows[0]["Major1"].ToString()) != null)
-                {
-                    ddlmajor1.ClearSelection();
-                    ddlmajor1.Items.FindByText(dtb.Rows[0]["Major1"].ToString()).Selected = true;
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Year1"].ToString()))
-                {
-                    txtyear1.Text = dtb.Rows[0]["Year1"].ToString();
-                }
-                if (ddldegree2.Items.FindByText(dtb.Rows[0]["Degree2"].ToString()) != null)
-                {
-                    ddldegree2.ClearSelection();
-                    ddldegree2.Items.FindByText(dtb.Rows[0]["Degree2"].ToString()).Selected = true;
-                }
-                if (ddluniversity2.Items.FindByText(dtb.Rows[0]["University2"].ToString()) != null)
-                {
-                    ddluniversity2.ClearSelection();
-                    ddluniversity2.Items.FindByText(dtb.Rows[0]["University2"].ToString()).Selected = true;
-                    DataTable dtbtownship2 = new DataTable();
-                    webbl = new Working_History_BL();
-                    dtbtownship2 = webbl.SelectedbyUniversityID(BaseLib.Convert_Int(ddluniversity2.SelectedValue));
-                    ddltownship2.DataSource = dtbtownship2;
-                    ddltownship2.DataTextField = "AreaDescription";
-                    ddltownship2.DataValueField = "AreaID";
-                    ddltownship2.DataBind();
-                    ddltownship2.Focus();
-                }
-                if (ddlmajor2.Items.FindByText(dtb.Rows[0]["Major2"].ToString()) != null)
-                {
-                    ddlmajor2.ClearSelection();
-                    ddlmajor2.Items.FindByText(dtb.Rows[0]["Major2"].ToString()).Selected = true;
-                }
-                if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Year2"].ToString()))
-                {
-                    txtyear2.Text = dtb.Rows[0]["Year2"].ToString();
-                }
-                DataTable bindoldjobhistory = new DataTable();
-                bindoldjobhistory = webbl.SelectedbyOldjobhistory(Convert.ToInt32(lblid.Text));
-                FillDataInTextboxforOldjobhistory(bindoldjobhistory);
+                GlobalBL gb = new GlobalBL();
+                ddlReligion.DataSource = gb.Get_Data("Religion");
+                ddlReligion.DataTextField = "Description";
+                ddlReligion.DataValueField = "ID";
+                ddlReligion.DataBind();
+                ddlReligion.Items.Insert(0, "--Select--");
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        protected void btnserach_Click(object sender, EventArgs e)
+        public void Bind_Address()
         {
             try
             {
-                string code1 = ddlemployeecode.SelectedItem.ToString();
-                string code2 = txtempcode.Text;
+                GlobalBL gb = new GlobalBL();
+                ddlAddress.DataSource = gb.Get_Data("Residential_Area");
+                ddlAddress.DataTextField = "Description";
+                ddlAddress.DataValueField = "ID";
+                ddlAddress.DataBind();
+                //ddlAddress.Items.Insert(0, "--Select--");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void BindDate()
+        {
+            foreach (GridViewRow rowdata in Gridview1.Rows)
+            {
+                TextBox fromdate = rowdata.FindControl("txtFromDate") as TextBox;
+                TextBox todate = rowdata.FindControl("txtToDate") as TextBox;
+                if (!String.IsNullOrWhiteSpace(Request.Form[fromdate.UniqueID]))
+                {
+                    string strDate = Request.Form[fromdate.UniqueID];
+                    string date2 = Convert.ToDateTime(strDate, CultureInfo.GetCultureInfo("en-US")).ToString("yyyy/MM/dd ");
+                    fromdate.Text = date2;
+                }
+                if (!String.IsNullOrWhiteSpace(Request.Form[todate.UniqueID]))
+                {
+                    string strToDate = Request.Form[todate.UniqueID];
+                    string date3 = Convert.ToDateTime(strToDate, CultureInfo.GetCultureInfo("en-US")).ToString("yyyy/MM/dd");
+                    todate.Text = date3;
+                }
+            }
+        }
+        private void SetInitialRow()
+        {
+            DataTable dt = new DataTable();
+            DataRow dr = null;
+            dt.Columns.Add(new DataColumn("RowNumber", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column1", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column2", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column3", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column4", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column5", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column6", typeof(string)));
+            dt.Columns.Add(new DataColumn("companytype", typeof(string)));
+            dt.Columns.Add(new DataColumn("country", typeof(string)));
+            dt.Columns.Add(new DataColumn("industry", typeof(string)));
+            dt.Columns.Add(new DataColumn("business", typeof(string)));
+            dt.Columns.Add(new DataColumn("deparment", typeof(string)));
+            dt.Columns.Add(new DataColumn("position", typeof(string)));
+            dt.Columns.Add(new DataColumn("other", typeof(string)));
+            dt.Columns.Add(new DataColumn("positionlevel", typeof(string)));
+            dt.Columns.Add(new DataColumn("otherjp", typeof(string)));
+            dt.Columns.Add(new DataColumn("reasonjp", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column7", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column8", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column9", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("Column10", typeof(DateTime)));
+            dt.Columns.Add(new DataColumn("Column11", typeof(string)));
+            dt.Columns.Add(new DataColumn("Column12", typeof(string)));
+            dr = dt.NewRow();
+
+            dr["Column1"] = string.Empty;
+            dr["Column2"] = string.Empty;
+            dr["Column3"] = string.Empty;
+            dr["Column4"] = string.Empty;
+            dr["Column5"] = string.Empty;
+            dr["Column6"] = string.Empty;
+            dr["companytype"] = string.Empty;
+            dr["country"] = string.Empty;
+            dr["industry"] = string.Empty;
+            dr["business"] = string.Empty;
+            dr["deparment"] = string.Empty;
+            dr["position"] = string.Empty;
+            dr["other"] = string.Empty;
+            dr["positionlevel"] = string.Empty;
+            dr["otherjp"] = string.Empty;
+            dr["reasonjp"] = string.Empty;
+            dr["Column7"] = "Company_Name";
+            dr["Column8"] = "Company_Address";
+            dr["Column9"] = DateTime.Now;
+            dr["Column10"] = DateTime.Now;
+            dr["Column11"] = "Job_Description";
+            dr["Column12"] = "Reason_For_Leaving";
+            dt.Rows.Add(dr);
+            ViewState["CurrentTable"] = dt;
+            Gridview1.DataSource = dt;
+            Gridview1.DataBind();
+        }
+        public DataTable BindPositionLevel()
+        {
+            DataTable dtb = new DataTable();
+            try
+            {
                 Working_History_BL webbl = new Working_History_BL();
-                DataTable dtdata = new DataTable();
-                dtdata = webbl.GetBindData(code1, code2);
-                if (!String.IsNullOrWhiteSpace(code2))
-                {
-                    if (dtdata.Rows.Count > 0)
-                    {
-                        BindData(dtdata);
-                        if (Button1.Text == "Save")
-                        {
-                            Button1.Enabled = true;
-                        }
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Your Employee Code in not correct')", true);
-                    }
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('You must first enter the Employee_Code')", true);
-                }
+                dtb = webbl.BindPositionLevel();
+                return dtb;
             }
             catch (Exception ex)
             {
                 throw ex;
-            }
-        }
-
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Check())
-                {
-                    #region insert EWH
-                    WorkingHistoryEntity webentity = new WorkingHistoryEntity();
-                    webentity.Career_code = ddlemployeecode.Text + "-" + txtempcode.Text;
-                    webentity.Career_ID = Convert.ToInt32(lblid.Text);
-                    CheckCondition(webentity);
-                    if (!string.IsNullOrWhiteSpace(Request.Form[txtdate.UniqueID]))
-                    {
-                        string strDate1 = Request.Form[txtdate.UniqueID];
-                        string date1 = Convert.ToDateTime(strDate1, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
-                        webentity.Interviewdate = DateTime.ParseExact(date1, "MM/dd/yyyy ", null);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionrequsted.Text))
-                    {
-                        webentity.Positionrequested = BaseLib.Convert_Int(ddlpositionrequsted.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(txtname.Text))
-                    {
-                        webentity.Name = txtname.Text;
-                    }
-                    if (!String.IsNullOrWhiteSpace(txtage.Text))
-                    {
-                        webentity.Age = Convert.ToInt16(txtage.Text);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlfirsint.SelectedValue))
-                    {
-                        webentity.FirstInterviewer = BaseLib.Convert_Int(ddlfirsint.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlsecondint.SelectedValue))
-                    {
-                        webentity.SecondInterviewer = BaseLib.Convert_Int(ddlsecondint.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddljapan.SelectedValue))
-                    {
-                        webentity.Japanese_Interviewer = BaseLib.Convert_Int(ddljapan.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionrequsted.Text))
-                    {
-                        webentity.Positionrequested = BaseLib.Convert_Int(ddlpositionrequsted.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionrequested1.Text))
-                    {
-                        webentity.Positionrequested1 = BaseLib.Convert_Int(ddlpositionrequested1.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionrequested2.Text))
-                    {
-                        webentity.Positionrequested2 = BaseLib.Convert_Int(ddlpositionrequested2.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionlevel1.Text))
-                    {
-                        webentity.Positionlevel1 = BaseLib.Convert_Int(ddlpositionlevel1.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionlevel2.Text))
-                    {
-                        webentity.Positionlevel2 = BaseLib.Convert_Int(ddlpositionlevel2.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlpositionlevel3.Text))
-                    {
-                        webentity.Positionlevel3 = BaseLib.Convert_Int(ddlpositionlevel3.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(txtTotalMark.Text))
-                    {
-                        webentity.TotalMark1 = Convert.ToInt32(txtTotalMark.Text);
-                    }
-                    if (!string.IsNullOrWhiteSpace(txtexpectedsalary.Text))
-                    {
-                        webentity.Expectedsalary = int.Parse(txtexpectedsalary.Text);
-                    }
-                    else
-                    {
-                        webentity.Expectedsalary = 0;
-                    }
-
-                    if (!String.IsNullOrWhiteSpace(ddlsalarytype.Text))
-                    {
-                        webentity.SalarytypeID = BaseLib.Convert_Int(ddlsalarytype.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(salaryID.Text))
-                    {
-                        webentity.SalaryID1 = int.Parse(salaryID.Text);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlsatdaycondition.Text))
-                    {
-                        if (rdosatno.Checked)
-                        {
-                            webentity.Saturday_Condition1 = 0;
-                        }
-                        else
-                        {
-                            webentity.Saturday_Condition1 = BaseLib.Convert_Int(ddlsatdaycondition.SelectedValue);
-                        }
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddldegree1.Text))
-                    {
-                        webentity.Degree1 = BaseLib.Convert_Int(ddldegree1.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddluniversity1.Text))
-                    {
-                        webentity.University1 = BaseLib.Convert_Int(ddluniversity1.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddltownship1.Text))
-                    {
-                        webentity.TownshipID1 = BaseLib.Convert_Int(ddltownship1.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlmajor1.Text))
-                    {
-                        webentity.Major1 = BaseLib.Convert_Int(ddlmajor1.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(txtyear1.Text))
-                    {
-                        webentity.Year1 = txtyear1.Text;
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddldegree2.Text))
-                    {
-                        webentity.Degree2 = BaseLib.Convert_Int(ddldegree2.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddluniversity2.Text))
-                    {
-                        webentity.University2 = BaseLib.Convert_Int(ddluniversity2.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddltownship2.Text))
-                    {
-                        webentity.TownshipID2 = BaseLib.Convert_Int(ddltownship2.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddlmajor2.Text))
-                    {
-                        webentity.Major2 = BaseLib.Convert_Int(ddlmajor2.SelectedValue);
-                    }
-                    if (!String.IsNullOrWhiteSpace(txtyear2.Text))
-                    {
-                        webentity.Year2 = txtyear2.Text;
-                    }
-                    if (!String.IsNullOrWhiteSpace(ddldegree1.Text))
-                    {
-                        webentity.Degree1 = BaseLib.Convert_Int(ddldegree1.SelectedValue);
-                    }
-                    if (rdocheckimmediate.Checked)
-                    {
-                        webentity.Notice_type = 3;
-                    }
-                    else if (rdocheckm.Checked)
-                    {
-                        if (!String.IsNullOrWhiteSpace(txtnoticeday.Text))
-                        {
-                            webentity.Notice_day = BaseLib.Convert_Int(txtnoticeday.Text);
-                        }
-                        if (!String.IsNullOrWhiteSpace(ddlnoticetype.Text))
-                        {
-                            webentity.Notice_type = BaseLib.Convert_Int(ddlnoticetype.SelectedValue);
-                        }
-                    }
-                    else
-                    {
-                    }
-                    Career_WorkingPlaceEntity cwpe = new Career_WorkingPlaceEntity();
-                    int rowworking = 0;
-                    foreach (ListItem list in chklocationrequested.Items)
-                    {
-                        if (list.Selected)
-                        {
-                            cwpe.WorkingPlace.Rows.Add();
-                            cwpe.WorkingPlace.Rows[rowworking]["WorkingPlace_ID"] = list.Value;
-                            rowworking++;
-                        }
-                    }
-                    Career_PCSkillsEntity cpe = new Career_PCSkillsEntity();
-                    int row = 0;
-                    foreach (ListItem item in chkPcSkill.Items)
-                    {
-                        if (item.Selected)
-                        {
-                            cpe.PcSkills.Rows.Add();
-                            cpe.PcSkills.Rows[row]["PCSkill_ID"] = item.Value;
-                            row++;
-                        }
-                    }
-
-                    Career_QualificationEntity cq = new Career_QualificationEntity();
-                    int itemCount1 = 0;
-                    row = 0;
-                    for (itemCount1 = 0; itemCount1 < outerDataList.Items.Count; itemCount1++)
-                    {
-                        DataList childdl = outerDataList.Items[itemCount1].FindControl("innerDataList") as System.Web.UI.WebControls.DataList;
-                        foreach (DataListItem dl in childdl.Items)
-                        {
-                            CheckBox chkQ = (CheckBox)dl.FindControl("chkQ");
-                            Label lblQ_id = (Label)dl.FindControl("lblQ_id");
-
-                            if (chkQ.Checked)
-                            {
-                                cq.Qualification.Rows.Add();
-                                cq.Qualification.Rows[row]["Qualification_ID"] = Int32.Parse(lblQ_id.Text);
-                                row++;
-                            }
-                        }
-                    }
-                    //Career_Ability
-                    Career_AbilityEntity cae = new Career_AbilityEntity();
-                    int itemCount = 0;
-                    row = 0;
-                    for (itemCount = 0; itemCount < outerDataList1.Items.Count; itemCount++)
-                    {
-                        DataList childdl = outerDataList1.Items[itemCount].FindControl("innerDataList1") as System.Web.UI.WebControls.DataList;
-                        foreach (DataListItem dl in childdl.Items)
-                        {
-                            CheckBox chkAbl = (CheckBox)dl.FindControl("chkAbl");
-                            Label lblAbl_id = (Label)dl.FindControl("lblAbl_id");
-
-                            if (chkAbl.Checked)
-                            {
-                                cae.Ability.Rows.Add();
-                                cae.Ability.Rows[row]["Ability_ID"] = Int32.Parse(lblAbl_id.Text);
-                                row++;
-                            }
-                        }
-                    }
-                    Career_PersonalSkill cps = new Career_PersonalSkill();
-                    int row1 = 0;
-                    foreach (ListItem item in chkpersonalskill.Items)
-                    {
-                        if (item.Selected)
-                        {
-                            cps.Personal_skill.Rows.Add();
-                            cps.Personal_skill.Rows[row1]["PersonaSkill_ID"] = item.Value;
-                            row1++;
-                        }
-                    }
-                    if (!String.IsNullOrWhiteSpace(txtqualification.Text))
-                    {
-                        webentity.Qualification = txtqualification.Text;
-                    }
-                    else
-                    {
-                        webentity.Qualification = " ";
-                    }
-                    webentity.Other = txtimpression.Text;
-                    webentity.UpdateInfo = txtupdateinfo.Text;
-                    if (!String.IsNullOrWhiteSpace(txtTotalMark.Text))
-                    {
-                        webentity.TotalMarks = Convert.ToInt32(txtTotalMark.Text);
-                    }
-                    webbl = new Working_History_BL();
-                    int careerid;
-                    if (Request.QueryString["Career_ID"] != null)
-                    {
-                        careerid = int.Parse(Request.QueryString["Career_ID"]);
-                    }
-                    else
-                    {
-                        careerid = 0;
-                    }
-                    #endregion
-                    #region update
-                    if (Button1.Text == "Update")
-                    {
-                        CreatenewDataTable();
-                        DataTable dtnew = (DataTable)ViewState["DataTablenew"];
-                        DataRow dr = null;
-                        foreach (GridViewRow rowdata in Gridview1.Rows)
-                        {
-                            TextBox comanyname = rowdata.FindControl("txtcompanyname") as TextBox;
-                            TextBox companyaddress = rowdata.FindControl("txtcomapnyaddress") as TextBox;
-                            TextBox fromdate = rowdata.FindControl("txtFromDate") as TextBox;
-                            TextBox todate = rowdata.FindControl("txtToDate") as TextBox;
-                            TextBox reasonforleaving = rowdata.FindControl("txtreasonforleaving") as TextBox;
-                            TextBox other = rowdata.FindControl("txtother") as TextBox;
-                            CheckBoxList chkjobdescription = rowdata.FindControl("chkjobdescription") as CheckBoxList;
-                            Label lblotherjp = (Label)rowdata.FindControl("lblotherjp") as Label;
-                            Label lblreasongjp = (Label)rowdata.FindControl("lblreasonforleavingjp") as Label;
-                            DropDownList ddlpositionlevel = rowdata.FindControl("ddlpositionlevel") as DropDownList;
-                            DropDownList ddlIndustry = rowdata.FindControl("ddlindustrytype") as DropDownList;
-                            DropDownList ddlbusiness = rowdata.FindControl("ddltypeofbusiness") as DropDownList;
-                            DropDownList ddldepartment = rowdata.FindControl("ddldepartment") as DropDownList;
-                            DropDownList ddlposition = rowdata.FindControl("ddlPosition") as DropDownList;
-                            DropDownList ddlcompanytype = rowdata.FindControl("ddlcompanytype") as DropDownList;
-                            DropDownList ddlcountry = rowdata.FindControl("ddlcountry") as DropDownList;
-                            WorkingHistoryEntity workingentity = new WorkingHistoryEntity();
-                            workingentity.Company_name = comanyname.Text;
-                            workingentity.Companyaddress = companyaddress.Text;
-                            if (!String.IsNullOrWhiteSpace(Request.Form[fromdate.UniqueID]))
-                            {
-                                string strDate = Request.Form[fromdate.UniqueID];
-                                string date2 = Convert.ToDateTime(strDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
-                                workingentity.Duration_from = DateTime.ParseExact(date2, "MM/dd/yyyy ", null);
-                            }
-                            if (!String.IsNullOrWhiteSpace(Request.Form[todate.UniqueID]))
-                            {
-                                string strToDate = Request.Form[todate.UniqueID];
-                                string date3 = Convert.ToDateTime(strToDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
-                                workingentity.Duration_to = DateTime.ParseExact(date3, "MM/dd/yyyy ", null);
-                            }
-                            int jbrow = 0;
-                            string strjb = String.Empty;
-                            foreach (ListItem item in chkjobdescription.Items)
-                            {
-                                if (item.Selected)
-                                {
-
-                                    strjb += item.Value + ",";
-                                    jbrow++;
-                                }
-                            }
-                            workingentity.Jobdescription = strjb;
-                            workingentity.Othernew = other.Text;
-                            workingentity.Reasonforleaving = reasonforleaving.Text;
-                            workingentity.Other_Japan1 = lblotherjp.Text;
-                            workingentity.ReasonForLeaving_Japan1 = lblreasongjp.Text;
-                            if (!String.IsNullOrWhiteSpace(ddlcompanytype.Text))
-                            {
-                                workingentity.Company_Type_ID = BaseLib.Convert_Int(ddlcompanytype.SelectedValue);
-                            }
-                            if (!String.IsNullOrWhiteSpace(ddlcountry.Text))
-                            {
-                                workingentity.Country_ID = BaseLib.Convert_Int(ddlcountry.SelectedValue);
-                            }
-                            if (!String.IsNullOrWhiteSpace(ddlIndustry.Text))
-                            {
-                                workingentity.IndustryType_ID = BaseLib.Convert_Int(ddlIndustry.SelectedValue);
-                            }
-                            if (!String.IsNullOrWhiteSpace(ddlbusiness.Text))
-                            {
-                                workingentity.Business_type = BaseLib.Convert_Int(ddlbusiness.SelectedValue);
-                            }
-                            if (!String.IsNullOrWhiteSpace(ddldepartment.Text))
-                            {
-                                workingentity.Department_ID = BaseLib.Convert_Int(ddldepartment.SelectedValue);
-                            }
-                            if (!String.IsNullOrWhiteSpace(ddlposition.Text))
-                            {
-                                workingentity.Position_id = BaseLib.Convert_Int(ddlposition.SelectedValue);
-                            }
-
-                            if (!String.IsNullOrWhiteSpace(ddlpositionlevel.Text))
-                            {
-                                workingentity.Positionlevel = BaseLib.Convert_Int(ddlpositionlevel.SelectedValue);
-                            }
-                            dr = dtnew.NewRow();
-                            dr["companyname"] = workingentity.Company_name;
-                            dr["companyaddress"] = workingentity.Companyaddress;
-                            dr["fromdate"] = workingentity.Duration_from;
-                            dr["todate"] = workingentity.Duration_to;
-                            dr["jobdescripition"] = workingentity.Jobdescription;
-                            dr["reason"] = workingentity.Reasonforleaving;
-                            dr["companytype"] = workingentity.Company_Type_ID;
-                            dr["country"] = workingentity.Country_ID;
-                            dr["industry"] = workingentity.IndustryType_ID;
-                            dr["business"] = workingentity.Business_type;
-                            dr["deparment"] = workingentity.Department_ID;
-                            dr["position"] = workingentity.Position_id;
-                            dr["other"] = workingentity.Othernew;
-                            dr["positionlevel"] = workingentity.Positionlevel;
-                            dr["otherjp"] = workingentity.Other_Japan1;
-                            dr["reasonjp"] = workingentity.ReasonForLeaving_Japan1;
-                            dtnew.Rows.Add(dr);
-                        }
-                        webbl.InsertData(webentity, cpe, Convert.ToInt32(lblid.Text), cps, EnumBase.Save.Update, careerid, dtnew, cwpe, cq, cae);
-                        string url = "WorkingHistory_Detail.aspx?Career_ID=" + careerid;
-                        string script = "window.onload = function(){ alert('";
-                        script += "Update Successfully";
-                        script += "');";
-                        script += "window.location = '";
-                        script += url;
-                        script += "'; }";
-                        ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-                    }
-                    #endregion
-                    else
-                    {
-                        #region insert
-                        if (CheckCareerid())
-                        {
-                            int str = Convert.ToInt32(lblid.Text);
-                            CreatenewDataTable();
-                            DataTable dtnew = (DataTable)ViewState["DataTablenew"];
-                            DataRow dr = null;
-                            //For Job Description
-                            DataTable dtjobd = (DataTable)ViewState["JobD1"];
-                            foreach (GridViewRow rowdata in Gridview1.Rows)
-                            {
-                                TextBox comanyname = rowdata.FindControl("txtcompanyname") as TextBox;
-                                TextBox companyaddress = rowdata.FindControl("txtcomapnyaddress") as TextBox;
-                                TextBox fromdate = rowdata.FindControl("txtFromDate") as TextBox;
-                                TextBox todate = rowdata.FindControl("txtToDate") as TextBox;
-                                TextBox reasonforleaving = rowdata.FindControl("txtreasonforleaving") as TextBox;
-                                TextBox other = rowdata.FindControl("txtother") as TextBox;
-                                Label lblotherjp = (Label)rowdata.FindControl("lblotherjp") as Label;
-                                Label lblreasongjp = (Label)rowdata.FindControl("lblreasonforleavingjp") as Label;
-                                CheckBoxList chkjobdescription = rowdata.FindControl("chkjobdescription") as CheckBoxList;
-                                DropDownList ddlpositionlevel = rowdata.FindControl("ddlpositionlevel") as DropDownList;
-                                DropDownList ddlIndustry = rowdata.FindControl("ddlindustrytype") as DropDownList;
-                                DropDownList ddlbusiness = rowdata.FindControl("ddltypeofbusiness") as DropDownList;
-                                DropDownList ddldepartment = rowdata.FindControl("ddldepartment") as DropDownList;
-                                DropDownList ddlposition = rowdata.FindControl("ddlPosition") as DropDownList;
-                                DropDownList ddlcompanytype = rowdata.FindControl("ddlcompanytype") as DropDownList;
-                                DropDownList ddlcountry = rowdata.FindControl("ddlcountry") as DropDownList;
-                                WorkingHistoryEntity workingentity = new WorkingHistoryEntity();
-                                workingentity.Company_name = comanyname.Text;
-                                workingentity.Companyaddress = companyaddress.Text;
-                                workingentity.Othernew = other.Text;
-                                if (!String.IsNullOrWhiteSpace(Request.Form[fromdate.UniqueID]))
-                                {
-                                    string strDate = Request.Form[fromdate.UniqueID];
-                                    string date2 = Convert.ToDateTime(strDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
-                                    workingentity.Duration_from = DateTime.ParseExact(date2, "MM/dd/yyyy ", null);
-                                }
-                                if (!String.IsNullOrWhiteSpace(Request.Form[todate.UniqueID]))
-                                {
-                                    string strToDate = Request.Form[todate.UniqueID];
-                                    string date3 = Convert.ToDateTime(strToDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
-                                    workingentity.Duration_to = DateTime.ParseExact(date3, "MM/dd/yyyy ", null);
-                                }
-                                workingentity.Other_Japan1 = lblotherjp.Text;
-                                workingentity.ReasonForLeaving_Japan1 = lblreasongjp.Text;
-                                int jbrow = 0;
-                                string strjb = String.Empty;
-                                foreach (ListItem item in chkjobdescription.Items)
-                                {
-                                    if (item.Selected)
-                                    {
-                                        strjb += item.Value + ",";
-                                        jbrow++;
-                                    }
-                                }
-                                workingentity.Jobdescription = strjb;
-                                workingentity.Reasonforleaving = reasonforleaving.Text;
-                                if (!String.IsNullOrWhiteSpace(ddlcompanytype.Text))
-                                {
-                                    workingentity.Company_Type_ID = BaseLib.Convert_Int(ddlcompanytype.SelectedValue);
-                                }
-                                if (!String.IsNullOrWhiteSpace(ddlcountry.Text))
-                                {
-                                    workingentity.Country_ID = BaseLib.Convert_Int(ddlcountry.SelectedValue);
-                                }
-                                if (!String.IsNullOrWhiteSpace(ddlIndustry.Text))
-                                {
-                                    workingentity.IndustryType_ID = BaseLib.Convert_Int(ddlIndustry.SelectedValue);
-                                }
-                                if (!String.IsNullOrWhiteSpace(ddlbusiness.Text))
-                                {
-                                    workingentity.Business_type = BaseLib.Convert_Int(ddlbusiness.SelectedValue);
-                                }
-                                if (!String.IsNullOrWhiteSpace(ddldepartment.Text))
-                                {
-                                    workingentity.Department_ID = BaseLib.Convert_Int(ddldepartment.SelectedValue);
-                                }
-                                if (!String.IsNullOrWhiteSpace(ddlposition.Text))
-                                {
-                                    workingentity.Position_id = BaseLib.Convert_Int(ddlposition.SelectedValue);
-                                }
-                                if (!String.IsNullOrWhiteSpace(ddlpositionlevel.Text))
-                                {
-                                    workingentity.Positionlevel = BaseLib.Convert_Int(ddlpositionlevel.SelectedValue);
-                                }
-                                dr = dtnew.NewRow();
-                                dr["companyname"] = workingentity.Company_name;
-                                dr["companyaddress"] = workingentity.Companyaddress;
-                                dr["fromdate"] = workingentity.Duration_from;
-                                dr["todate"] = workingentity.Duration_to;
-                                dr["jobdescripition"] = workingentity.Jobdescription;
-                                dr["reason"] = workingentity.Reasonforleaving;
-                                dr["companytype"] = workingentity.Company_Type_ID;
-                                dr["country"] = workingentity.Country_ID;
-                                dr["industry"] = workingentity.IndustryType_ID;
-                                dr["business"] = workingentity.Business_type;
-                                dr["deparment"] = workingentity.Department_ID;
-                                dr["position"] = workingentity.Position_id;
-                                dr["other"] = workingentity.Othernew;
-                                dr["positionlevel"] = workingentity.Positionlevel;
-                                dr["otherjp"] = workingentity.Other_Japan1;
-                                dr["reasonjp"] = workingentity.ReasonForLeaving_Japan1;
-                                dtnew.Rows.Add(dr);
-                            }
-                            webbl.InsertData(webentity, cpe, Convert.ToInt32(lblid.Text), cps, EnumBase.Save.Insert, careerid, dtnew, cwpe, cq, cae);
-                            string url = "WorkingHistory_Detail.aspx?Career_ID=" + str;
-                            string script = "window.onload = function(){ alert('";
-                            script += "Save Successfully";
-                            script += "');";
-                            script += "window.location = '";
-                            script += url;
-                            script += "'; }";
-                            ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-                        }
-                        #endregion
-                        else
-                        {
-                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Career_Id already Register')", true);
-                        }
-                    }
-                }
-                else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alerts", "javascript:alert('Please first select Employee_Code')", true);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public void CheckCondition(WorkingHistoryEntity webentity)
-        {
-            try
-            {
-                if (rdoAvaliable.Checked)
-                {
-                    webentity.Drivinglicense = "1";
-                }
-                else
-                {
-                    webentity.Drivinglicense = "0";
-                }
-
-                if (!String.IsNullOrWhiteSpace(rdoexperience.SelectedValue))
-                {
-                    webentity.Workingexperience = Convert.ToString(rdoexperience.SelectedValue);
-                }
-                if (rdosatyes.Checked)
-                {
-                    webentity.Worksatday = "1";
-                }
-                else
-                {
-                    webentity.Worksatday = "0";
-                }
-                if (!String.IsNullOrWhiteSpace(rdostatus.SelectedValue))
-                {
-                    webentity.Status1 = Convert.ToInt32(rdostatus.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(ddlEngreadwrite.Text))
-                {
-                    webentity.Engreadingwrite = BaseLib.Convert_Int(ddlEngreadwrite.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(ddlEngspeaking.Text))
-                {
-                    webentity.Engspeaking = BaseLib.Convert_Int(ddlEngspeaking.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(ddljpreadwrite.Text))
-                {
-                    webentity.Jpreadwrite = BaseLib.Convert_Int(ddljpreadwrite.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(ddljpspeaking.Text))
-                {
-                    webentity.Jpspeaking = BaseLib.Convert_Int(ddljpspeaking.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(chkthilawa.SelectedValue))
-                {
-                    webentity.Thilawa = Convert.ToInt32(chkthilawa.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(chkhty.SelectedValue))
-                {
-                    webentity.Hlaingtharyar = Convert.ToInt32(chkhty.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(chkoversea.SelectedValue))
-                {
-                    webentity.Oversea = Convert.ToInt32(chkoversea.SelectedValue);
-                }
-                if (!String.IsNullOrWhiteSpace(chkoverseatraining.SelectedValue))
-                {
-                    webentity.Overseatraining = Convert.ToInt32(chkoverseatraining.SelectedValue);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public Boolean Check()
-        {
-            string careercode = txtempcode.Text;
-            if (String.IsNullOrWhiteSpace(careercode))
-                return false;
-            else
-                return true;
-        }
-
-        protected void btndelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Working_History_BL wbl = new Working_History_BL();
-                if (wbl.DeleteSelectedID(BaseLib.Convert_Int(Request.QueryString["Career_ID"].ToString())))
-                {
-                    string url = "WorkingHistory_View.aspx";
-                    string script = "window.onload = function(){ alert('";
-                    script += "Delete Successfully";
-                    script += "');";
-                    script += "window.location = '";
-                    script += url;
-                    script += "'; }";
-                    ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-                }
-                else
-                {
-                    GlobalUI.MessageBox("Delete Failed");
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public Boolean CheckCareerid()
-        {
-            webbl = new Working_History_BL();
-            DataTable dtcheckcareerid = webbl.CheckCareerid(Convert.ToInt32(lblid.Text));
-            if (dtcheckcareerid.Rows.Count > 0)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
             }
         }
 
@@ -1871,69 +884,10 @@ namespace JSAT.Employee
             }
             txtTotalMark.Text = totalmarks.ToString();
         }
-
         protected void addnewtext_Click(object sender, EventArgs e)
         {
             AddNewRowToGrid();
         }
-
-        private void SetInitialRow()
-        {
-            DataTable dt = new DataTable();
-            DataRow dr = null;
-            dt.Columns.Add(new DataColumn("RowNumber", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column1", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column2", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column3", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column4", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column5", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column6", typeof(string)));
-            dt.Columns.Add(new DataColumn("companytype", typeof(string)));
-            dt.Columns.Add(new DataColumn("country", typeof(string)));
-            dt.Columns.Add(new DataColumn("industry", typeof(string)));
-            dt.Columns.Add(new DataColumn("business", typeof(string)));
-            dt.Columns.Add(new DataColumn("deparment", typeof(string)));
-            dt.Columns.Add(new DataColumn("position", typeof(string)));
-            dt.Columns.Add(new DataColumn("other", typeof(string)));
-            dt.Columns.Add(new DataColumn("positionlevel", typeof(string)));
-            dt.Columns.Add(new DataColumn("otherjp", typeof(string)));
-            dt.Columns.Add(new DataColumn("reasonjp", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column7", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column8", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column9", typeof(DateTime)));
-            dt.Columns.Add(new DataColumn("Column10", typeof(DateTime)));
-            dt.Columns.Add(new DataColumn("Column11", typeof(string)));
-            dt.Columns.Add(new DataColumn("Column12", typeof(string)));
-            dr = dt.NewRow();
-
-            dr["Column1"] = string.Empty;
-            dr["Column2"] = string.Empty;
-            dr["Column3"] = string.Empty;
-            dr["Column4"] = string.Empty;
-            dr["Column5"] = string.Empty;
-            dr["Column6"] = string.Empty;
-            dr["companytype"] = string.Empty;
-            dr["country"] = string.Empty;
-            dr["industry"] = string.Empty;
-            dr["business"] = string.Empty;
-            dr["deparment"] = string.Empty;
-            dr["position"] = string.Empty;
-            dr["other"] = string.Empty;
-            dr["positionlevel"] = string.Empty;
-            dr["otherjp"] = string.Empty;
-            dr["reasonjp"] = string.Empty;
-            dr["Column7"] = "Company_Name";
-            dr["Column8"] = "Company_Address";
-            dr["Column9"] = DateTime.Now;
-            dr["Column10"] = DateTime.Now;
-            dr["Column11"] = "Job_Description";
-            dr["Column12"] = "Reason_For_Leaving";
-            dt.Rows.Add(dr);
-            ViewState["CurrentTable"] = dt;
-            Gridview1.DataSource = dt;
-            Gridview1.DataBind();
-        }
-
         private void AddNewRowToGrid()
         {
             int rowIndex = 0;
@@ -2087,7 +1041,6 @@ namespace JSAT.Employee
                 Response.Write("ViewState is null");
             }
         }
-
         private void SetPreviousDB()
         {
             int rowIndex = 0;
@@ -2222,7 +1175,6 @@ namespace JSAT.Employee
                 LinkButton1.Visible = true;
             }
         }
-
         private void SetPreviousData()
         {
             int rowIndex = 0;
@@ -2357,99 +1309,216 @@ namespace JSAT.Employee
                 }
             }
         }
-
-        protected void Gridview1_On_Row_DataBound(object sender, GridViewRowEventArgs e)
+        public void EditData(DataTable dtb)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                DropDownList ddlIndustry = (e.Row.FindControl("ddlindustrytype") as DropDownList);
-                ddlIndustry.DataSource = BindIndustry();
-                ddlIndustry.DataTextField = "Description";
-                ddlIndustry.DataValueField = "ID";
-                ddlIndustry.DataBind();
-                ddlIndustry.Items.Insert(0, "");
-
-                DropDownList ddldepartment = (e.Row.FindControl("ddldepartment") as DropDownList);
-                ddldepartment.DataSource = BindDepartment();
-                ddldepartment.DataTextField = "Description";
-                ddldepartment.DataValueField = "ID";
-                ddldepartment.DataBind();
-                ddldepartment.Items.Insert(0, "");
-
-                DropDownList ddlpositionlevel = (e.Row.FindControl("ddlpositionlevel") as DropDownList);
-                ddlpositionlevel.DataSource = BindPositionLevel();
-                ddlpositionlevel.DataTextField = "Description";
-                ddlpositionlevel.DataValueField = "ID";
-                ddlpositionlevel.DataBind();
-                ddlpositionlevel.Items.Insert(0, "");
-
-                DropDownList ddlcompanytype = (e.Row.FindControl("ddlcompanytype") as DropDownList);
-                ddlcompanytype.DataSource = BindCompanyType();
-                ddlcompanytype.DataTextField = "Description";
-                ddlcompanytype.DataValueField = "ID";
-                ddlcompanytype.DataBind();
-                ddlcompanytype.Items.Insert(0, "");
-            }
-        }
-
-        public DataTable BindIndustry()
-        {
-            DataTable dtb = new DataTable();
             try
             {
-                Working_History_BL webbl = new Working_History_BL();
-                dtb = webbl.BindIndustry();
-                return dtb;
+                if (ddlEngreadwrite.Items.FindByText(dtb.Rows[0]["Engreadwrite"].ToString()) != null)
+                {
+                    ddlEngreadwrite.ClearSelection();
+                    ddlEngreadwrite.Items.FindByText(dtb.Rows[0]["Engreadwrite"].ToString()).Selected = true;
+                }
+                if (ddlEngspeaking.Items.FindByText(dtb.Rows[0]["Engspeak"].ToString()) != null)
+                {
+                    ddlEngspeaking.ClearSelection();
+                    ddlEngspeaking.Items.FindByText(dtb.Rows[0]["Engspeak"].ToString()).Selected = true;
+                }
+                if (ddljpreadwrite.Items.FindByText(dtb.Rows[0]["JPreadwrite"].ToString()) != null)
+                {
+                    ddljpreadwrite.ClearSelection();
+                    ddljpreadwrite.Items.FindByText(dtb.Rows[0]["JPreadwrite"].ToString()).Selected = true;
+                }
+                if (ddljpspeaking.Items.FindByText(dtb.Rows[0]["JPspeak"].ToString()) != null)
+                {
+                    ddljpspeaking.ClearSelection();
+                    ddljpspeaking.Items.FindByText(dtb.Rows[0]["JPspeak"].ToString()).Selected = true;
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
+        protected void Qualification_SelectedByID(int careerid)
+        {
+            Career_QualificationBL cqbl = new Career_QualificationBL();
+            DataTable dtbindqual = cqbl.SelectByID(careerid);
+            int itemCount1 = 0;
 
-        public DataTable BindDepartment()
+            for (int i = 0; i < dtbindqual.Rows.Count; i++)
+            {
+                for (itemCount1 = 0; itemCount1 < outerDataList.Items.Count; itemCount1++)
+                {
+
+                    DataList childdl = outerDataList.Items[itemCount1].FindControl("innerDataList") as System.Web.UI.WebControls.DataList;
+                    foreach (DataListItem dl in childdl.Items)
+                    {
+                        CheckBox chkQ = (CheckBox)dl.FindControl("chkQ");
+                        if ((chkQ.Text).ToString() == dtbindqual.Rows[i]["Qualification"].ToString())
+                        {
+                            chkQ.Checked = true;
+                        }
+                    }
+
+                }
+            }
+        }
+        protected void Ability_SelectedByID(int careerid)
+        {
+            Career_AbilityBL cabl = new Career_AbilityBL();
+            DataTable dtbindqual = cabl.SelectByID(careerid);
+            int itemCount1 = 0;
+            for (int i = 0; i < dtbindqual.Rows.Count; i++)
+            {
+                for (itemCount1 = 0; itemCount1 < outerDataList1.Items.Count; itemCount1++)
+                {
+                    DataList childdl1 = outerDataList1.Items[itemCount1].FindControl("innerDataList1") as System.Web.UI.WebControls.DataList;
+                    foreach (DataListItem dl in childdl1.Items)
+                    {
+                        CheckBox chkAbl = (CheckBox)dl.FindControl("chkAbl");
+                        if ((chkAbl.Text).ToString() == dtbindqual.Rows[i]["Ability"].ToString())
+                        {
+                            chkAbl.Checked = true;
+                        }
+                    }
+                }
+            }
+        }
+        public void FillDataInTextboxforOldjobhistory(DataTable bindoldjobhistory)
         {
             try
             {
                 GlobalBL global = new GlobalBL();
-                DataTable dtbdeparment = global.Get_Datanew("Department");
-                return dtbdeparment;
+                Working_History_BL workbl = new Working_History_BL();
+                if (bindoldjobhistory != null && bindoldjobhistory.Rows.Count > 0)
+                {
+                    int rowIndex = 0;
+                    if (bindoldjobhistory.Rows.Count > 0)
+                    {
+                        Gridview1.DataSource = bindoldjobhistory;
+                        Gridview1.DataBind();
+                        foreach (GridViewRow row in Gridview1.Rows)
+                        {
+                            TextBox TextBox1 = row.FindControl("txtcompanyname") as TextBox;
+                            TextBox TextBox2 = row.FindControl("txtcomapnyaddress") as TextBox;
+                            TextBox TextBox3 = row.FindControl("txtFromDate") as TextBox;
+                            TextBox TextBox4 = row.FindControl("txtToDate") as TextBox;
+                            TextBox TextBox6 = row.FindControl("txtreasonforleaving") as TextBox;
+                            TextBox TextBox7 = row.FindControl("txtother") as TextBox;
+                            Label lbl1 = (Label)row.FindControl("lblotherjp") as Label;
+                            Label lbl2 = (Label)row.FindControl("lblreasonforleavingjp") as Label;
+                            DropDownList ddlIndustry = row.FindControl("ddlindustrytype") as DropDownList;
+                            DropDownList ddlbusiness = row.FindControl("ddltypeofbusiness") as DropDownList;
+                            DropDownList ddldepartment = row.FindControl("ddldepartment") as DropDownList;
+                            DropDownList ddlposition = row.FindControl("ddlPosition") as DropDownList;
+                            DropDownList ddlpositonlevel = row.FindControl("ddlpositionlevel") as DropDownList;
+                            DropDownList ddlcompanytype = row.FindControl("ddlcompanytype") as DropDownList;
+                            DropDownList ddlcountry = row.FindControl("ddlcountry") as DropDownList;
+                            CheckBoxList chkjobdescription = row.FindControl("chkjobdescription") as CheckBoxList;
+                            TextBox1.Text = bindoldjobhistory.Rows[rowIndex]["Company_Name"].ToString();
+                            TextBox2.Text = bindoldjobhistory.Rows[rowIndex]["Company_Address"].ToString();
+                            TextBox3.Text = bindoldjobhistory.Rows[rowIndex]["Duration_From"].ToString();
+                            TextBox4.Text = bindoldjobhistory.Rows[rowIndex]["Duration_To"].ToString();
+                            TextBox6.Text = bindoldjobhistory.Rows[rowIndex]["Reason_For_Leaving"].ToString();
+                            TextBox7.Text = bindoldjobhistory.Rows[rowIndex]["Other"].ToString();
+                            lbl1.Text = bindoldjobhistory.Rows[rowIndex]["Other_Japan"].ToString();
+                            lbl2.Text = bindoldjobhistory.Rows[rowIndex]["Reason_For_Leaving_Japan"].ToString();
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Position_Level"].ToString()))
+                            {
+                                ddlpositonlevel.ClearSelection();
+                                ddlpositonlevel.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Position_Level"].ToString()).Selected = true;
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Company_Type"].ToString()))
+                            {
+                                ddlcompanytype.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Company_Type"].ToString()).Selected = true;
+                                DataTable dtb = new DataTable();
+                                BusinessTypeBL bussinessbl = new BusinessTypeBL();
+                                dtb = bussinessbl.Selectedbycompanytype(BaseLib.Convert_Int(ddlcompanytype.SelectedValue));
+                                ddlcountry.DataSource = dtb;
+                                ddlcountry.DataTextField = "Description";
+                                ddlcountry.DataValueField = "ID";
+                                ddlcountry.DataBind();
+                                ddlcountry.Focus();
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Country"].ToString()))
+                            {
+                                ddlcountry.ClearSelection();
+                                ddlcountry.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Country"].ToString()).Selected = true;
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Industry"].ToString()))
+                            {
+                                ddlIndustry.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Industry"].ToString()).Selected = true;
+                                DataTable dtb = new DataTable();
+                                BusinessTypeBL bussinessbl = new BusinessTypeBL();
+                                dtb = bussinessbl.SelectedbyTypeofBusiness(BaseLib.Convert_Int(ddlIndustry.SelectedValue));
+                                ddlbusiness.DataSource = dtb;
+                                ddlbusiness.DataTextField = "Description";
+                                ddlbusiness.DataValueField = "ID";
+                                ddlbusiness.DataBind();
+                                ddlbusiness.Focus();
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Business_Type"].ToString()))
+                            {
+                                ddlbusiness.ClearSelection();
+                                ddlbusiness.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Business_Type"].ToString()).Selected = true;
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Department"].ToString()))
+                            {
+                                ddldepartment.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Department"].ToString()).Selected = true;
+                                DataTable dtDep = new DataTable();
+                                PositionBL pbl = new PositionBL();
+                                dtDep = pbl.SelectByDepartmentID(BaseLib.Convert_Int(ddldepartment.SelectedValue));
+                                ddlposition.DataSource = dtDep;
+                                ddlposition.DataTextField = "Description";
+                                ddlposition.DataValueField = "ID";
+                                ddlposition.DataBind();
+                                ddlposition.Items.Insert(0, "");
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Position"].ToString()))
+                            {
+                                ddlposition.Items.FindByText(bindoldjobhistory.Rows[rowIndex]["Position"].ToString()).Selected = true;
+                                int type = BaseLib.Convert_Int(ddlposition.SelectedValue);
+                                Working_History_BL webbl = new Working_History_BL();
+                                DataTable dtb = new DataTable();
+                                dtb = webbl.SelectedByPosition(type);
+                                chkjobdescription.DataSource = dtb;
+                                chkjobdescription.DataTextField = "Description";
+                                chkjobdescription.DataValueField = "ID";
+                                chkjobdescription.DataBind();
+                                chkjobdescription.Focus();
+                            }
+                            if (!String.IsNullOrWhiteSpace(bindoldjobhistory.Rows[rowIndex]["Job_Description_ID"].ToString()))
+                            {
+                                string[] strarr = (bindoldjobhistory.Rows[rowIndex]["Job_Description_ID"].ToString().Split(','));
+                                for (int i = 0; i < strarr.Length; i++)
+                                {
+                                    if (chkjobdescription.Items.FindByValue(strarr[i]) != null)
+                                    {
+                                        chkjobdescription.Items.FindByValue(strarr[i]).Selected = true;
+                                    }
+                                }
+                            }
+                            rowIndex++;
+                        }
+                        if (bindoldjobhistory.Rows.Count > 1)
+                        {
+                            LinkButton LinkButton1 = Gridview1.HeaderRow.FindControl("LinkButton1") as LinkButton;
+                            LinkButton1.Visible = true;
+                        }
+                        ViewState["PreviousTable"] = bindoldjobhistory;
+                    }
+                    else
+                    {
+                        Gridview1.DataSource = null;
+                        Gridview1.DataBind();
+                    }
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
         }
-
-        public DataTable BindCompanyType()
-        {
-            try
-            {
-                GlobalBL global = new GlobalBL();
-                DataTable dttype = global.Get_Datanew("Company_Type");
-                return dttype;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
-        public DataTable BindPositionLevel()
-        {
-            DataTable dtb = new DataTable();
-            try
-            {
-                Working_History_BL webbl = new Working_History_BL();
-                dtb = webbl.BindPositionLevel();
-                return dtb;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
-
         protected void Remove_Click(object sender, EventArgs e)
         {
             LinkButton lb = (LinkButton)sender;
@@ -2695,7 +1764,6 @@ namespace JSAT.Employee
                 }
             }
         }
-
         public void CreatenewDataTable()
         {
             DataTable dtnew = new DataTable();
@@ -2719,7 +1787,6 @@ namespace JSAT.Employee
             dtnew.Columns.Add(new DataColumn("reasonjp", typeof(string)));
             ViewState["DataTablenew"] = dtnew;
         }
-
         public void rdocheckchange(object sender, EventArgs e)
         {
             if (rdocheckimmediate.Checked)
@@ -2733,7 +1800,6 @@ namespace JSAT.Employee
                 ddlnoticetype.Visible = true;
             }
         }
-
         protected void rdosatyes_oncheckchanged(object sender, EventArgs e)
         {
             if (rdosatyes.Checked)
@@ -2745,5 +1811,665 @@ namespace JSAT.Employee
                 ddlsatdaycondition.Visible = false;
             }
         }
+        public DataTable BindIndustry()
+        {
+            DataTable dtb = new DataTable();
+            try
+            {
+                Working_History_BL webbl = new Working_History_BL();
+                dtb = webbl.BindIndustry();
+                return dtb;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable BindDepartment()
+        {
+            try
+            {
+                GlobalBL global = new GlobalBL();
+                DataTable dtbdeparment = global.Get_Datanew("Department");
+                return dtbdeparment;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable BindCompanyType()
+        {
+            try
+            {
+                GlobalBL global = new GlobalBL();
+                DataTable dttype = global.Get_Datanew("Company_Type");
+                return dttype;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void Gridview1_On_Row_DataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                DropDownList ddlIndustry = (e.Row.FindControl("ddlindustrytype") as DropDownList);
+                ddlIndustry.DataSource = BindIndustry();
+                ddlIndustry.DataTextField = "Description";
+                ddlIndustry.DataValueField = "ID";
+                ddlIndustry.DataBind();
+                ddlIndustry.Items.Insert(0, "");
+
+                DropDownList ddldepartment = (e.Row.FindControl("ddldepartment") as DropDownList);
+                ddldepartment.DataSource = BindDepartment();
+                ddldepartment.DataTextField = "Description";
+                ddldepartment.DataValueField = "ID";
+                ddldepartment.DataBind();
+                ddldepartment.Items.Insert(0, "");
+
+                DropDownList ddlpositionlevel = (e.Row.FindControl("ddlpositionlevel") as DropDownList);
+                ddlpositionlevel.DataSource = BindPositionLevel();
+                ddlpositionlevel.DataTextField = "Description";
+                ddlpositionlevel.DataValueField = "ID";
+                ddlpositionlevel.DataBind();
+                ddlpositionlevel.Items.Insert(0, "");
+
+                DropDownList ddlcompanytype = (e.Row.FindControl("ddlcompanytype") as DropDownList);
+                ddlcompanytype.DataSource = BindCompanyType();
+                ddlcompanytype.DataTextField = "Description";
+                ddlcompanytype.DataValueField = "ID";
+                ddlcompanytype.DataBind();
+                ddlcompanytype.Items.Insert(0, "");
+            }
+        }
+        protected void outerRep_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                DataRowView drv = e.Item.DataItem as DataRowView;
+                DataList innerDataList = e.Item.FindControl("innerDataList") as DataList;
+                innerDataList.DataSource = drv.CreateChildView("Qualification_Relation");
+                innerDataList.DataBind();
+            }
+
+        }
+        protected void outerRep_ItemDataBound1(object sender, DataListItemEventArgs e)
+        {
+            if (e.Item.ItemType == ListItemType.AlternatingItem || e.Item.ItemType == ListItemType.Item)
+            {
+                DataRowView drv = e.Item.DataItem as DataRowView;
+                DataList innerDataList = e.Item.FindControl("innerDataList1") as DataList;
+                innerDataList.DataSource = drv.CreateChildView("Ability_Relation");
+                innerDataList.DataBind();
+            }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                #region  EWH
+                WorkingHistoryEntity webentity = new WorkingHistoryEntity();
+                CheckCondition(webentity);
+                if (!string.IsNullOrWhiteSpace(Request.Form[txtdate.UniqueID]))
+                {
+                    string strDate1 = Request.Form[txtdate.UniqueID];
+                    string date1 = Convert.ToDateTime(strDate1, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
+                    webentity.Interviewdate = DateTime.ParseExact(date1, "MM/dd/yyyy ", null);
+                }
+
+                webentity.Positionrequested = BaseLib.Convert_Int(ddlpositionrequsted.SelectedValue);
+                webentity.Name = txtname.Text;
+
+                webentity.Age = Convert.ToInt16(txtage.Text);
+
+                webentity.Gender1 = BaseLib.Convert_Int(ddlGender.SelectedValue);
+
+                webentity.FirstInterviewer = BaseLib.Convert_Int(ddlfirsint.SelectedValue);
+
+                webentity.SecondInterviewer = BaseLib.Convert_Int(ddlsecondint.SelectedValue);
+
+                webentity.Japanese_Interviewer = BaseLib.Convert_Int(ddljapan.SelectedValue);
+
+                webentity.Address = ddlAddress.SelectedValue;
+
+                webentity.Phone = txtPhone.Text;
+
+                webentity.Religion = BaseLib.Convert_Int(ddlReligion.SelectedValue);
+
+                webentity.EmergencyContactPerson = txtEName.Text;
+
+                webentity.EmergencyContactPhone = txtEPhone.Text;
+
+                webentity.Email = txtEmail.Text;
+
+                webentity.Positionrequested = BaseLib.Convert_Int(ddlpositionrequsted.SelectedValue);
+
+                webentity.Positionrequested1 = BaseLib.Convert_Int(ddlpositionrequested1.SelectedValue);
+
+                webentity.Positionrequested2 = BaseLib.Convert_Int(ddlpositionrequested2.SelectedValue);
+
+                webentity.Positionlevel1 = BaseLib.Convert_Int(ddlpositionlevel1.SelectedValue);
+
+                webentity.Positionlevel2 = BaseLib.Convert_Int(ddlpositionlevel2.SelectedValue);
+
+                webentity.Positionlevel3 = BaseLib.Convert_Int(ddlpositionlevel3.SelectedValue);
+
+
+                if (!String.IsNullOrWhiteSpace(txtTotalMark.Text))
+                {
+                    webentity.TotalMark1 = Convert.ToInt32(txtTotalMark.Text);
+                }
+
+                if (!string.IsNullOrWhiteSpace(txtexpectedsalary.Text))
+                {
+                    webentity.Expectedsalary = int.Parse(txtexpectedsalary.Text);
+                }
+                else
+                {
+                    webentity.Expectedsalary = 0;
+                }
+
+                if (!String.IsNullOrWhiteSpace(ddlsalarytype.Text))
+                {
+                    webentity.SalarytypeID = BaseLib.Convert_Int(ddlsalarytype.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(salaryID.Text))
+                {
+                    webentity.SalaryID1 = int.Parse(salaryID.Text);
+                }
+                if (!String.IsNullOrWhiteSpace(ddlsatdaycondition.Text))
+                {
+                    if (rdosatno.Checked)
+                    {
+                        webentity.Saturday_Condition1 = 0;
+                    }
+                    else
+                    {
+                        webentity.Saturday_Condition1 = BaseLib.Convert_Int(ddlsatdaycondition.SelectedValue);
+                    }
+                }
+                webentity.Degree1 = BaseLib.Convert_Int(ddldegree1.SelectedValue);
+
+                webentity.University1 = BaseLib.Convert_Int(ddluniversity1.SelectedValue);
+
+                webentity.TownshipID1 = BaseLib.Convert_Int(ddltownship1.SelectedValue);
+
+                webentity.Major1 = BaseLib.Convert_Int(ddlmajor1.SelectedValue);
+
+                webentity.Year1 = txtyear1.Text;
+
+                webentity.Degree2 = BaseLib.Convert_Int(ddldegree2.SelectedValue);
+
+                webentity.University2 = BaseLib.Convert_Int(ddluniversity2.SelectedValue);
+
+                webentity.TownshipID2 = BaseLib.Convert_Int(ddltownship2.SelectedValue);
+
+                webentity.Major2 = BaseLib.Convert_Int(ddlmajor2.SelectedValue);
+
+                webentity.Year2 = txtyear2.Text;
+
+                webentity.Degree1 = BaseLib.Convert_Int(ddldegree1.SelectedValue);
+
+                if (rdocheckimmediate.Checked)
+                {
+                    webentity.Notice_type = 3;
+                }
+                else if (rdocheckm.Checked)
+                {
+                    if (!String.IsNullOrWhiteSpace(txtnoticeday.Text))
+                    {
+                        webentity.Notice_day = BaseLib.Convert_Int(txtnoticeday.Text);
+                    }
+                    if (!String.IsNullOrWhiteSpace(ddlnoticetype.Text))
+                    {
+                        webentity.Notice_type = BaseLib.Convert_Int(ddlnoticetype.SelectedValue);
+                    }
+                }
+                Career_WorkingPlaceEntity cwpe = new Career_WorkingPlaceEntity();
+                int rowworking = 0;
+                foreach (ListItem list in chklocationrequested.Items)
+                {
+                    if (list.Selected)
+                    {
+                        cwpe.WorkingPlace.Rows.Add();
+                        cwpe.WorkingPlace.Rows[rowworking]["WorkingPlace_ID"] = list.Value;
+                        rowworking++;
+                    }
+                }
+                Career_PCSkillsEntity cpe = new Career_PCSkillsEntity();
+                int row = 0;
+                foreach (ListItem item in chkPcSkill.Items)
+                {
+                    if (item.Selected)
+                    {
+                        cpe.PcSkills.Rows.Add();
+                        cpe.PcSkills.Rows[row]["PCSkill_ID"] = item.Value;
+                        row++;
+                    }
+                }
+
+                Career_QualificationEntity cq = new Career_QualificationEntity();
+                int itemCount1 = 0;
+                row = 0;
+                for (itemCount1 = 0; itemCount1 < outerDataList.Items.Count; itemCount1++)
+                {
+                    DataList childdl = outerDataList.Items[itemCount1].FindControl("innerDataList") as System.Web.UI.WebControls.DataList;
+                    foreach (DataListItem dl in childdl.Items)
+                    {
+                        CheckBox chkQ = (CheckBox)dl.FindControl("chkQ");
+                        Label lblQ_id = (Label)dl.FindControl("lblQ_id");
+
+                        if (chkQ.Checked)
+                        {
+                            cq.Qualification.Rows.Add();
+                            cq.Qualification.Rows[row]["Qualification_ID"] = Int32.Parse(lblQ_id.Text);
+                            row++;
+                        }
+                    }
+                }
+                //Career_Ability
+                Career_AbilityEntity cae = new Career_AbilityEntity();
+                int itemCount = 0;
+                row = 0;
+                for (itemCount = 0; itemCount < outerDataList1.Items.Count; itemCount++)
+                {
+                    DataList childdl = outerDataList1.Items[itemCount].FindControl("innerDataList1") as System.Web.UI.WebControls.DataList;
+                    foreach (DataListItem dl in childdl.Items)
+                    {
+                        CheckBox chkAbl = (CheckBox)dl.FindControl("chkAbl");
+                        Label lblAbl_id = (Label)dl.FindControl("lblAbl_id");
+
+                        if (chkAbl.Checked)
+                        {
+                            cae.Ability.Rows.Add();
+                            cae.Ability.Rows[row]["Ability_ID"] = Int32.Parse(lblAbl_id.Text);
+                            row++;
+                        }
+                    }
+                }
+                Career_PersonalSkill cps = new Career_PersonalSkill();
+                int row1 = 0;
+                foreach (ListItem item in chkpersonalskill.Items)
+                {
+                    if (item.Selected)
+                    {
+                        cps.Personal_skill.Rows.Add();
+                        cps.Personal_skill.Rows[row1]["PersonaSkill_ID"] = item.Value;
+                        row1++;
+                    }
+                }
+                if (!String.IsNullOrWhiteSpace(txtqualification.Text))
+                {
+                    webentity.Qualification = txtqualification.Text;
+                }
+                else
+                {
+                    webentity.Qualification = " ";
+                }
+                webentity.Other = txtimpression.Text;
+                webentity.UpdateInfo = txtupdateinfo.Text;
+                if (!String.IsNullOrWhiteSpace(txtTotalMark.Text))
+                {
+                    webentity.TotalMarks = Convert.ToInt32(txtTotalMark.Text);
+                }
+                webbl = new Working_History_BL();
+                int careerid;
+                if (Request.QueryString["Career_ID"] != null)
+                {
+                    careerid = int.Parse(Request.QueryString["Career_ID"]);
+                }
+                else
+                {
+                    careerid = 0;
+                }
+                #endregion
+                #region update
+                if (Button1.Text == "Update")
+                {
+                    CreatenewDataTable();
+                    DataTable dtnew = (DataTable)ViewState["DataTablenew"];
+                    DataRow dr = null;
+                    foreach (GridViewRow rowdata in Gridview1.Rows)
+                    {
+                        TextBox comanyname = rowdata.FindControl("txtcompanyname") as TextBox;
+                        TextBox companyaddress = rowdata.FindControl("txtcomapnyaddress") as TextBox;
+                        TextBox fromdate = rowdata.FindControl("txtFromDate") as TextBox;
+                        TextBox todate = rowdata.FindControl("txtToDate") as TextBox;
+                        TextBox reasonforleaving = rowdata.FindControl("txtreasonforleaving") as TextBox;
+                        TextBox other = rowdata.FindControl("txtother") as TextBox;
+                        CheckBoxList chkjobdescription = rowdata.FindControl("chkjobdescription") as CheckBoxList;
+                        Label lblotherjp = (Label)rowdata.FindControl("lblotherjp") as Label;
+                        Label lblreasongjp = (Label)rowdata.FindControl("lblreasonforleavingjp") as Label;
+                        DropDownList ddlpositionlevel = rowdata.FindControl("ddlpositionlevel") as DropDownList;
+                        DropDownList ddlIndustry = rowdata.FindControl("ddlindustrytype") as DropDownList;
+                        DropDownList ddlbusiness = rowdata.FindControl("ddltypeofbusiness") as DropDownList;
+                        DropDownList ddldepartment = rowdata.FindControl("ddldepartment") as DropDownList;
+                        DropDownList ddlposition = rowdata.FindControl("ddlPosition") as DropDownList;
+                        DropDownList ddlcompanytype = rowdata.FindControl("ddlcompanytype") as DropDownList;
+                        DropDownList ddlcountry = rowdata.FindControl("ddlcountry") as DropDownList;
+                        WorkingHistoryEntity workingentity = new WorkingHistoryEntity();
+                        workingentity.Company_name = comanyname.Text;
+                        workingentity.Companyaddress = companyaddress.Text;
+                        if (!String.IsNullOrWhiteSpace(Request.Form[fromdate.UniqueID]))
+                        {
+                            string strDate = Request.Form[fromdate.UniqueID];
+                            string date2 = Convert.ToDateTime(strDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
+                            workingentity.Duration_from = DateTime.ParseExact(date2, "MM/dd/yyyy ", null);
+                        }
+                        if (!String.IsNullOrWhiteSpace(Request.Form[todate.UniqueID]))
+                        {
+                            string strToDate = Request.Form[todate.UniqueID];
+                            string date3 = Convert.ToDateTime(strToDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
+                            workingentity.Duration_to = DateTime.ParseExact(date3, "MM/dd/yyyy ", null);
+                        }
+                        int jbrow = 0;
+                        string strjb = String.Empty;
+                        foreach (ListItem item in chkjobdescription.Items)
+                        {
+                            if (item.Selected)
+                            {
+
+                                strjb += item.Value + ",";
+                                jbrow++;
+                            }
+                        }
+                        workingentity.Jobdescription = strjb;
+                        workingentity.Othernew = other.Text;
+                        workingentity.Reasonforleaving = reasonforleaving.Text;
+                        workingentity.Other_Japan1 = lblotherjp.Text;
+                        workingentity.ReasonForLeaving_Japan1 = lblreasongjp.Text;
+                        if (!String.IsNullOrWhiteSpace(ddlcompanytype.Text))
+                        {
+                            workingentity.Company_Type_ID = BaseLib.Convert_Int(ddlcompanytype.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlcountry.Text))
+                        {
+                            workingentity.Country_ID = BaseLib.Convert_Int(ddlcountry.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlIndustry.Text))
+                        {
+                            workingentity.IndustryType_ID = BaseLib.Convert_Int(ddlIndustry.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlbusiness.Text))
+                        {
+                            workingentity.Business_type = BaseLib.Convert_Int(ddlbusiness.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddldepartment.Text))
+                        {
+                            workingentity.Department_ID = BaseLib.Convert_Int(ddldepartment.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlposition.Text))
+                        {
+                            workingentity.Position_id = BaseLib.Convert_Int(ddlposition.SelectedValue);
+                        }
+
+                        if (!String.IsNullOrWhiteSpace(ddlpositionlevel.Text))
+                        {
+                            workingentity.Positionlevel = BaseLib.Convert_Int(ddlpositionlevel.SelectedValue);
+                        }
+                        dr = dtnew.NewRow();
+                        dr["companyname"] = workingentity.Company_name;
+                        dr["companyaddress"] = workingentity.Companyaddress;
+                        dr["fromdate"] = workingentity.Duration_from;
+                        dr["todate"] = workingentity.Duration_to;
+                        dr["jobdescripition"] = workingentity.Jobdescription;
+                        dr["reason"] = workingentity.Reasonforleaving;
+                        dr["companytype"] = workingentity.Company_Type_ID;
+                        dr["country"] = workingentity.Country_ID;
+                        dr["industry"] = workingentity.IndustryType_ID;
+                        dr["business"] = workingentity.Business_type;
+                        dr["deparment"] = workingentity.Department_ID;
+                        dr["position"] = workingentity.Position_id;
+                        dr["other"] = workingentity.Othernew;
+                        dr["positionlevel"] = workingentity.Positionlevel;
+                        dr["otherjp"] = workingentity.Other_Japan1;
+                        dr["reasonjp"] = workingentity.ReasonForLeaving_Japan1;
+                        dtnew.Rows.Add(dr);
+                    }
+                    webbl.UpdateData(webentity, cpe, Convert.ToInt32(lblid.Text), cps, EnumBase.Save.Update, careerid, dtnew, cwpe, cq, cae);
+                    string url = "WorkingHistory_Detail.aspx?Career_ID=" + careerid;
+                    string script = "window.onload = function(){ alert('";
+                    script += "Update Successfully";
+                    script += "');";
+                    script += "window.location = '";
+                    script += url;
+                    script += "'; }";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                }
+                #endregion
+                else
+                {
+                    #region insert
+                    //int str = Convert.ToInt32(lblid.Text);
+                    CreatenewDataTable();
+                    DataTable dtnew = (DataTable)ViewState["DataTablenew"];
+                    DataRow dr = null;
+                    //For Job Description
+                    DataTable dtjobd = (DataTable)ViewState["JobD1"];
+                    foreach (GridViewRow rowdata in Gridview1.Rows)
+                    {
+                        TextBox comanyname = rowdata.FindControl("txtcompanyname") as TextBox;
+                        TextBox companyaddress = rowdata.FindControl("txtcomapnyaddress") as TextBox;
+                        TextBox fromdate = rowdata.FindControl("txtFromDate") as TextBox;
+                        TextBox todate = rowdata.FindControl("txtToDate") as TextBox;
+                        TextBox reasonforleaving = rowdata.FindControl("txtreasonforleaving") as TextBox;
+                        TextBox other = rowdata.FindControl("txtother") as TextBox;
+                        Label lblotherjp = (Label)rowdata.FindControl("lblotherjp") as Label;
+                        Label lblreasongjp = (Label)rowdata.FindControl("lblreasonforleavingjp") as Label;
+                        CheckBoxList chkjobdescription = rowdata.FindControl("chkjobdescription") as CheckBoxList;
+                        DropDownList ddlpositionlevel = rowdata.FindControl("ddlpositionlevel") as DropDownList;
+                        DropDownList ddlIndustry = rowdata.FindControl("ddlindustrytype") as DropDownList;
+                        DropDownList ddlbusiness = rowdata.FindControl("ddltypeofbusiness") as DropDownList;
+                        DropDownList ddldepartment = rowdata.FindControl("ddldepartment") as DropDownList;
+                        DropDownList ddlposition = rowdata.FindControl("ddlPosition") as DropDownList;
+                        DropDownList ddlcompanytype = rowdata.FindControl("ddlcompanytype") as DropDownList;
+                        DropDownList ddlcountry = rowdata.FindControl("ddlcountry") as DropDownList;
+                        WorkingHistoryEntity workingentity = new WorkingHistoryEntity();
+                        workingentity.Company_name = comanyname.Text;
+                        workingentity.Companyaddress = companyaddress.Text;
+                        workingentity.Othernew = other.Text;
+                        if (!String.IsNullOrWhiteSpace(Request.Form[fromdate.UniqueID]))
+                        {
+                            string strDate = Request.Form[fromdate.UniqueID];
+                            string date2 = Convert.ToDateTime(strDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
+                            workingentity.Duration_from = DateTime.ParseExact(date2, "MM/dd/yyyy ", null);
+                        }
+                        if (!String.IsNullOrWhiteSpace(Request.Form[todate.UniqueID]))
+                        {
+                            string strToDate = Request.Form[todate.UniqueID];
+                            string date3 = Convert.ToDateTime(strToDate, CultureInfo.GetCultureInfo("en-US")).ToString("MM/dd/yyyy ");
+                            workingentity.Duration_to = DateTime.ParseExact(date3, "MM/dd/yyyy ", null);
+                        }
+                        workingentity.Other_Japan1 = lblotherjp.Text;
+                        workingentity.ReasonForLeaving_Japan1 = lblreasongjp.Text;
+                        int jbrow = 0;
+                        string strjb = String.Empty;
+                        foreach (ListItem item in chkjobdescription.Items)
+                        {
+                            if (item.Selected)
+                            {
+                                strjb += item.Value + ",";
+                                jbrow++;
+                            }
+                        }
+                        workingentity.Jobdescription = strjb;
+                        workingentity.Reasonforleaving = reasonforleaving.Text;
+                        if (!String.IsNullOrWhiteSpace(ddlcompanytype.Text))
+                        {
+                            workingentity.Company_Type_ID = BaseLib.Convert_Int(ddlcompanytype.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlcountry.Text))
+                        {
+                            workingentity.Country_ID = BaseLib.Convert_Int(ddlcountry.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlIndustry.Text))
+                        {
+                            workingentity.IndustryType_ID = BaseLib.Convert_Int(ddlIndustry.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlbusiness.Text))
+                        {
+                            workingentity.Business_type = BaseLib.Convert_Int(ddlbusiness.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddldepartment.Text))
+                        {
+                            workingentity.Department_ID = BaseLib.Convert_Int(ddldepartment.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlposition.Text))
+                        {
+                            workingentity.Position_id = BaseLib.Convert_Int(ddlposition.SelectedValue);
+                        }
+                        if (!String.IsNullOrWhiteSpace(ddlpositionlevel.Text))
+                        {
+                            workingentity.Positionlevel = BaseLib.Convert_Int(ddlpositionlevel.SelectedValue);
+                        }
+                        dr = dtnew.NewRow();
+                        dr["companyname"] = workingentity.Company_name;
+                        dr["companyaddress"] = workingentity.Companyaddress;
+                        dr["fromdate"] = workingentity.Duration_from;
+                        dr["todate"] = workingentity.Duration_to;
+                        dr["jobdescripition"] = workingentity.Jobdescription;
+                        dr["reason"] = workingentity.Reasonforleaving;
+                        dr["companytype"] = workingentity.Company_Type_ID;
+                        dr["country"] = workingentity.Country_ID;
+                        dr["industry"] = workingentity.IndustryType_ID;
+                        dr["business"] = workingentity.Business_type;
+                        dr["deparment"] = workingentity.Department_ID;
+                        dr["position"] = workingentity.Position_id;
+                        dr["other"] = workingentity.Othernew;
+                        dr["positionlevel"] = workingentity.Positionlevel;
+                        dr["otherjp"] = workingentity.Other_Japan1;
+                        dr["reasonjp"] = workingentity.ReasonForLeaving_Japan1;
+                        dtnew.Rows.Add(dr);
+
+                    }
+
+                    int autoCode = webbl.InsertData1(webentity);
+
+                    int id = webentity.CareerId;
+                    hfCareerID.Value = id.ToString();
+                    webentity.AutoCode = autoCode;
+                    lblAutoNo.Text = autoCode.ToString();
+                    Session["CareerID"] = id;
+                    if (id != 0)
+                    {
+                        object referrer = ViewState["UrlReferrer"];
+                        string url = (string)referrer;
+                        string script = "window.onload = function(){ alert('";
+                        script += "Thank You for your registration!";
+                        script += "Client Code is " + lblAutoNo.Text;
+                        script += "');";
+                        script += "window.location = '";
+                        script += "WorkingHistory_View.aspx";
+                        script += "'; }";
+                        ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                    }
+
+                }
+                #endregion
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void CheckCondition(WorkingHistoryEntity webentity)
+        {
+            try
+            {
+                ddlGender.SelectedValue = Convert.ToString(webentity.Gender);
+
+                if (rdoAvaliable.Checked)
+                {
+                    webentity.Drivinglicense = "1";
+                }
+                else
+                {
+                    webentity.Drivinglicense = "0";
+                }
+
+                if (!String.IsNullOrWhiteSpace(rdoexperience.SelectedValue))
+                {
+                    webentity.Workingexperience = Convert.ToString(rdoexperience.SelectedValue);
+                }
+                if (rdosatyes.Checked)
+                {
+                    webentity.Worksatday = "1";
+                }
+                else
+                {
+                    webentity.Worksatday = "0";
+                }
+                if (!String.IsNullOrWhiteSpace(rdostatus.SelectedValue))
+                {
+                    webentity.Status1 = Convert.ToInt32(rdostatus.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(ddlEngreadwrite.Text))
+                {
+                    webentity.Engreadingwrite = BaseLib.Convert_Int(ddlEngreadwrite.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(ddlEngspeaking.Text))
+                {
+                    webentity.Engspeaking = BaseLib.Convert_Int(ddlEngspeaking.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(ddljpreadwrite.Text))
+                {
+                    webentity.Jpreadwrite = BaseLib.Convert_Int(ddljpreadwrite.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(ddljpspeaking.Text))
+                {
+                    webentity.Jpspeaking = BaseLib.Convert_Int(ddljpspeaking.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(chkthilawa.SelectedValue))
+                {
+                    webentity.Thilawa = Convert.ToInt32(chkthilawa.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(chkhty.SelectedValue))
+                {
+                    webentity.Hlaingtharyar = Convert.ToInt32(chkhty.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(chkoversea.SelectedValue))
+                {
+                    webentity.Oversea = Convert.ToInt32(chkoversea.SelectedValue);
+                }
+                if (!String.IsNullOrWhiteSpace(chkoverseatraining.SelectedValue))
+                {
+                    webentity.Overseatraining = Convert.ToInt32(chkoverseatraining.SelectedValue);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        protected void btndelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Working_History_BL wbl = new Working_History_BL();
+                if (wbl.DeleteSelectedID(BaseLib.Convert_Int(Request.QueryString["Career_ID"].ToString())))
+                {
+                    string url = "WorkingHistory_View.aspx";
+                    string script = "window.onload = function(){ alert('";
+                    script += "Delete Successfully";
+                    script += "');";
+                    script += "window.location = '";
+                    script += url;
+                    script += "'; }";
+                    ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                }
+                else
+                {
+                    GlobalUI.MessageBox("Delete Failed");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

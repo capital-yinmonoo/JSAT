@@ -50,18 +50,140 @@ namespace JSAT_DL
             ad.Fill(ds);
             return ds;
         }
-
-        public void InsertData(WorkingHistoryEntity entity, EnumBase.Save option, int careerid)
+        //added by nyisoe 5/26/2020
+        public int InsertData1(WorkingHistoryEntity entity1)
         {
             try
             {
-                SqlCommand cmd = new SqlCommand("SP_interviewDataInsert", DataConfig.GetConnectionString());
-                cmd.CommandType = CommandType.StoredProcedure;
-                if (!String.IsNullOrWhiteSpace(Convert.ToString(entity.Career_ID)))
-                {
-                    cmd.Parameters.AddWithValue("@id", entity.Career_ID);
-                }
+                SqlCommand cmd = new SqlCommand("SP_interviewDataInsert_autoCode", DataConfig.GetConnectionString());
+                cmd.CommandType = CommandType.StoredProcedure;               
+                cmd.Parameters.AddWithValue("@Career_ID", entity1.Career_ID);    
+                cmd.Parameters.AddWithValue("@careerCode", entity1.Career_code);
+                cmd.Parameters.AddWithValue("@name", entity1.Name);
+                cmd.Parameters.AddWithValue("@age", entity1.Age);
+                cmd.Parameters.AddWithValue("@gender",entity1.Gender1);
+                cmd.Parameters.AddWithValue("@address", entity1.Address);
+                cmd.Parameters.AddWithValue("@phone", entity1.Phone);
+                cmd.Parameters.AddWithValue("@religion", entity1.Religion);
+                cmd.Parameters.AddWithValue("@ename", entity1.EmergencyContactPerson);
+                cmd.Parameters.AddWithValue("@ephone", entity1.EmergencyContactPhone);
+                cmd.Parameters.AddWithValue("@email", entity1.Email);
+             cmd.Parameters.AddWithValue("@interviewdate", entity1.Interviewdate);
+             cmd.Parameters.AddWithValue("@drivinglicnese", entity1.Drivinglicense);
+    
+             cmd.Parameters.AddWithValue("@workingexperience", entity1.Workingexperience);
+ 
+             cmd.Parameters.AddWithValue("@thilawa", entity1.Thilawa);
 
+             cmd.Parameters.AddWithValue("@hlaingtharyar", entity1.Hlaingtharyar);
+
+             cmd.Parameters.AddWithValue("@oversea", entity1.Oversea);
+
+             cmd.Parameters.AddWithValue("@overseatraining", entity1.Overseatraining);
+
+             cmd.Parameters.AddWithValue("@positionrequest", entity1.Positionrequested);
+
+             cmd.Parameters.AddWithValue("@positionrequested1", entity1.Positionrequested1);
+            
+             cmd.Parameters.AddWithValue("@positionrequested2", entity1.Positionrequested2);
+            
+             cmd.Parameters.AddWithValue("@FirstInterviewer", entity1.FirstInterviewer);
+            
+             cmd.Parameters.AddWithValue("@SecondInterviewer", entity1.SecondInterviewer);
+
+             cmd.Parameters.AddWithValue("@Japanese_Interviewer", entity1.Japanese_Interviewer);
+  
+             cmd.Parameters.AddWithValue("@expsalary", entity1.Expectedsalary);
+
+             cmd.Parameters.AddWithValue("@salarytype", entity1.SalarytypeID);
+
+             cmd.Parameters.AddWithValue("@location", entity1.Locationrequested);
+ 
+             cmd.Parameters.AddWithValue("@wokingonsatday", entity1.Worksatday);
+
+             cmd.Parameters.AddWithValue("@desireddate", entity1.Desireddate);
+            
+             cmd.Parameters.AddWithValue("@qualification", entity1.Qualification);
+
+             cmd.Parameters.AddWithValue("@other", entity1.Other);
+  
+             cmd.Parameters.AddWithValue("@updateinfo", entity1.UpdateInfo);
+
+             cmd.Parameters.AddWithValue("@engread", entity1.Engreadingwrite);
+
+             cmd.Parameters.AddWithValue("@engspeaking", entity1.Engspeaking);
+
+             cmd.Parameters.AddWithValue("@jpread", entity1.Jpreadwrite);
+
+             cmd.Parameters.AddWithValue("@jpspeaking", entity1.Jpspeaking);
+
+             cmd.Parameters.AddWithValue("@totalmarks", entity1.TotalMarks);
+
+             cmd.Parameters.AddWithValue("@satdaycondition", entity1.Saturday_Condition1);
+
+             cmd.Parameters.AddWithValue("@degree1", entity1.Degree1);
+
+             cmd.Parameters.AddWithValue("@university1", entity1.University1);
+
+             cmd.Parameters.AddWithValue("@major1", entity1.Major1);
+
+             cmd.Parameters.AddWithValue("@year1", entity1.Year1);
+
+             cmd.Parameters.AddWithValue("@degree2", entity1.Degree2);
+
+             cmd.Parameters.AddWithValue("@university2", entity1.University2);
+
+             cmd.Parameters.AddWithValue("@major2", entity1.Major2);
+
+             cmd.Parameters.AddWithValue("@year2", entity1.Year2);
+
+             cmd.Parameters.AddWithValue("@status", entity1.Status1);
+        
+             cmd.Parameters.AddWithValue("@noticeday", entity1.Notice_day);
+             cmd.Parameters.AddWithValue("@noticetype", entity1.Notice_type);
+
+             cmd.Parameters.AddWithValue("@township1", entity1.TownshipID1);
+
+             cmd.Parameters.AddWithValue("@township2", entity1.TownshipID2);
+
+             cmd.Parameters.AddWithValue("@salaryid", entity1.SalaryID1);
+
+             cmd.Parameters.AddWithValue("@totalmark", entity1.TotalMark1);
+
+             cmd.Parameters.AddWithValue("@positionlevel1", entity1.Positionlevel1);
+ 
+             cmd.Parameters.AddWithValue("@positionlevel2", entity1.Positionlevel2);
+
+             cmd.Parameters.AddWithValue("@positionlevel3", entity1.Positionlevel3);
+            
+                cmd.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.AddWithValue("@autoNo", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.AddWithValue("@createddate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@updateddate", DateTime.Now);
+                //cmd.Parameters.AddWithValue("@option", option);
+               
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+                int id = Convert.ToInt32(cmd.Parameters["@result"].Value);
+                entity1.CareerId = id;
+                int autoCode = Convert.ToInt32(cmd.Parameters["@autoNo"].Value);
+                return autoCode;
+                //return id;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void UpdateData(WorkingHistoryEntity entity, EnumBase.Save option, int careerid)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SP_interviewDataUpdate", DataConfig.GetConnectionString());
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@id", careerid);
                 if (!String.IsNullOrWhiteSpace(Convert.ToString(entity.Career_code)))
                 {
                     cmd.Parameters.AddWithValue("@careerCode", entity.Career_code);
@@ -75,6 +197,12 @@ namespace JSAT_DL
                 {
                     cmd.Parameters.AddWithValue("@age", entity.Age);
                 }
+                cmd.Parameters.AddWithValue("@address", entity.Address);
+                cmd.Parameters.AddWithValue("@phone", entity.Phone);
+                cmd.Parameters.AddWithValue("@religion", entity.Religion);
+                cmd.Parameters.AddWithValue("@ename", entity.EmergencyContactPerson);
+                cmd.Parameters.AddWithValue("@ephone", entity.EmergencyContactPhone);
+                cmd.Parameters.AddWithValue("@email", entity.Email);
                 if (!String.IsNullOrWhiteSpace(Convert.ToString((entity.Interviewdate))))
                 {
                     cmd.Parameters.AddWithValue("@interviewdate", entity.Interviewdate);
@@ -259,6 +387,8 @@ namespace JSAT_DL
                 }
                 cmd.Parameters.AddWithValue("@createddate", DateTime.Now);
                 cmd.Parameters.AddWithValue("@updateddate", DateTime.Now);
+                cmd.Parameters.AddWithValue("@result", SqlDbType.Int).Direction = ParameterDirection.Output;
+                cmd.Parameters.AddWithValue("@autoNo", SqlDbType.Int).Direction = ParameterDirection.Output;
                 cmd.Parameters.AddWithValue("@option", option);
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -413,10 +543,17 @@ namespace JSAT_DL
                     {
                         entity.Age = (int)dtb.Rows[0]["Age"];
                     }
+  
                     if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["Gender"].ToString()))
                     {
-                        entity.Gender = (int)dtb.Rows[0]["Gender"];
+                        entity.Gender = dtb.Rows[0]["Gender"].ToString();
                     }
+                    //added by nyisoe
+                    entity.Phone = dtb.Rows[0]["Phone"].ToString();
+                    entity.Religion1 = dtb.Rows[0]["Religion"].ToString();
+                    entity.EmergencyContactPerson = dtb.Rows[0]["Emergency_ContactName"].ToString();
+                    entity.EmergencyContactPhone = dtb.Rows[0]["Emergency_ContactNo"].ToString();
+                    entity.Email = dtb.Rows[0]["Email"].ToString();
                     if (!String.IsNullOrWhiteSpace(dtb.Rows[0]["FirstInterviewer"].ToString()))
                     {
                         entity.FirstInt = dtb.Rows[0]["FirstInterviewer"].ToString();

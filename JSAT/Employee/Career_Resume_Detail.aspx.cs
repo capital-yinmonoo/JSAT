@@ -175,6 +175,10 @@ namespace JSAT_Ver1.Employee
                     if (DOB > today.AddYears(-age)) age--;
                     lblAge.Text = age.ToString();
                 }
+                else
+                {
+                    lblAge.Text = cr.Age.ToString();
+                }
                 if (!String.IsNullOrWhiteSpace(cr.Graduation_Date))
                 {
                     lblgdate.Text = cr.Graduation_Date;

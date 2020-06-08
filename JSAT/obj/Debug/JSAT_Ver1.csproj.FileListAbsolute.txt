@@ -1,71 +1,19 @@
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT.dll
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT.pdb
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT_BL.dll
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT_Common.dll
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT_DL.dll
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT_BL.pdb
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT_Common.pdb
-C:\MyData\Projects\JSAT\JSAT\bin\JSAT_DL.pdb
-C:\MyData\Projects\JSAT\JSAT\obj\Debug\JSAT_Ver1.csprojResolveAssemblyReference.cache
-C:\MyData\Projects\JSAT\JSAT\obj\Debug\RdlCompile.cache
-C:\MyData\Projects\JSAT\JSAT\obj\Debug\RdlCompile.compiled
-C:\MyData\Projects\JSAT\JSAT\obj\Debug\JSAT.dll
-C:\MyData\Projects\JSAT\JSAT\obj\Debug\JSAT.pdb
-C:\JSAT System\JSAT\JSAT\bin\JSAT.dll.config
-C:\JSAT System\JSAT\JSAT\bin\JSAT.dll
-C:\JSAT System\JSAT\JSAT\bin\JSAT.pdb
-C:\JSAT System\JSAT\JSAT\bin\AjaxControlToolkit.dll
-C:\JSAT System\JSAT\JSAT\bin\JSAT_BL.dll
-C:\JSAT System\JSAT\JSAT\bin\JSAT_Common.dll
-C:\JSAT System\JSAT\JSAT\bin\JSAT_DL.dll
-C:\JSAT System\JSAT\JSAT\bin\Microsoft.ReportViewer.Common.dll
-C:\JSAT System\JSAT\JSAT\bin\Microsoft.ReportViewer.DataVisualization.dll
-C:\JSAT System\JSAT\JSAT\bin\Microsoft.ReportViewer.ProcessingObjectModel.DLL
-C:\JSAT System\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.DLL
-C:\JSAT System\JSAT\JSAT\bin\Microsoft.SqlServer.Types.dll
-C:\JSAT System\JSAT\JSAT\bin\JSAT_BL.pdb
-C:\JSAT System\JSAT\JSAT\bin\JSAT_Common.pdb
-C:\JSAT System\JSAT\JSAT\bin\JSAT_DL.pdb
-C:\JSAT System\JSAT\JSAT\obj\Debug\JSAT_Ver1.csprojAssemblyReference.cache
-C:\JSAT System\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CoreCompileInputs.cache
-C:\JSAT System\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CopyComplete
-C:\JSAT System\JSAT\JSAT\obj\Debug\JSAT.dll
-C:\JSAT System\JSAT\JSAT\obj\Debug\JSAT.pdb
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT.dll.config
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT.pdb
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\AjaxControlToolkit.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT_BL.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT_Common.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT_DL.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\Microsoft.ReportViewer.Common.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\Microsoft.ReportViewer.DataVisualization.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT_BL.pdb
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT_Common.pdb
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\JSAT_DL.pdb
-C:\My Data\Projects\JSAT\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.xml
-C:\My Data\Projects\JSAT\JSAT\JSAT\obj\Debug\JSAT_Ver1.csprojAssemblyReference.cache
-C:\My Data\Projects\JSAT\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CoreCompileInputs.cache
-C:\My Data\Projects\JSAT\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CopyComplete
-C:\My Data\Projects\JSAT\JSAT\JSAT\obj\Debug\JSAT.dll
-C:\My Data\Projects\JSAT\JSAT\JSAT\obj\Debug\JSAT.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT.dll.config
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\AjaxControlToolkit.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT_BL.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT_Common.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT_DL.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\Microsoft.ReportViewer.Common.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\Microsoft.ReportViewer.DataVisualization.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT_BL.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT_Common.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\JSAT_DL.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.xml
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\obj\Debug\JSAT_Ver1.csprojAssemblyReference.cache
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CoreCompileInputs.cache
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CopyComplete
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\obj\Debug\JSAT.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT\obj\Debug\JSAT.pdb
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT.dll.config
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT.pdb
+D:\Jsat\02062020\JSAT\JSAT\bin\AjaxControlToolkit.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT_BL.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT_Common.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT_DL.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\Microsoft.ReportViewer.Common.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\Microsoft.ReportViewer.DataVisualization.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.dll
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT_BL.pdb
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT_Common.pdb
+D:\Jsat\02062020\JSAT\JSAT\bin\JSAT_DL.pdb
+D:\Jsat\02062020\JSAT\JSAT\bin\Microsoft.ReportViewer.WebForms.xml
+D:\Jsat\02062020\JSAT\JSAT\obj\Debug\JSAT_Ver1.csprojAssemblyReference.cache
+D:\Jsat\02062020\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CoreCompileInputs.cache
+D:\Jsat\02062020\JSAT\JSAT\obj\Debug\JSAT_Ver1.csproj.CopyComplete
+D:\Jsat\02062020\JSAT\JSAT\obj\Debug\JSAT.dll
+D:\Jsat\02062020\JSAT\JSAT\obj\Debug\JSAT.pdb

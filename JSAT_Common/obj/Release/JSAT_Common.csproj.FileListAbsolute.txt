@@ -2,3 +2,15 @@ C:\MyData\Projects\JSAT\JSAT_Common\bin\Release\JSAT_Common.dll
 C:\MyData\Projects\JSAT\JSAT_Common\bin\Release\JSAT_Common.pdb
 C:\MyData\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.dll
 C:\MyData\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.pdb
+D:\Projects\JSAT\JSAT_Common\bin\Release\JSAT_Common.dll
+D:\Projects\JSAT\JSAT_Common\bin\Release\JSAT_Common.pdb
+D:\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.csprojAssemblyReference.cache
+D:\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.csproj.CoreCompileInputs.cache
+D:\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.dll
+D:\Projects\JSAT\JSAT_Common\obj\Release\JSAT_Common.pdb
+D:\Jsat\02062020\JSAT\JSAT_Common\bin\Release\JSAT_Common.dll
+D:\Jsat\02062020\JSAT\JSAT_Common\bin\Release\JSAT_Common.pdb
+D:\Jsat\02062020\JSAT\JSAT_Common\obj\Release\JSAT_Common.csprojAssemblyReference.cache
+D:\Jsat\02062020\JSAT\JSAT_Common\obj\Release\JSAT_Common.csproj.CoreCompileInputs.cache
+D:\Jsat\02062020\JSAT\JSAT_Common\obj\Release\JSAT_Common.dll
+D:\Jsat\02062020\JSAT\JSAT_Common\obj\Release\JSAT_Common.pdb

@@ -869,6 +869,7 @@ namespace JSAT_Common
             public int? experiencesto;
             public int? experiencescheck;
             public int? ExperienceType;
+            public int? ID;  // added by nyisoe 20/05/2020
             public string experiencetype { get; set; }
         };
 

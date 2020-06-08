@@ -21,11 +21,18 @@ namespace JSAT_Common
             set { age = value; }
         }
 
-        private int gender = 0;
-        public int Gender
+        private string gender = string.Empty;
+        public string Gender
         {
             get { return gender; }
             set { gender = value; }
+        }
+
+        private int gender1 = 0;
+        public int Gender1
+        {
+            get { return gender1; }
+            set { gender1 = value; }
         }
 
         private string address = string.Empty;
@@ -33,6 +40,42 @@ namespace JSAT_Common
         {
             get { return address; }
             set { address = value; }
+        }
+
+        private string phone = string.Empty;
+        
+        public string Phone
+        {
+            get { return phone; }
+            set { phone = value; }
+        }
+
+        private int religion = 0;
+            public int Religion
+        {
+            get { return religion; }
+            set { religion = value; }
+        }
+
+        private string emergencycontactperson;
+            public string EmergencyContactPerson
+        {
+            get {return emergencycontactperson; }
+            set { emergencycontactperson = value; }
+        }
+
+        private string emergencycontactphone = string.Empty;
+        public string EmergencyContactPhone
+        {
+            get { return emergencycontactphone; }
+            set { emergencycontactphone = value; }
+        }
+
+        private string email;
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
         }
 
         private int firstinterviewer = 0;
@@ -56,6 +99,12 @@ namespace JSAT_Common
             set { japanese_interviewer = value; }
         }
 
+        private string religion1 = string.Empty;
+        public string Religion1
+        {
+            get { return religion1; }
+            set { religion1 = value; }
+        }
 
         private string firstint = string.Empty;
         public string FirstInt
@@ -115,6 +164,19 @@ namespace JSAT_Common
             set { career_code = value; }
         }
 
+        private int autocode = 0;
+        public int AutoCode
+        {
+            get { return autocode; }
+            set { autocode = value; }
+        }
+        private int careerId = 0;
+        public int CareerId
+        {
+            get { return careerId; }
+            set { careerId = value; }
+        }
+
         private DateTime? interviewdate = null;
         public DateTime? Interviewdate
         {
@@ -135,6 +197,13 @@ namespace JSAT_Common
             get { return workingexperience; }
             set { workingexperience = value; }
         }
+
+        //private string gender = string.Empty;
+        //public string Gender
+        //{
+        //    get { return gender; }
+        //    set { gender = value; }
+        //}
 
         private string company_name = string.Empty;
         public string Company_name

@@ -26,7 +26,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="form-group">
-
+                                     
                                 <fieldset style="width: 1000; border-style: solid; margin-left: 0px;">
                                     <table>
                                         <tr>
@@ -71,8 +71,8 @@
                                 <asp:UpdatePanel runat="server" ID="udtPanel">
                                     <ContentTemplate>
                                         <asp:GridView runat="server" ID="gvworkinghistoryview" AutoGenerateColumns="False" ForeColor="#333333" EmptyDataText="There is no data to display."
-                                            Style="margin-left: 0px" AllowPaging="True" GridLines="None" OnPageIndexChanging="gvOnPageIndexChainging" PageSize="20" DataSourceID="objdatasource1"
-                                            OnRowCommand="gv_RowCommand" AllowSorting="True" float="left" CellPadding="10" class="table">
+                                            Style="margin-left: 0px" AllowPaging="True" GridLines="None" OnPageIndexChanging="gvOnPageIndexChainging" PageSize="20" DataSourceID="objdatasource1" OnRowCommand="gvworkinghistoryview_RowCommand"
+                                             AllowSorting="True" float="left" CellPadding="10" class="table">
                                            
                                             <PagerSettings Mode="NumericFirstLast" NextPageText="Next" FirstPageText="First" LastPageText="Last" PreviousPageText="Previous" />
                                             <Columns>
