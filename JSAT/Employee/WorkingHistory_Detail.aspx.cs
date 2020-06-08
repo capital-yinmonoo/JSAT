@@ -95,16 +95,19 @@ namespace JSAT
         public void FillWrokingHistory(WorkingHistoryEntity entity, DataTable dtpersonalskill, DataTable dtpcskill, DataTable dtlocation, DataSet dsqual, DataSet dsabl)
         {
             lblcode.Text = entity.Career_code;
-            if (entity.Gender == 1)
+
+            //lblgender.Text = entity.Gender1;
+            if (entity.Gender == "1")
             {
                 lblgender.Text = "Male";
             }
-            else
+            if (entity.Gender == "2")
             {
                 lblgender.Text = "Female";
             }
             lblname.Text = entity.Name;
             lblage.Text = entity.Age.ToString();
+
             lblfirstinterviewer.Text = entity.FirstInt;
             lblsecondinterviewer.Text = entity.SecondInt;
             lbljapaneseinterviewer.Text = entity.JapaneseInt;
@@ -122,6 +125,12 @@ namespace JSAT
                 lbldrivinglicense.Text = "No";
             }
             lbladdress.Text = entity.Address;
+            lblPhoneNo.Text = entity.Phone;
+            lblReligion.Text = entity.Religion1;
+            //lblReligion.Text = entity.Religion;
+            lblEcontact.Text = entity.EmergencyContactPerson;
+            lblEPhone.Text = entity.EmergencyContactPhone;
+            lblEmail.Text = entity.Email;
             lbldegree1.Text = entity.Degreename1;
             lbluniversity1.Text = entity.Universityname1;
             lblmajor1.Text = entity.Majorname1;
@@ -330,6 +339,7 @@ namespace JSAT
         protected void btnedit_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Employee/WorkingHistory.aspx?Career_ID=" + Career_ID);
-        } 
+        }
     }
 }
+

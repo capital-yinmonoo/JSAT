@@ -141,6 +141,48 @@
                                                     <asp:Label ID="Label12" runat="server" Text="" Visible="false"></asp:Label>
                                                 </td>
                                             </tr>
+                                             <tr>
+                                                <td>
+                                                    <asp:Label ID="lblCareerPhone" runat="server" Text="Phone"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblPhoneNo" runat="server" Text=""></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="Label22" runat="server" Text="" Visible="false"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="lblCareerReligion" runat="server" Text="Religion"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblReligion" runat="server" Text=""></asp:Label></td>                                        
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="lblCareerEcontact" runat="server" Text="EmergencyContactPerson"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblEcontact" runat="server" Text=""></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="Label25" runat="server" Text="" Visible="false"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="lblCareerEphone" runat="server" Text="EmergencyContactNo"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblEPhone" runat="server" Text=""></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="Label26" runat="server" Text="" Visible="false"></asp:Label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <asp:Label ID="lblCareerEmail" runat="server" Text="Email"></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="lblEmail" runat="server" Text=""></asp:Label></td>
+                                                <td>
+                                                    <asp:Label ID="Label27" runat="server" Text="" Visible="false"></asp:Label>
+                                                </td>
+                                            </tr>
                                             <tr>
                                                 <td>
                                                     <asp:Label ID="lblcareerdegree" runat="server" Text="Degree1"></asp:Label></td>
