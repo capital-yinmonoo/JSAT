@@ -8,9 +8,3 @@ C:\JSAT System\JSAT\JSAT_Common\bin\Debug\JSAT_Common.pdb
 C:\JSAT System\JSAT\JSAT_Common\obj\Debug\JSAT_Common.csproj.CoreCompileInputs.cache
 C:\JSAT System\JSAT\JSAT_Common\obj\Debug\JSAT_Common.dll
 C:\JSAT System\JSAT\JSAT_Common\obj\Debug\JSAT_Common.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Common\bin\Debug\JSAT_Common.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Common\bin\Debug\JSAT_Common.pdb
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Common\obj\Debug\JSAT_Common.csprojAssemblyReference.cache
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Common\obj\Debug\JSAT_Common.csproj.CoreCompileInputs.cache
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Common\obj\Debug\JSAT_Common.dll
-E:\JSAT\JSAT_SYSTEM\JSAT\JSAT_Common\obj\Debug\JSAT_Common.pdb
